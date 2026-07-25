@@ -68,9 +68,12 @@ module.exports = defineConfig({
 
   // Run local dev server before starting tests
   webServer: {
-    command: 'cd ../../sample-app && npm start',
-    url: 'http://localhost:3000',
-    reuseExistingServer: !process.env.CI,
-    timeout: 120 * 1000,
+    command: 'npm start',
+    cwd: '../sample-app',                 // Steps up out of playwright_test and into sample-app
+    url: 'http://localhost:3000',        // Waits for backend server to respond on port 3000
+    reuseExistingServer: !process.env.CI,// Reuses open local server during dev; starts fresh in CI
+    timeout: 120 * 1000,                 // 2-minute max startup timeout
+    stdout: 'pipe',                       // Streams server console.log output into terminal/CI logs
+    stderr: 'pipe',                       // Streams server crash/error output into terminal/CI logs
   },
 });

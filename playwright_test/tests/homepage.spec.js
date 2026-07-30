@@ -3,44 +3,44 @@ const { test, expect } = require('@playwright/test');
 
 /**
  * Homepage Tests
- * Tests for the main landing page of TechMart
+ * Tests for the main landing page of beautyshop
  */
 
 test.describe('Homepage', () => {
-  
+
   test.beforeEach(async ({ page }) => {
     // Clear cart before each test for consistent state
-    await page.request.delete('http://localhost:3000/api/cart');
+    await page.request.delete('https://www.beautywelt.de/warenkorb.php');
     // Navigate to homepage before each test
-    await page.goto('/');
+    await page.goto('https://www.beautywelt.de/');
   });
 
   test('should display the page title', async ({ page }) => {
-    // Verify the page title contains TechMart
-    await expect(page).toHaveTitle(/TechMart/);
+    // Verify the page title contains beautywelt
+    await expect(page).toHaveTitle('Beautywelt.de');
   });
 
   test('should display the logo in the navbar', async ({ page }) => {
     // Check that the logo is visible
-    const logo = page.locator('.logo');
+    const logo = page.locator('.bwdy');
     await expect(logo).toBeVisible();
-    await expect(logo).toHaveText(/TechMart/);
+    await expect(logo).toHaveText(/Beautywelt.de/);
   });
 
-  test('should display the hero section', async ({ page }) => {
-    // Verify hero section content
-    const heroTitle = page.locator('.hero h1');
-    await expect(heroTitle).toHaveText('Welcome to TechMart');
-    
+  test('should display the DIOR section', async ({ page }) => {
+    // Verify DIOR section content
+    const heroTitle = page.locator('.bwk h1');
+    await expect(heroTitle).toHaveText('Welcome to Beautywelt.de');
+
     const heroSubtitle = page.locator('.hero p');
-    await expect(heroSubtitle).toContainText('best tech accessories');
+    await expect(heroSubtitle).toContainText('PFLEGE, DIE NATÜRLICHEKEIT NEU DEFINIERT');
   });
 
   test('should display product cards', async ({ page }) => {
     // Wait for products to load
     const productGrid = page.locator('#productGrid');
     await expect(productGrid).toBeVisible();
-    
+
     // Check that at least one product card exists
     const productCards = page.locator('.product-card');
     await expect(productCards).toHaveCount(6); // We have 6 products
@@ -49,7 +49,7 @@ test.describe('Homepage', () => {
   test('should display product information correctly', async ({ page }) => {
     // Check first product card has required elements
     const firstProduct = page.locator('.product-card').first();
-    
+
     await expect(firstProduct.locator('.product-info h3')).toBeVisible();
     await expect(firstProduct.locator('.product-price')).toBeVisible();
     await expect(firstProduct.locator('.product-stock')).toBeVisible();
@@ -59,17 +59,17 @@ test.describe('Homepage', () => {
   test('should have a working search bar', async ({ page }) => {
     const searchInput = page.locator('#searchInput');
     const searchBtn = page.locator('#searchBtn');
-    
+
     await expect(searchInput).toBeVisible();
     await expect(searchBtn).toBeVisible();
-    
+
     // Type in search bar
     await searchInput.fill('Keyboard');
     await searchBtn.click();
-    
+
     // Wait for filtered results
     await page.waitForTimeout(500);
-    
+
     // Should show only keyboard product
     const productCards = page.locator('.product-card');
     await expect(productCards).toHaveCount(1);
@@ -77,13 +77,13 @@ test.describe('Homepage', () => {
 
   test('should filter products by category', async ({ page }) => {
     const categoryFilter = page.locator('#categoryFilter');
-    
+
     // Select electronics category
     await categoryFilter.selectOption('electronics');
-    
+
     // Wait for filter to apply
     await page.waitForTimeout(500);
-    
+
     // Check that all visible products are electronics
     const productCards = page.locator('.product-card');
     const count = await productCards.count();
@@ -99,7 +99,7 @@ test.describe('Homepage', () => {
 
   test('should have login and signup buttons', async ({ page }) => {
     const authArea = page.locator('#authArea');
-    
+
     await expect(authArea.locator('text=Login')).toBeVisible();
     await expect(authArea.locator('text=Sign Up')).toBeVisible();
   });

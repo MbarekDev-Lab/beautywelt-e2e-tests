@@ -9,4 +9,5 @@ test('homepage should have no critical accessibility violations', async ({ page 
     .analyze();
   
   expect(results.violations.filter(v => v.impact === 'critical')).toHaveLength(0);
+  
 });

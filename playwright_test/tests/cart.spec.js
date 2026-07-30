@@ -6,12 +6,12 @@ const { test, expect } = require('@playwright/test');
  * Tests for cart functionality including add, update, and remove items
  */
 
-test.describe('Shopping Cart', () => {
+test.describe('Warenkorb', () => {
   
   test.beforeEach(async ({ page }) => {
     // Clear cart before each test via API
-    await page.request.delete('http://localhost:3000/api/cart');
-    await page.goto('/');
+    await page.request.delete('https://www.beautywelt.de/warenkorb.php');
+    await page.goto('https://www.beautywelt.de/');
   });
 
   test('should add item to cart', async ({ page }) => {
@@ -43,7 +43,7 @@ test.describe('Shopping Cart', () => {
 
   test('should display cart items correctly', async ({ page }) => {
     // Add item via API for consistency
-    await page.request.post('http://localhost:3000/api/cart', {
+    await page.request.post('https://www.beautywelt.de/warenkorb.php', {
       data: { productId: 1, quantity: 2 }
     });
     
@@ -61,7 +61,7 @@ test.describe('Shopping Cart', () => {
 
   test('should update item quantity', async ({ page }) => {
     // Add item first
-    await page.request.post('http://localhost:3000/api/cart', {
+    await page.request.post('https://www.beautywelt.de/warenkorb.php', {
       data: { productId: 1, quantity: 1 }
     });
     
@@ -81,7 +81,7 @@ test.describe('Shopping Cart', () => {
 
   test('should remove item from cart', async ({ page }) => {
     // Add item first
-    await page.request.post('http://localhost:3000/api/cart', {
+    await page.request.post('https://www.beautywelt.de/warenkorb.php', {
       data: { productId: 1, quantity: 1 }
     });
     
@@ -101,10 +101,10 @@ test.describe('Shopping Cart', () => {
 
   test('should clear entire cart', async ({ page }) => {
     // Add multiple items
-    await page.request.post('http://localhost:3000/api/cart', {
+    await page.request.post('https://www.beautywelt.de/warenkorb.php', {
       data: { productId: 1, quantity: 1 }
     });
-    await page.request.post('http://localhost:3000/api/cart', {
+    await page.request.post('https://www.beautywelt.de/warenkorb.php', {
       data: { productId: 2, quantity: 1 }
     });
     
@@ -124,7 +124,7 @@ test.describe('Shopping Cart', () => {
 
   test('should calculate correct totals', async ({ page }) => {
     // Add item with known price ($79.99 for product 1)
-    await page.request.post('http://localhost:3000/api/cart', {
+    await page.request.post('https://www.beautywelt.de/warenkorb.php', {
       data: { productId: 1, quantity: 2 }
     });
     

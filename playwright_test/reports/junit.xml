@@ -1,0 +1,11 @@
+<testsuites id="" name="" tests="2" failures="0" skipped="0" errors="0" time="5.230751000000001">
+<testsuite name="smoke\smoke.spec.ts" timestamp="2026-07-30T13:21:53.563Z" hostname="chromium" 
+tests="2" failures="0" skipped="0" time="2.631" errors="0">
+<testcase name="Smoke @smoke › homepage loads with key elements and dismisses cookie banner" 
+classname="smoke\smoke.spec.ts" time="1.155">
+</testcase>
+<testcase name="Smoke @smoke › search returns a product listing page and exposes a product link" 
+classname="smoke\smoke.spec.ts" time="1.476">
+</testcase>
+</testsuite>
+</testsuites>

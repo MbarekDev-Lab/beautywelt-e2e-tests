@@ -4,16 +4,27 @@
   "description": "BeautyWelt Playwright tests",
   "scripts": {
     "test": "playwright test",
-    "test:headed": "playwright test --headed",
-    "test:ui": "playwright test --ui",
+    "test:production": "playwright test --project=production-readonly",
+    "test:staging": "playwright test --project=staging",
+    "test:offline": "playwright test --project=offline",
+    "test:list": "playwright test --list",
     "test:report": "playwright show-report",
-    "test:smoke": "playwright test --grep @smoke"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.12.1",
+    "@eslint/js": "^10.0.1",
     "@faker-js/faker": "^9.0.0",
     "@playwright/test": "^1.42.0",
+    "@types/node": "^20.19.43",
     "dotenv": "^16.4.1",
-    "typescript": "^5.6.3"
+    "eslint": "^10.8.0",
+    "prettier": "^3.9.6",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.65.0"
   }
 }

@@ -439,10 +439,7 @@ www.beautywelt.de
 Required implementation pattern:
 
 ```typescript
-const PRODUCTION_HOSTS = new Set([
-  'beautywelt.de',
-  'www.beautywelt.de',
-]);
+const PRODUCTION_HOSTS = new Set(['beautywelt.de', 'www.beautywelt.de']);
 
 export function isProductionHost(baseURL: string): boolean {
   const url = new URL(baseURL);
@@ -453,12 +450,9 @@ export function isProductionHost(baseURL: string): boolean {
 If the target is production, force state changes off. If configuration attempts to enable state changes on production, stop execution:
 
 ```typescript
-if (
-  isProductionHost(baseURL) &&
-  process.env.ALLOW_STATE_CHANGES === 'true'
-) {
+if (isProductionHost(baseURL) && process.env.ALLOW_STATE_CHANGES === 'true') {
   throw new Error(
-    'Unsafe configuration: state-changing tests are prohibited against Beautywelt production.'
+    'Unsafe configuration: state-changing tests are prohibited against Beautywelt production.',
   );
 }
 ```
@@ -555,14 +549,12 @@ function sanitizeURL(rawURL: string): string {
 }
 
 function isRestrictedPath(pathname: string): boolean {
-  return RESTRICTED_PRODUCTION_ROUTES.some(pattern =>
-    pattern.test(pathname)
-  );
+  return RESTRICTED_PRODUCTION_ROUTES.some((pattern) => pattern.test(pathname));
 }
 
 export async function installProductionGuard(
   page: Page,
-  productionOrigin: string
+  productionOrigin: string,
 ): Promise<void> {
   await page.route('**/*', async (route: Route) => {
     const request = route.request();
@@ -575,13 +567,10 @@ export async function installProductionGuard(
       throw new Error(`Blocked restricted production route: ${target}`);
     }
 
-    if (
-      url.origin === productionOrigin &&
-      !SAFE_METHODS.has(method)
-    ) {
+    if (url.origin === productionOrigin && !SAFE_METHODS.has(method)) {
       await route.abort('blockedbyclient');
       throw new Error(
-        `Blocked state-changing production request: ${method} ${target}`
+        `Blocked state-changing production request: ${method} ${target}`,
       );
     }
 
@@ -656,10 +645,7 @@ For every important locator:
 Do not implement silent fallback locator chains such as:
 
 ```typescript
-return primary
-  .or(fallback)
-  .or(secondFallback)
-  .first();
+return primary.or(fallback).or(secondFallback).first();
 ```
 
 Such chains can hide a broken or changed interface. Prefer one verified locator with an explicit uniqueness assertion.
@@ -841,32 +827,23 @@ Do not execute these scenarios when an authorized staging environment is unavail
 Example protection:
 
 ```typescript
-test.describe(
-  'Cart @staging @stateful @requires-authorization',
-  () => {
-    test.beforeEach(async ({ baseURL }) => {
-      if (!baseURL) {
-        throw new Error('BASE_URL is required.');
-      }
+test.describe('Cart @staging @stateful @requires-authorization', () => {
+  test.beforeEach(async ({ baseURL }) => {
+    if (!baseURL) {
+      throw new Error('BASE_URL is required.');
+    }
 
-      const hostname = new URL(baseURL).hostname.toLowerCase();
+    const hostname = new URL(baseURL).hostname.toLowerCase();
 
-      if (
-        hostname === 'beautywelt.de' ||
-        hostname === 'www.beautywelt.de'
-      ) {
-        test.skip(
-          true,
-          'Cart mutations are prohibited against production.'
-        );
-      }
-    });
+    if (hostname === 'beautywelt.de' || hostname === 'www.beautywelt.de') {
+      test.skip(true, 'Cart mutations are prohibited against production.');
+    }
+  });
 
-    test('updates item quantity', async ({ page }) => {
-      // Execute only against an authorized staging environment.
-    });
-  }
-);
+  test('updates item quantity', async ({ page }) => {
+    // Execute only against an authorized staging environment.
+  });
+});
 ```
 
 Prefer preventing the staging project from being created when authorization conditions are missing. Project-level `testMatch` and `testIgnore` isolation is stronger than relying only on runtime skips.

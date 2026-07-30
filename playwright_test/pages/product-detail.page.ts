@@ -15,6 +15,10 @@ export class ProductDetailPage extends BasePage {
   }
 
   get addToCartButton(): Locator {
-    return this.page.getByRole('button', { name: /in den warenkorb|add to cart|zum warenkorb/i }).first();
+    return this.page
+      .getByRole('button', {
+        name: /in den warenkorb|add to cart|zum warenkorb/i,
+      })
+      .first();
   }
 }

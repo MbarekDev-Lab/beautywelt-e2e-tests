@@ -11,6 +11,8 @@ export class CategoryPage extends BasePage {
   }
 
   get productList(): Locator {
-    return this.page.locator('article, .product-card').filter({ has: this.page.locator('a') });
+    return this.page
+      .locator('article, .product-card')
+      .filter({ has: this.page.locator('a') });
   }
 }

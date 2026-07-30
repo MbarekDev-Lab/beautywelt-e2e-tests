@@ -2,24 +2,16 @@ import { Locator, Page } from '@playwright/test';
 import { BasePage } from './base.page';
 
 export class HomePage extends BasePage {
+  readonly header: Locator;
+  readonly footer: Locator;
+  readonly searchInput: Locator;
+
   constructor(page: Page) {
     super(page);
+    this.header = this.page.getByRole('banner');
+    this.footer = this.page.getByRole('contentinfo');
+    this.searchInput = this.header.getByRole('searchbox');
   }
 
-  get header(): Locator {
-    return this.page.locator('header').first();
-  }
-
-  get footer(): Locator {
-    return this.page.locator('footer').first();
-  }
-
-  get navLinks(): Locator {
-    return this.page.locator('a').filter({ hasText: /make-up|parfum|pflege|haar|marken|sale/i });
-  }
-
-  async searchFor(term: string): Promise<void> {
-    await this.searchInput.fill(term);
-    await this.searchInput.press('Enter');
-  }
+  // Safe navigation checks can be placed here
 }

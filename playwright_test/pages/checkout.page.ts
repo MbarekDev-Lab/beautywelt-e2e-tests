@@ -11,6 +11,8 @@ export class CheckoutPage extends BasePage {
   }
 
   get reviewSummary(): Locator {
-    return this.page.locator('text=/bestellungsübersicht|übersicht|review/i').first();
+    return this.page
+      .locator('text=/bestellungsübersicht|übersicht|review/i')
+      .first();
   }
 }

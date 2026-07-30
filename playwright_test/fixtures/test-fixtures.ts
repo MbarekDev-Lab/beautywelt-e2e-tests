@@ -1,4 +1,4 @@
-import { test as base, expect } from '@playwright/test';
+import { test as base } from '@playwright/test';
 import { BasePage } from '../pages/base.page';
 import { HomePage } from '../pages/home.page';
 import { SearchResultsPage } from '../pages/search-results.page';
@@ -7,6 +7,7 @@ import { ProductDetailPage } from '../pages/product-detail.page';
 import { CartPage } from '../pages/cart.page';
 import { CheckoutPage } from '../pages/checkout.page';
 import { AccountPage } from '../pages/account.page';
+import { installProductionGuard } from './production-guard.fixture';
 
 export type TestFixtures = {
   basePage: BasePage;
@@ -20,6 +21,10 @@ export type TestFixtures = {
 };
 
 export const test = base.extend<TestFixtures>({
+  page: async ({ page, baseURL }, use) => {
+    await installProductionGuard(page, baseURL);
+    await use(page);
+  },
   basePage: async ({ page }, use) => {
     await use(new BasePage(page));
   },

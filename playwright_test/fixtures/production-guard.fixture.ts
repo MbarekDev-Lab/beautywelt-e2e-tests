@@ -17,10 +17,7 @@ function isRestrictedPath(pathname: string): boolean {
   return RESTRICTED_PRODUCTION_ROUTES.some((pattern) => pattern.test(pathname));
 }
 
-export async function installProductionGuard(
-  page: Page,
-  baseURL: string | undefined,
-): Promise<void> {
+export async function installProductionGuard(page: Page, baseURL: string | undefined,): Promise<void> {
   if (!baseURL || !isProductionHost(baseURL)) {
     return; // Guard is only active on production hosts
   }

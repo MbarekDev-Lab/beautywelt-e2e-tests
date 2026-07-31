@@ -16,4 +16,13 @@ export class BasePage {
     // Avoid .first() unless position is a documented requirement. Use a specific accessible role.
     await this.page.getByRole('main').waitFor({ state: 'visible' });
   }
+
+
+
+
+
+
+
+
+  
 }

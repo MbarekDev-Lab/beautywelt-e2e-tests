@@ -13,5 +13,13 @@ export class HomePage extends BasePage {
     this.searchInput = this.header.getByRole('searchbox');
   }
 
-  // Safe navigation checks can be placed here
+  // Safe navigation checks 
+  
+
+
+
+
+
+
+
 }

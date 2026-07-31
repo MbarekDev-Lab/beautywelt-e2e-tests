@@ -1,7 +1,8 @@
 # Project Audit Report
 
 ## 1. Original Architecture
-The project previously contained root-level JavaScript test files (`cart.spec.js`, `checkout.spec.js`, `homepage.spec.js`, etc.) using commonJS `require` statements. Tests mixed assertions with arbitrary timeouts and targeted the live Beautywelt.de production URL.
+The project previously contained root-level JavaScript test files (`cart.spec.js`, `checkout.spec.js`, `homepage.spec.js`, etc.) using commonJS `require` statements. 
+Tests mixed assertions with arbitrary timeouts and targeted the live Beautywelt.de production URL.
 
 ## 2. Main Issues and Safety Risks
 - **Mutations on Production**: Tests directly initiated `POST`, `DELETE`, and form submissions on `/warenkorb.php` and `/checkout.html` against `https://www.beautywelt.de`.
@@ -13,7 +14,8 @@ The project previously contained root-level JavaScript test files (`cart.spec.js
 - Restructured `pages/` to be cleaner and introduced `components/` for shared UI (e.g., Cookie Banner).
 - Separated tests into `tests/production-readonly/` and `tests/staging/`.
 - Deleted all old `.js` tests.
-- Introduced strict safety guard rails (`config/environment.ts` and `fixtures/production-guard.fixture.ts`) blocking non-GET requests and restricted routes (`/warenkorb.php`, etc.) against production.
+- Introduced strict safety guard rails (`config/environment.ts` and `fixtures/production-guard.fixture.ts`) blocking non-GET requests and restricted routes (`/warenkorb.php`, etc.) 
+against production.
 - Created budget constraints (1 worker, 0 retries).
 
 ## 4. Remaining Risks / Unverified Scenarios

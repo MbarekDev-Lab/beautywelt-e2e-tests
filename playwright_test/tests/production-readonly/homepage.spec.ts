@@ -13,6 +13,9 @@ test.describe('Homepage @production-readonly', () => {
   test('should display header and footer landmarks', async ({ homePage }) => {
     await expect(homePage.header).toBeVisible();
     await expect(homePage.footer).toBeVisible();
+
+
+    
   });
 
   test('should display search control', async ({ homePage }) => {

@@ -1,8 +1,5 @@
 import { test, expect } from '@playwright/test';
-import {
-  isProductionHost,
-  validateEnvironment,
-} from '../../config/environment';
+import { isProductionHost, validateEnvironment, } from '../../config/environment';
 
 test.describe('Safety Controls - Unit Tests', () => {
   const originalEnv = process.env;
@@ -49,4 +46,5 @@ test.describe('Safety Controls - Unit Tests', () => {
     process.env.ALLOW_STATE_CHANGES = 'true';
     expect(() => validateEnvironment()).not.toThrow();
   });
+  
 });

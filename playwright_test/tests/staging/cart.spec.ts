@@ -14,8 +14,10 @@ test.describe('Cart @staging @stateful @requires-authorization', () => {
 
   test('updates item quantity (staging only)', async () => {
     // This logic relies on a valid staging environment which is not provided.
-    // If it were, it would safely run here since production checks above prevent execution on Beautywelt.de.
-    // We will just place a dummy assertion here to validate the test runs offline/staging mode.
+    // If it were, it would safely run here since production checks above prevent 
+    // execution on Beautywelt.de.
+    // We will just place a dummy assertion here to validate the test runs 
+    // offline/staging mode.
     expect(true).toBe(true);
   });
 });

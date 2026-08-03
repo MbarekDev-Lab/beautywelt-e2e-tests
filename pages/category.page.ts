@@ -7,7 +7,7 @@ export class CategoryPage extends BasePage {
   }
 
   get title(): Locator {
-    return this.page.locator('h1').first();
+    return this.page.getByRole('heading', { level: 1 });
   }
 
   get productList(): Locator {

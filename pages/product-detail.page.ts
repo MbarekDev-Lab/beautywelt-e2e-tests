@@ -7,18 +7,16 @@ export class ProductDetailPage extends BasePage {
   }
 
   get title(): Locator {
-    return this.page.locator('h1').first();
+    return this.page.getByRole('heading', { level: 1 });
   }
 
   get price(): Locator {
-    return this.page.locator('text=/€|EUR/i').first();
+    return this.page.locator('text=/€|EUR/i');
   }
 
   get addToCartButton(): Locator {
-    return this.page
-      .getByRole('button', {
-        name: /in den warenkorb|add to cart|zum warenkorb/i,
-      })
-      .first();
+    return this.page.getByRole('button', {
+      name: /in den warenkorb|add to cart|zum warenkorb/i,
+    });
   }
 }

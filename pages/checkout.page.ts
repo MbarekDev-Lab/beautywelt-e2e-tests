@@ -7,12 +7,10 @@ export class CheckoutPage extends BasePage {
   }
 
   get guestCheckoutOption(): Locator {
-    return this.page.getByRole('radio', { name: /gast|guest/i }).first();
+    return this.page.getByRole('radio', { name: /gast|guest/i });
   }
 
   get reviewSummary(): Locator {
-    return this.page
-      .locator('text=/bestellungsübersicht|übersicht|review/i')
-      .first();
+    return this.page.locator('text=/bestellungsübersicht|übersicht|review/i');
   }
 }

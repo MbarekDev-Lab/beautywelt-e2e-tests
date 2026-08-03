@@ -7,14 +7,10 @@ export class AccountPage extends BasePage {
   }
 
   get registerLink(): Locator {
-    return this.page
-      .getByRole('link', { name: /registrieren|konto erstellen|anmelden/i })
-      .first();
+    return this.page.getByRole('link', { name: /registrieren|konto erstellen|anmelden/i });
   }
 
   get loginLink(): Locator {
-    return this.page
-      .getByRole('link', { name: /anmelden|mein konto/i })
-      .first();
+    return this.page.getByRole('link', { name: /anmelden|mein konto/i });
   }
 }

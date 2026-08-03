@@ -7,10 +7,10 @@ export class CartPage extends BasePage {
   }
 
   get cartItem(): Locator {
-    return this.page.locator('tbody tr, .cart-item, .basket-item').first();
+    return this.page.locator('tbody tr, .cart-item, .basket-item');
   }
 
   get checkoutButton(): Locator {
-    return this.page.getByRole('link', { name: /zur kasse|kasse/i }).first();
+    return this.page.getByRole('link', { name: /zur kasse|kasse/i });
   }
 }

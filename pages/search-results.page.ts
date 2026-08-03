@@ -9,14 +9,10 @@ export class SearchResultsPage extends BasePage {
   get productCards(): Locator {
     return this.page
       .locator('article, .product-card, [data-testid="product-card"]')
-      .filter({ has: this.page.locator('a') })
-      .first();
+      .filter({ has: this.page.locator('a') });
   }
 
   get firstProductLink(): Locator {
-    return this.page
-      .locator('a[href]')
-      .filter({ has: this.page.locator('img, h2, h3, h4') })
-      .first();
+    return this.productCards.nth(0).locator('a[href]').nth(0);
   }
 }

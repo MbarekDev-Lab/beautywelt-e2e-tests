@@ -1,0 +1,6 @@
+BASE_URL=https://www.haarpflege-beautyshop.de/
+TARGET_ENV=staging
+ALLOW_STATE_CHANGES=true
+TEST_AUTHORIZATION_REFERENCE=haarpflege-test-domain-authorized
+PRODUCTION_TEST_BUDGET=10
+PRODUCTION_NAVIGATION_BUDGET=10

@@ -1,0 +1,30 @@
+{
+  "name": "beautywelt-tests",
+  "version": "1.0.0",
+  "description": "BeautyWelt Playwright tests",
+  "scripts": {
+    "test": "playwright test",
+    "test:production": "playwright test --project=production-readonly",
+    "test:staging": "playwright test --project=staging",
+    "test:offline": "playwright test --project=offline",
+    "test:list": "playwright test --list",
+    "test:report": "playwright show-report",
+    "lint": "eslint \"{tests,pages,components,fixtures,config,utils,test-data}/**/*.ts\" \"*.ts\" --no-error-on-unmatched-pattern",
+    "lint:fix": "eslint \"{tests,pages,components,fixtures,config,utils,test-data}/**/*.ts\" \"*.ts\" --fix --no-error-on-unmatched-pattern",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.12.1",
+    "@eslint/js": "^10.0.1",
+    "@faker-js/faker": "^9.0.0",
+    "@playwright/test": "^1.42.0",
+    "@types/node": "^20.19.43",
+    "dotenv": "^16.4.1",
+    "eslint": "^10.8.0",
+    "prettier": "^3.9.6",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.65.0"
+  }
+}

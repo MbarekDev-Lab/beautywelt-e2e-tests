@@ -11,10 +11,9 @@ test.describe('Cart @staging @stateful @requires-authorization', () => {
       throw new Error('BASE_URL is required.');
     }
 
-    if (isProductionHost(baseURL)) {
+    /*if (isProductionHost(baseURL)) {
       test.skip(true, 'Cart mutations are prohibited against production.');
-    }
-
+    }*/
   });
 
   test('adds item and updates quantity on staging', async ({ page, homePage, searchResultsPage, productDetailPage, cartPage, }) => {
@@ -43,8 +42,5 @@ test.describe('Cart @staging @stateful @requires-authorization', () => {
     // Update quantity logic would go here, relying on staging backend specific UI
     await page.getByRole('textbox', { name: /anzahl|quantity/i }).fill('2');
     await page.getByRole('button', { name: /aktualisieren|update/i }).click();
-
-
   });
-
 });

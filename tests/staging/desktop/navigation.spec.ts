@@ -42,22 +42,33 @@ function exactTextPattern(value: string): RegExp {
 }
 
 async function assertAuthorizedApplicationLoaded(page: Page): Promise<void> {
-  await expect(page.getByRole('heading', { name: /unauthorized/i, }),).toHaveCount(0);
+  await expect(
+    page.getByRole('heading', { name: /unauthorized/i }),
+  ).toHaveCount(0);
 
   await expect(page.locator('body')).not.toContainText(
     /could not verify that you are authorized/i,
   );
 }
 
-async function assertSuccessfulDocumentResponse(response: Response | null, purpose: string,): Promise<void> {
+async function assertSuccessfulDocumentResponse(
+  response: Response | null,
+  purpose: string,
+): Promise<void> {
   if (!response) {
     throw new Error(`${purpose} returned no document response.`);
   }
 
-  expect(response.status(), `${purpose} returned HTTP ${response.status()}.`,).toBeLessThan(400);
+  expect(
+    response.status(),
+    `${purpose} returned HTTP ${response.status()}.`,
+  ).toBeLessThan(400);
 }
 
-async function findSingleVisibleLocator(candidates: readonly LocatorCandidate[], purpose: string,): Promise<Locator> {
+async function findSingleVisibleLocator(
+  candidates: readonly LocatorCandidate[],
+  purpose: string,
+): Promise<Locator> {
   const attemptedCandidates: string[] = [];
 
   for (const candidate of candidates) {
@@ -70,7 +81,9 @@ async function findSingleVisibleLocator(candidates: readonly LocatorCandidate[],
     for (let index = 0; index < count; index += 1) {
       const match = locator.nth(index);
 
-      const isVisible = await match.isVisible({ timeout: LOCATOR_PROBE_TIMEOUT_MS, }).catch(() => false);
+      const isVisible = await match
+        .isVisible({ timeout: LOCATOR_PROBE_TIMEOUT_MS })
+        .catch(() => false);
 
       if (isVisible) {
         visibleMatches.push(match);
@@ -104,7 +117,11 @@ async function dismissCookieBannerIfPresent(page: Page): Promise<void> {
     name: /alle ablehnen|nur notwendige|notwendige cookies|ablehnen/i,
   });
 
-  if (await rejectButton.isVisible({ timeout: LOCATOR_PROBE_TIMEOUT_MS, }).catch(() => false)) {
+  if (
+    await rejectButton
+      .isVisible({ timeout: LOCATOR_PROBE_TIMEOUT_MS })
+      .catch(() => false)
+  ) {
     await rejectButton.click();
     return;
   }
@@ -113,7 +130,11 @@ async function dismissCookieBannerIfPresent(page: Page): Promise<void> {
     name: /einstellungen oder ablehnen/i,
   });
 
-  if (await settingsOrRejectLink.isVisible({ timeout: LOCATOR_PROBE_TIMEOUT_MS, }).catch(() => false)) {
+  if (
+    await settingsOrRejectLink
+      .isVisible({ timeout: LOCATOR_PROBE_TIMEOUT_MS })
+      .catch(() => false)
+  ) {
     await settingsOrRejectLink.click();
 
     const necessaryOnlyButton = page.getByRole('button', {
@@ -121,7 +142,10 @@ async function dismissCookieBannerIfPresent(page: Page): Promise<void> {
     });
 
     if (
-      await necessaryOnlyButton.isVisible({ timeout: LOCATOR_PROBE_TIMEOUT_MS, }).catch(() => false)) {
+      await necessaryOnlyButton
+        .isVisible({ timeout: LOCATOR_PROBE_TIMEOUT_MS })
+        .catch(() => false)
+    ) {
       await necessaryOnlyButton.click();
     }
   }
@@ -215,7 +239,11 @@ async function findSearchInput(page: Page): Promise<Locator> {
   );
 }
 
-async function submitSearch(page: Page, searchInput: Locator, searchTerm: string,): Promise<void> {
+async function submitSearch(
+  page: Page,
+  searchInput: Locator,
+  searchTerm: string,
+): Promise<void> {
   await expect(searchInput).toBeVisible();
   await expect(searchInput).toBeEditable();
 
@@ -225,7 +253,11 @@ async function submitSearch(page: Page, searchInput: Locator, searchTerm: string
     name: /suche|suchen|search/i,
   });
 
-  if (await searchButton.isVisible({ timeout: LOCATOR_PROBE_TIMEOUT_MS, }).catch(() => false)) {
+  if (
+    await searchButton
+      .isVisible({ timeout: LOCATOR_PROBE_TIMEOUT_MS })
+      .catch(() => false)
+  ) {
     await searchButton.click();
   } else {
     await searchInput.press('Enter');
@@ -235,7 +267,10 @@ async function submitSearch(page: Page, searchInput: Locator, searchTerm: string
   await assertAuthorizedApplicationLoaded(page);
 }
 
-async function openConfiguredProduct(page: Page, productName: string,): Promise<void> {
+async function openConfiguredProduct(
+  page: Page,
+  productName: string,
+): Promise<void> {
   const productLink = await findSingleVisibleLocator(
     [
       {

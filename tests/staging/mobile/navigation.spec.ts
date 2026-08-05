@@ -20,7 +20,14 @@ test.describe('Mobile Staging Navigation @staging @stateful @requires-authorizat
     }
   });
 
-  test('completes guest checkout flow with POM on mobile', async ({ page, homePage, searchResultsPage, productDetailPage, cartPage, checkoutPage, }) => {
+  test('completes guest checkout flow with POM on mobile', async ({
+    page,
+    homePage,
+    searchResultsPage,
+    productDetailPage,
+    cartPage,
+    checkoutPage,
+  }) => {
     // 1. Visit homepage
     await homePage.gotoHome();
     await homePage.cookieBanner.dismissIfPresent();

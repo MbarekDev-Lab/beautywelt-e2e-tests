@@ -41,9 +41,7 @@ test.describe('Checkout Flow @staging @stateful @requires-authorization', () => 
     await request.delete(`${BASE}/warenkorb.php`);
   });
 
-  test('POST /warenkorb.php should create a new order and decrement stock', async ({
-    request,
-  }) => {
+  test('POST /warenkorb.php should create a new order and decrement stock', async ({ request, }) => {
     assertStagingAuthorization(BASE);
 
     const beforeResponse = await request.get(`${BASE}/warenkorb.php`);
@@ -74,18 +72,14 @@ test.describe('Checkout Flow @staging @stateful @requires-authorization', () => 
     expect(after.stock).toBe(before.stock - 1);
   });
 
-  test('GET /warenkorb.php should display the cart contents', async ({
-    request,
-  }) => {
+  test('GET /warenkorb.php should display the cart contents', async ({ request, }) => {
     assertStagingAuthorization(BASE);
 
     const response = await request.get(`${BASE}/warenkorb.php`);
     await expect(response).toBeOK();
   });
 
-  test('POST /warenkorb.php/checkout without customer details returns 400', async ({
-    request,
-  }) => {
+  test('POST /warenkorb.php/checkout without customer details returns 400', async ({ request, }) => {
     assertStagingAuthorization(BASE);
 
     await request.post(`${BASE}/warenkorb.php`, {
@@ -107,9 +101,7 @@ test.describe('Checkout Flow @staging @stateful @requires-authorization', () => 
     expect(body.error).toContain('required');
   });
 
-  test('POST /warenkorb.php with multiple items totals correctly', async ({
-    request,
-  }) => {
+  test('POST /warenkorb.php with multiple items totals correctly', async ({ request, }) => {
     assertStagingAuthorization(BASE);
 
     const rec1Response = await request.get(`${BASE}/warenkorb.php`);

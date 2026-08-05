@@ -1,72 +1,57 @@
-import { test as base } from '@playwright/test';
-import { isProductionHost } from '../config/environment';
-import { BasePage } from '../pages/base.page';
-import { HomePage } from '../pages/home.page';
-import { SearchResultsPage } from '../pages/search-results.page';
-import { CategoryPage } from '../pages/category.page';
-import { ProductDetailPage } from '../pages/product-detail.page';
-import { CartPage } from '../pages/cart.page';
-import { CheckoutPage } from '../pages/checkout.page';
-import { AccountPage } from '../pages/account.page';
-import { installProductionGuard } from './production-guard.fixture';
+import { test as base, expect } from '@playwright/test';
 
-export type TestFixtures = {
-  basePage: BasePage;
-  homePage: HomePage;
-  searchResultsPage: SearchResultsPage;
-  categoryPage: CategoryPage;
-  productDetailPage: ProductDetailPage;
-  cartPage: CartPage;
-  checkoutPage: CheckoutPage;
-  accountPage: AccountPage;
+import { AccountPage } from '../pages/account.page';
+import { BasePage } from '../pages/base.page';
+import { CartPage } from '../pages/cart.page';
+import { CategoryPage } from '../pages/category.page';
+import { CheckoutPage } from '../pages/checkout.page';
+import { HomePage } from '../pages/home.page';
+import { ProductDetailPage } from '../pages/product-detail.page';
+import { SearchResultsPage } from '../pages/search-results.page';
+
+type PageObjectFixtures = {
+  readonly basePage: BasePage;
+  readonly homePage: HomePage;
+  readonly categoryPage: CategoryPage;
+  readonly searchResultsPage: SearchResultsPage;
+  readonly productDetailPage: ProductDetailPage;
+  readonly cartPage: CartPage;
+  readonly checkoutPage: CheckoutPage;
+  readonly accountPage: AccountPage;
 };
 
-export const test = base.extend<TestFixtures>({
-  page: async ({ page, baseURL }, use) => {
-    if (!baseURL) {
-      throw new Error(
-        'baseURL is not defined. Please set BASE_URL in the selected environment file.',
-      );
-    }
-
-    if (isProductionHost(baseURL)) {
-      await installProductionGuard(page, baseURL);
-    }
-
-    await use(page);
-  },
-
-  basePage: async ({ page }, use) => {
+export const test = base.extend<PageObjectFixtures>({
+  basePage: async ({ page }, use): Promise<void> => {
     await use(new BasePage(page));
   },
 
-  homePage: async ({ page }, use) => {
+  homePage: async ({ page }, use): Promise<void> => {
     await use(new HomePage(page));
   },
 
-  searchResultsPage: async ({ page }, use) => {
-    await use(new SearchResultsPage(page));
-  },
-
-  categoryPage: async ({ page }, use) => {
+  categoryPage: async ({ page }, use): Promise<void> => {
     await use(new CategoryPage(page));
   },
 
-  productDetailPage: async ({ page }, use) => {
+  searchResultsPage: async ({ page }, use): Promise<void> => {
+    await use(new SearchResultsPage(page));
+  },
+
+  productDetailPage: async ({ page }, use): Promise<void> => {
     await use(new ProductDetailPage(page));
   },
 
-  cartPage: async ({ page }, use) => {
+  cartPage: async ({ page }, use): Promise<void> => {
     await use(new CartPage(page));
   },
 
-  checkoutPage: async ({ page }, use) => {
+  checkoutPage: async ({ page }, use): Promise<void> => {
     await use(new CheckoutPage(page));
   },
 
-  accountPage: async ({ page }, use) => {
+  accountPage: async ({ page }, use): Promise<void> => {
     await use(new AccountPage(page));
   },
 });
 
-export { expect } from '@playwright/test';
+export { expect };

@@ -7,8 +7,12 @@ export class AccountPage extends BasePage {
   }
 
   get registerLink(): Locator {
-    return this.page.getByRole('link', { name: /registrieren|konto erstellen|anmelden/i });
+    return this.page.getByRole('link', {
+      name: /registrieren|konto erstellen|anmelden/i,
+    });
   }
+
+  /*  : Locator	TS Type	Declares that the returned result must be a Playwright Locator. */
 
   get loginLink(): Locator {
     return this.page.getByRole('link', { name: /anmelden|mein konto/i });

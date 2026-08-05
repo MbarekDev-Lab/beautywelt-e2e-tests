@@ -1,26 +1,45 @@
-import { Locator, Page } from '@playwright/test';
+import type { Locator, Page } from '@playwright/test';
 
 export class CookieBannerComponent {
-  readonly root: Locator;
   readonly rejectOptionalButton: Locator;
+  readonly settingsOrRejectLink: Locator;
 
   constructor(private readonly page: Page) {
-    // Note: These locators need to be verified in the browser against production.
-    this.root = this.page
-      .locator('#consent-banner')
-      .or(this.page.getByRole('dialog', { name: /cookie|consent/i }));
-    this.rejectOptionalButton = this.page.getByRole('button', {
-      name: /ablehnen|nur notwendige|notwendige cookies/i,
+    this.rejectOptionalButton = page.getByRole('button', {
+      name: /alle ablehnen|nur notwendige|notwendige cookies/i,
+    });
+
+    this.settingsOrRejectLink = page.getByRole('link', {
+      name: /einstellungen oder ablehnen/i,
     });
   }
 
   async dismissIfPresent(): Promise<void> {
     if (
       await this.rejectOptionalButton
-        .isVisible({ timeout: 3000 })
+        .isVisible({ timeout: 1500 })
         .catch(() => false)
     ) {
       await this.rejectOptionalButton.click();
+      return;
+    }
+
+    if (
+      await this.settingsOrRejectLink
+        .isVisible({ timeout: 1500 })
+        .catch(() => false)
+    ) {
+      await this.settingsOrRejectLink.click();
+
+      const rejectAllButton = this.page.getByRole('button', {
+        name: /alle ablehnen|auswahl speichern|nur notwendige/i,
+      });
+
+      if (
+        await rejectAllButton.isVisible({ timeout: 1500 }).catch(() => false)
+      ) {
+        await rejectAllButton.click();
+      }
     }
   }
 }

@@ -1,5 +1,7 @@
 # Playwright TypeScript Automation Improvement Mandate
+
 # Beautywelt Production Read-Only and Haarpflege Staging Test Project
+
 # Executor Edition | Version 2.0
 
 ## 0. Mission
@@ -65,3 +67,4 @@ playwright_test/
 ├── .env.prod
 ├── .env.staging
 └── README.md
+```

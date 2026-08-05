@@ -1,96 +1,51 @@
-<testsuites id="" name="" tests="19" failures="0" skipped="19" errors="0" time="0.4360219999999999">
-<testsuite name="production-readonly\category.spec.ts" timestamp="2026-08-04T16:29:59.369Z" hostname="production-readonly" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="Category Page @production-readonly › should identify the public Parfum category destination" classname="production-readonly\category.spec.ts" time="0">
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="production-readonly\homepage.spec.ts" timestamp="2026-08-04T16:29:59.369Z" hostname="production-readonly" tests="4" failures="0" skipped="4" time="0" errors="0">
-<testcase name="Homepage @production-readonly › should display the page title" classname="production-readonly\homepage.spec.ts" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="Homepage @production-readonly › should display header and footer landmarks" classname="production-readonly\homepage.spec.ts" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="Homepage @production-readonly › should display search control" classname="production-readonly\homepage.spec.ts" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="Homepage @production-readonly › main content landmark is visible" classname="production-readonly\homepage.spec.ts" time="0">
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="staging\auth-smoke.spec.ts" timestamp="2026-08-04T16:29:59.369Z" hostname="staging-auth" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="Staging Authentication Smoke @staging › loads the authorized staging homepage" classname="staging\auth-smoke.spec.ts" time="0">
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="staging\desktop\cart.spec.ts" timestamp="2026-08-04T16:29:59.369Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="Cart @staging @stateful @requires-authorization › adds item and updates quantity on staging" classname="staging\desktop\cart.spec.ts" time="0">
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="staging\desktop\checkout.spec.ts" timestamp="2026-08-04T16:29:59.369Z" hostname="staging-desktop" tests="4" failures="0" skipped="4" time="0" errors="0">
-<testcase name="Checkout Flow @staging @stateful @requires-authorization › POST /warenkorb.php should create a new order and decrement stock" classname="staging\desktop\checkout.spec.ts" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="Checkout Flow @staging @stateful @requires-authorization › GET /warenkorb.php should display the cart contents" classname="staging\desktop\checkout.spec.ts" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="Checkout Flow @staging @stateful @requires-authorization › POST /warenkorb.php/checkout without customer details returns 400" classname="staging\desktop\checkout.spec.ts" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="Checkout Flow @staging @stateful @requires-authorization › POST /warenkorb.php with multiple items totals correctly" classname="staging\desktop\checkout.spec.ts" time="0">
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="staging\desktop\navigation.spec.ts" timestamp="2026-08-04T16:29:59.369Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="Desktop Navigation Flow @staging @stateful @requires-authorization › navigates from search to checkout entry on approved staging" classname="staging\desktop\navigation.spec.ts" time="0">
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="staging\mobile\category.spec.ts" timestamp="2026-08-04T16:29:59.369Z" hostname="staging-mobile" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="Mobile Staging Navigation @staging @stateful @requires-authorization › navigates from product to checkout entry on mobile" classname="staging\mobile\category.spec.ts" time="0">
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="staging\mobile\navigation.spec.ts" timestamp="2026-08-04T16:29:59.369Z" hostname="staging-mobile" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="Mobile Staging Navigation @staging @stateful @requires-authorization › completes guest checkout flow with POM on mobile" classname="staging\mobile\navigation.spec.ts" time="0">
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="unit\safety-controls.spec.ts" timestamp="2026-08-04T16:29:59.369Z" hostname="unit" tests="5" failures="0" skipped="5" time="0" errors="0">
-<testcase name="Safety Controls - Unit Tests › isProductionHost should identify production URLs" classname="unit\safety-controls.spec.ts" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="Safety Controls - Unit Tests › validateEnvironment should throw if BASE_URL is missing" classname="unit\safety-controls.spec.ts" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="Safety Controls - Unit Tests › validateEnvironment should throw if state changes are allowed on production" classname="unit\safety-controls.spec.ts" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="Safety Controls - Unit Tests › validateEnvironment should pass for production if state changes are disabled" classname="unit\safety-controls.spec.ts" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="Safety Controls - Unit Tests › validateEnvironment should pass for staging if state changes are enabled" classname="unit\safety-controls.spec.ts" time="0">
-<skipped>
-</skipped>
+<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="6.324005000000005">
+<testsuite name="staging\desktop\navigation.spec.ts" timestamp="2026-08-05T09:01:49.049Z" hostname="staging-desktop" tests="1" failures="1" skipped="0" time="0.606" errors="0">
+<testcase name="Desktop Navigation Flow @staging @stateful @requires-authorization › navigates from search to checkout entry on approved staging" classname="staging\desktop\navigation.spec.ts" time="0.606">
+<failure message="navigation.spec.ts:474:7 navigates from search to checkout entry on approved staging" type="FAILURE">
+<![CDATA[  [staging-desktop] › staging\desktop\navigation.spec.ts:474:7 › Desktop Navigation Flow @staging @stateful @requires-authorization › navigates from search to checkout entry on approved staging › Open the authorized staging homepage 
+
+    Error: Staging homepage navigation returned HTTP 401.
+
+    expect(received).toBeLessThan(expected)
+
+    Expected: < 400
+    Received:   401
+
+      65 |     response.status(),
+      66 |     `${purpose} returned HTTP ${response.status()}.`,
+    > 67 |   ).toBeLessThan(400);
+         |     ^
+      68 | }
+      69 |
+      70 | async function findSingleVisibleLocator(
+        at assertSuccessfulDocumentResponse (D:\MbarekDevCode\playwright-testing-software\playwright_test\tests\staging\desktop\navigation.spec.ts:67:5)
+        at D:\MbarekDevCode\playwright-testing-software\playwright_test\tests\staging\desktop\navigation.spec.ts:484:13
+        at D:\MbarekDevCode\playwright-testing-software\playwright_test\tests\staging\desktop\navigation.spec.ts:479:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\staging-desktop-navigation-e0548-t-entry-on-approved-staging-staging-desktop\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\staging-desktop-navigation-e0548-t-entry-on-approved-staging-staging-desktop\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\test-results\staging-desktop-navigation-e0548-t-entry-on-approved-staging-staging-desktop\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\test-results\staging-desktop-navigation-e0548-t-entry-on-approved-staging-staging-desktop\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\test-results\staging-desktop-navigation-e0548-t-entry-on-approved-staging-staging-desktop\test-failed-1.png]]
+
+[[ATTACHMENT|..\test-results\staging-desktop-navigation-e0548-t-entry-on-approved-staging-staging-desktop\error-context.md]]
+
+[[ATTACHMENT|..\test-results\staging-desktop-navigation-e0548-t-entry-on-approved-staging-staging-desktop\trace.zip]]
+]]>
+</system-out>
 </testcase>
 </testsuite>
 </testsuites>

@@ -6,9 +6,7 @@ test.describe('Staging Authentication Smoke @staging', () => {
     requireAuthorizedStaging(baseURL);
   });
 
-  test('loads the authorized staging homepage', async ({
-    page,
-  }): Promise<void> => {
+  test('loads the authorized staging homepage', async ({ page, }): Promise<void> => {
     const response = await page.goto('/', {
       waitUntil: 'domcontentloaded',
     });

@@ -11,18 +11,13 @@ test.describe('Cart @staging @stateful @requires-authorization', () => {
       throw new Error('BASE_URL is required.');
     }
 
-    /*if (isProductionHost(baseURL)) {
+    if (isProductionHost(baseURL)) {
       test.skip(true, 'Cart mutations are prohibited against production.');
-    }*/
+    }
+
   });
 
-  test('adds item and updates quantity on staging', async ({
-    page,
-    homePage,
-    searchResultsPage,
-    productDetailPage,
-    cartPage,
-  }) => {
+  test('adds item and updates quantity on staging', async ({ page, homePage, searchResultsPage, productDetailPage, cartPage, }) => {
     // Navigate and consent
     await homePage.gotoHome();
     await homePage.cookieBanner.dismissIfPresent();
@@ -46,7 +41,10 @@ test.describe('Cart @staging @stateful @requires-authorization', () => {
     await expect(cartPage.cartItem).not.toHaveCount(0);
 
     // Update quantity logic would go here, relying on staging backend specific UI
-    // e.g. await page.getByRole('textbox', { name: /anzahl|quantity/i }).fill('2');
-    // await page.getByRole('button', { name: /aktualisieren|update/i }).click();
+    await page.getByRole('textbox', { name: /anzahl|quantity/i }).fill('2');
+    await page.getByRole('button', { name: /aktualisieren|update/i }).click();
+
+
   });
+
 });

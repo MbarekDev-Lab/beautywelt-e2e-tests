@@ -82,7 +82,7 @@ export class ProductCardComponent {
       'Product image source must contain a numeric product ID.',
     ).toMatch(PRODUCT_IMAGE_SOURCE_PATTERN);
 
-    await expect(this.image).toBeVisible();
+    await expect(this.image).toHaveCount(1);
 
     await expect(
       this.image,

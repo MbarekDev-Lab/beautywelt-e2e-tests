@@ -17,17 +17,16 @@ export class HeaderComponent {
     );
 
     this.logo = this.root.getByRole('img', {
-      name: 'Beautywelt.de',
-      exact: true,
+      name: /beautywelt|haarpflege/i,
     });
 
     this.mobileMenuButton = this.root.getByRole('button', {
       name: /open burger menu/i,
     });
 
-    this.cartLink = this.root.locator(
-      'a[href="/warenkorb.php"][title="Warenkorb"]',
-    );
+    this.cartLink = this.root
+      .getByRole('link', { name: /Warenkorb/i })
+      .first();
 
     this.accountLink = this.root.locator(
       'a[href="/jtl.php"][title="Anmelden"]',

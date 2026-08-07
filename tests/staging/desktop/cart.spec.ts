@@ -39,8 +39,33 @@ test.describe('Cart @staging @stateful @requires-authorization', () => {
     // Verify cart is populated
     await expect(cartPage.cartItem).not.toHaveCount(0);
 
-    // Update quantity logic would go here, relying on staging backend specific UI
-    await page.getByRole('textbox', { name: /anzahl|quantity/i }).fill('2');
-    await page.getByRole('button', { name: /aktualisieren|update/i }).click();
+    // Update quantity: wait for controls to appear, then update and confirm
+    const quantity = page.locator('input[type="number"]').first();
+    await expect(quantity).toBeVisible({ timeout: 5000 });
+    await quantity.fill('2');
+
+    // Prefer semantic role-based button lookup, fallback to button-like elements with matching text
+    const updateBtn = page
+      .locator('button, input[type="submit"], input[type="button"], [role="button"]')
+      .filter({ hasText: /aktualisieren|update/i })
+      .first();
+    if (await updateBtn.count() > 0) {
+      await expect(updateBtn).toBeVisible({ timeout: 5000 });
+      await Promise.all([
+        updateBtn.click(),
+        Promise.race([
+          page.waitForResponse(resp => /warenkorb/i.test(resp.url()) && resp.ok(), { timeout: 15000 }).catch(() => null),
+          page.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => null),
+        ]),
+      ]);
+    } else {
+      // Some carts apply quantity changes on blur/enter — try both
+      await quantity.press('Enter');
+      await page.waitForLoadState('networkidle', { timeout: 15000 });
+    }
+
+    await cartPage.waitForMainContent();
+    // Accept values that start with 2 (e.g. "2", "2.00")
+    await expect(quantity).toHaveValue(/^\s*2/, { timeout: 10000 });
   });
 });

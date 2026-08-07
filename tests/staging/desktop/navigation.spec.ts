@@ -459,9 +459,7 @@ test.describe('Desktop Navigation Flow @staging @stateful @requires-authorizatio
     requireAuthorizedStaging(baseURL);
   });
 
-  test('navigates from search to checkout entry on approved staging', async ({
-    page,
-  }): Promise<void> => {
+  test('navigates from search to checkout entry on approved staging', async ({ page, }): Promise<void> => {
     const testData = loadNavigationTestData();
 
     await test.step('Open the authorized staging homepage', async (): Promise<void> => {

@@ -1,11 +1,11 @@
-#Safe Playwright Automation Framework for Beautywelt.de
+#Safe Playwright Automation Framework for haarpflege-beauty.de
 
-This is a **Production-Safe** Playwright automation framework targeting `beautywelt.de`. The project has been rigorously refactored to enforce a strict
+This is a **Production-Safe** Playwright automation framework targeting `haarpflege-beauty.de`. The project has been rigorously refactored to enforce a strict
 boundary between passive production checks and transactional mutations (e.g. cart modification, checkout).
 
 ## Project Purpose & Authorization Boundary
 
-We are building test software for `beautywelt.de`. However, we **do not** have authorization to perform state-changing or load-generating operations on
+We are building test software for `haarpflege-beauty.de`. However, we **do not** have authorization to perform state-changing or load-generating operations on
 their production environment. The overriding rule of this framework is: **When safety and coverage conflict, choose safety.**
 
 Fake information does NOT make a production submission safe.
@@ -35,7 +35,7 @@ cp .env.example .env
 The `.env` file should resemble `.env.example`:
 
 ```
-BASE_URL=https://www.beautywelt.de/
+BASE_URL=https://www.haarpflege-beauty.de/
 TARGET_ENV=production
 ALLOW_STATE_CHANGES=false
 TEST_AUTHORIZATION_REFERENCE=

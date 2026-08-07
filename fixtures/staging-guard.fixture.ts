@@ -1,8 +1,6 @@
 import { isApprovedStagingHost } from '../config/environment';
 
-export function requireAuthorizedStaging(
-  baseURL: string | undefined,
-): asserts baseURL is string {
+export function validateStagingAuthorization(baseURL: string | undefined, env: NodeJS.ProcessEnv = process.env,): asserts baseURL is string {
   if (!baseURL) {
     throw new Error('BASE_URL is required.');
   }
@@ -21,15 +19,19 @@ export function requireAuthorizedStaging(
     );
   }
 
-  if (process.env.TARGET_ENV !== 'staging') {
+  if (env.TARGET_ENV !== 'staging') {
     throw new Error('Stateful tests require TARGET_ENV=staging.');
   }
 
-  if (process.env.ALLOW_STATE_CHANGES !== 'true') {
+  if (env.ALLOW_STATE_CHANGES !== 'true') {
     throw new Error('Stateful tests require ALLOW_STATE_CHANGES=true.');
   }
 
-  if (!process.env.TEST_AUTHORIZATION_REFERENCE?.trim()) {
+  if (!env.TEST_AUTHORIZATION_REFERENCE?.trim()) {
     throw new Error('Stateful tests require TEST_AUTHORIZATION_REFERENCE.');
   }
+}
+
+export function requireAuthorizedStaging(baseURL: string | undefined,): asserts baseURL is string {
+  validateStagingAuthorization(baseURL, process.env);
 }

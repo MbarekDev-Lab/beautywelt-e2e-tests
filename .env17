@@ -1,10 +1,11 @@
-BASE_URL=https://www.haarpflege-beautyshop.de/
+BASE_URL=https://www.haarpflege-beauty.de/
 TARGET_ENV=staging
 ALLOW_STATE_CHANGES=true
 TEST_AUTHORIZATION_REFERENCE=haarpflege-test-domain-authorized
 PRODUCTION_TEST_BUDGET=10
 PRODUCTION_NAVIGATION_BUDGET=10
 # neu test shopping domain
+
 BASE_URL=https://www.haarpflege-beauty.de/
 BASIC_AUTH_USERNAME=test
 BASIC_AUTH_PASSWORD=joBW!2023

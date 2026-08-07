@@ -9,8 +9,8 @@ dotenv.config({ path: SELECTED_ENV_FILE });
 export const PRODUCTION_HOSTS = new Set(['beautywelt.de', 'www.beautywelt.de']);
 
 export const APPROVED_STAGING_HOSTS = new Set([
-  'haarpflege-beautyshop.de',
-  'www.haarpflege-beautyshop.de',
+  'haarpflege-beauty.de',
+  'www.haarpflege-beauty.de',
 ]);
 
 export type TargetEnvironment = 'production' | 'staging' | 'offline' | 'unit';
@@ -191,15 +191,15 @@ export function loadEnvironmentConfig(): EnvironmentConfig {
 export function validateEnvironment(): EnvironmentConfig {
   const config = loadEnvironmentConfig();
 
-  if (config.isProduction && config.allowStateChanges) {
+  if (config.targetEnv === 'production' && config.allowStateChanges) {
     throw new Error(
-      'Unsafe configuration: state-changing tests are prohibited against Beautywelt production.',
+      'Unsafe configuration: state-changing tests are prohibited in production.',
     );
   }
 
-  if (config.isProduction && config.targetEnv !== 'production') {
+  if (config.targetEnv === 'production' && config.isApprovedStaging) {
     throw new Error(
-      'Unsafe configuration: Beautywelt production hosts must use TARGET_ENV=production.',
+      'Unsafe configuration: the authorized test domain cannot be used as production.',
     );
   }
 
@@ -219,6 +219,12 @@ export function validateEnvironment(): EnvironmentConfig {
     if (!config.isApprovedStaging) {
       throw new Error(
         `Unsafe configuration: staging tests require an approved staging host. Current host: ${config.hostname}`,
+      );
+    }
+
+    if (config.isProduction) {
+      throw new Error(
+        'Unsafe configuration: production hosts cannot be used for staging tests.',
       );
     }
 

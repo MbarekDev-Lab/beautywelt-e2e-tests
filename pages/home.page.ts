@@ -89,7 +89,9 @@ export class HomePage extends BasePage {
     await expect(this.heading).toHaveCount(1);
     await expect(this.heading).toBeVisible();
 
-    await expect(this.page).toHaveTitle(/online parf.*merie.*beautywelt/i);
+    await expect(this.page).toHaveTitle(
+      /Online Parfümerie: Parfum, Kosmetik & Haarpflege kaufen | Beautywelt./i,
+    );
   }
 
   async assertAuthorizedApplicationLoaded(): Promise<void> {

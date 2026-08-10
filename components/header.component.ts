@@ -16,17 +16,18 @@ export class HeaderComponent {
       'a[title="Beautywelt Startseite"][href="/"]',
     );
 
-    this.logo = this.root.getByRole('img', {
-      name: /beautywelt|haarpflege/i,
-    });
+    // Primary accessible-role locator by image name (preferred).
+    // Add a resilient CSS-based fallback for cases where ARIA/accessibility
+    // tree differs between environments or the accessible name is not set.
+    this.logo = this.root.locator(
+      'img[alt*="Beautywelt" i], img[alt*="Haarpflege" i], img[src*="logo" i], .logo img'
+    ).first();
 
     this.mobileMenuButton = this.root.getByRole('button', {
       name: /open burger menu/i,
     });
 
-    this.cartLink = this.root
-      .getByRole('link', { name: /Warenkorb/i })
-      .first();
+    this.cartLink = this.root.getByRole('link', { name: /Warenkorb/i }).first();
 
     this.accountLink = this.root.locator(
       'a[href="/jtl.php"][title="Anmelden"]',

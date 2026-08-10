@@ -1,213 +1,45 @@
-<testsuites id="" name="" tests="8" failures="0" skipped="6" errors="2" time="28.092118000000003">
-<testsuite name="staging\desktop\account.spec.ts" timestamp="2026-08-07T10:43:06.366Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="requires verified product data and selectors" classname="staging\desktop\account.spec.ts">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="staging\desktop\api-health.spec.ts" timestamp="2026-08-07T10:43:06.366Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="requires verified product data and selectors" classname="staging\desktop\api-health.spec.ts">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="staging\desktop\cart.spec.ts" timestamp="2026-08-07T10:43:06.366Z" hostname="staging-desktop" tests="1" failures="0" skipped="0" time="12.31" errors="1">
-<testcase name="Cart @staging @stateful @requires-authorization › adds item and updates quantity on staging" classname="staging\desktop\cart.spec.ts" time="12.31">
+<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="36.49557">
+<testsuite name="staging\mobile\homepage.spec.ts" timestamp="2026-08-07T15:58:10.359Z" hostname="staging-mobile" tests="1" failures="1" skipped="0" time="33.216" errors="0">
+<testcase name="Haarpflege Beauty homepage on iPhone 13 @staging @smoke › loads with the expected identity and landmarks" classname="staging\mobile\homepage.spec.ts" time="33.216">
 <system-out>
 <![CDATA[
-[[ATTACHMENT|..\test-results\staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop\test-failed-1.png]]
+[[ATTACHMENT|..\test-results\staging-mobile-homepage-Ha-861f7-cted-identity-and-landmarks-staging-mobile\test-failed-1.png]]
 
-[[ATTACHMENT|..\test-results\staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop\error-context.md]]
-
-[[ATTACHMENT|..\test-results\staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop\trace.zip]]
+[[ATTACHMENT|..\test-results\staging-mobile-homepage-Ha-861f7-cted-identity-and-landmarks-staging-mobile\error-context.md]]
 ]]>
 </system-out>
-<error message="locator.click: Timeout 10000ms exceeded." type="TimeoutError">
-<![CDATA[  [staging-desktop] › staging\desktop\cart.spec.ts:19:7 › Cart @staging @stateful @requires-authorization › adds item and updates quantity on staging 
+<failure message="expect(page).toHaveURL(expected) failed" type="expect.toHaveURL">
+<![CDATA[  [staging-mobile] › staging\mobile\homepage.spec.ts:467:9 › Haarpflege Beauty homepage on iPhone 13 @staging @smoke › loads with the expected identity and landmarks › Verify homepage identity 
 
-    TimeoutError: locator.click: Timeout 10000ms exceeded.
+    Error: expect(page).toHaveURL(expected) failed
+
+    Expected pattern: /haarpflege-beauty\.de/i
+    Received string:  "https://www.beautywelt.de/"
+    Timeout: 5000ms
+
     Call log:
-      - waiting for locator('article, .product-card, [data-testid="product-card"]').filter({ has: locator('a') }).first().locator('a[href]').first()
+      - Expect "toHaveURL" with timeout 5000ms
+        13 × locator resolved to <html lang="de" itemscope="" itemtype="https://schema.org/WebPage">…</html>
+           - unexpected value "https://www.beautywelt.de/"
 
 
-      27 |
-      28 |     await searchResultsPage.waitForMainContent();
-    > 29 |     await searchResultsPage.firstProductLink.click();
-         |                                              ^
-      30 |
-      31 |     // Add to cart
-      32 |     await productDetailPage.waitForMainContent();
-        at D:\MbarekDevCode\playwright-testing-software\BW-Production-ready-playwright-test\tests\staging\desktop\cart.spec.ts:29:46
+      467 |     test('loads with the expected identity and landmarks', async ({ page, homePage }) => {
+      468 |         await test.step('Verify homepage identity', async () => {
+    > 469 |             await expect(page).toHaveURL(/haarpflege-beauty\.de/i,);
+          |                                ^
+      470 |
+      471 |             await expect(page).toHaveTitle(/Haarpflege|Beauty/i,);
+      472 |         },
+        at D:\MbarekDevCode\playwright-testing-software\BW-Production-ready-playwright-test\tests\staging\mobile\homepage.spec.ts:469:32
+        at D:\MbarekDevCode\playwright-testing-software\BW-Production-ready-playwright-test\tests\staging\mobile\homepage.spec.ts:468:9
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\test-results\staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop\test-failed-1.png
+    ..\test-results\staging-mobile-homepage-Ha-861f7-cted-identity-and-landmarks-staging-mobile\test-failed-1.png
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
-    Error Context: ..\test-results\staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop\error-context.md
-
-    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
-    ..\test-results\staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop\trace.zip
-    Usage:
-
-        npx playwright show-trace ..\test-results\staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop\trace.zip
-
-    ────────────────────────────────────────────────────────────────────────────────────────────────
+    Error Context: ..\test-results\staging-mobile-homepage-Ha-861f7-cted-identity-and-landmarks-staging-mobile\error-context.md
 ]]>
-</error>
-</testcase>
-</testsuite>
-<testsuite name="staging\desktop\checkout-navigation.spec.ts" timestamp="2026-08-07T10:43:06.366Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="requires verified product data and selectors" classname="staging\desktop\checkout-navigation.spec.ts">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="staging\desktop\navigation.spec.ts" timestamp="2026-08-07T10:43:06.366Z" hostname="staging-desktop" tests="1" failures="0" skipped="0" time="11.726" errors="1">
-<testcase name="Desktop Navigation Flow @staging @stateful @requires-authorization › navigates from search to checkout entry on approved staging" classname="staging\desktop\navigation.spec.ts" time="11.726">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\test-results\staging-desktop-navigation-e0548-t-entry-on-approved-staging-staging-desktop\test-failed-1.png]]
-
-[[ATTACHMENT|..\test-results\staging-desktop-navigation-e0548-t-entry-on-approved-staging-staging-desktop\error-context.md]]
-
-[[ATTACHMENT|..\test-results\staging-desktop-navigation-e0548-t-entry-on-approved-staging-staging-desktop\trace.zip]]
-]]>
-</system-out>
-<error message="locator.click: Timeout 10000ms exceeded." type="TimeoutError">
-<![CDATA[  [staging-desktop] › staging\desktop\navigation.spec.ts:462:7 › Desktop Navigation Flow @staging @stateful @requires-authorization › navigates from search to checkout entry on approved staging › Search for the configured staging product 
-
-    TimeoutError: locator.click: Timeout 10000ms exceeded.
-    Call log:
-      - waiting for getByRole('button', { name: /suche|suchen|search/i }).first()
-        - locator resolved to <button class="bwey" type="submit" aria-label="Suchen">…</button>
-      - attempting click action
-        2 × waiting for element to be visible, enabled and stable
-          - element is visible, enabled and stable
-          - scrolling into view if needed
-          - done scrolling
-          - <section class="bwu5 bws3">…</section> from <div class="bwa10 bwin">…</div> subtree intercepts pointer events
-        - retrying click action
-        - waiting 20ms
-        - waiting for element to be visible, enabled and stable
-        - element is visible, enabled and stable
-        - scrolling into view if needed
-        - done scrolling
-        - <section class="bwu5 bws3">…</section> from <div class="bwa10 bwin">…</div> subtree intercepts pointer events
-      2 × retrying click action
-          - waiting 100ms
-          - waiting for element to be visible, enabled and stable
-          - element is visible, enabled and stable
-          - scrolling into view if needed
-          - done scrolling
-          - <div class="bwpf">…</div> from <div class="bwa10 bwin">…</div> subtree intercepts pointer events
-      4 × retrying click action
-          - waiting 500ms
-          - waiting for element to be visible, enabled and stable
-          - element is visible, enabled and stable
-          - scrolling into view if needed
-          - done scrolling
-          - <section class="bwu5 bws3">…</section> from <div class="bwa10 bwin">…</div> subtree intercepts pointer events
-        - retrying click action
-          - waiting 500ms
-          - waiting for element to be visible, enabled and stable
-          - element is visible, enabled and stable
-          - scrolling into view if needed
-          - done scrolling
-          - <section class="bwu5 bws3">…</section> from <div class="bwa10 bwin">…</div> subtree intercepts pointer events
-        - retrying click action
-          - waiting 500ms
-          - waiting for element to be visible, enabled and stable
-          - element is visible, enabled and stable
-          - scrolling into view if needed
-          - done scrolling
-          - <div class="bwpf">…</div> from <div class="bwa10 bwin">…</div> subtree intercepts pointer events
-        - retrying click action
-          - waiting 500ms
-          - waiting for element to be visible, enabled and stable
-          - element is visible, enabled and stable
-          - scrolling into view if needed
-          - done scrolling
-          - <div class="bwpf">…</div> from <div class="bwa10 bwin">…</div> subtree intercepts pointer events
-      - retrying click action
-        - waiting 500ms
-        - waiting for element to be visible, enabled and stable
-        - element is visible, enabled and stable
-        - scrolling into view if needed
-        - done scrolling
-        - <section class="bwu5 bws3">…</section> from <div class="bwa10 bwin">…</div> subtree intercepts pointer events
-      - retrying click action
-        - waiting 500ms
-
-
-      197 |
-      198 |   if (searchTrigger) {
-    > 199 |     await searchTrigger.click();
-          |                         ^
-      200 |   }
-      201 | }
-      202 |
-        at openSearchInterfaceIfRequired (D:\MbarekDevCode\playwright-testing-software\BW-Production-ready-playwright-test\tests\staging\desktop\navigation.spec.ts:199:25)
-        at findSearchInput (D:\MbarekDevCode\playwright-testing-software\BW-Production-ready-playwright-test\tests\staging\desktop\navigation.spec.ts:204:3)
-        at D:\MbarekDevCode\playwright-testing-software\BW-Production-ready-playwright-test\tests\staging\desktop\navigation.spec.ts:480:27
-        at D:\MbarekDevCode\playwright-testing-software\BW-Production-ready-playwright-test\tests\staging\desktop\navigation.spec.ts:479:5
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\test-results\staging-desktop-navigation-e0548-t-entry-on-approved-staging-staging-desktop\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\test-results\staging-desktop-navigation-e0548-t-entry-on-approved-staging-staging-desktop\error-context.md
-
-    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
-    ..\test-results\staging-desktop-navigation-e0548-t-entry-on-approved-staging-staging-desktop\trace.zip
-    Usage:
-
-        npx playwright show-trace ..\test-results\staging-desktop-navigation-e0548-t-entry-on-approved-staging-staging-desktop\trace.zip
-
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-]]>
-</error>
-</testcase>
-</testsuite>
-<testsuite name="staging\desktop\product-detail.spec.ts" timestamp="2026-08-07T10:43:06.366Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="requires verified product data and selectors" classname="staging\desktop\product-detail.spec.ts">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="staging\desktop\search-filters.spec.ts" timestamp="2026-08-07T10:43:06.366Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="requires verified product data and selectors" classname="staging\desktop\search-filters.spec.ts">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="staging\desktop\visual-regression.spec.ts" timestamp="2026-08-07T10:43:06.366Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="requires verified product data and selectors" classname="staging\desktop\visual-regression.spec.ts">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
+</failure>
 </testcase>
 </testsuite>
 </testsuites>

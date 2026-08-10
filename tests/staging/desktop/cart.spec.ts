@@ -16,7 +16,13 @@ test.describe('Cart @staging @stateful @requires-authorization', () => {
     }*/
   });
 
-  test('adds item and updates quantity on staging', async ({ page, homePage, searchResultsPage, productDetailPage, cartPage, }) => {
+  test('adds item and updates quantity on staging', async ({
+    page,
+    homePage,
+    searchResultsPage,
+    productDetailPage,
+    cartPage,
+  }) => {
     // Navigate and consent
     await homePage.gotoHome();
     await homePage.cookieBanner.dismissIfPresent();
@@ -46,16 +52,25 @@ test.describe('Cart @staging @stateful @requires-authorization', () => {
 
     // Prefer semantic role-based button lookup, fallback to button-like elements with matching text
     const updateBtn = page
-      .locator('button, input[type="submit"], input[type="button"], [role="button"]')
+      .locator(
+        'button, input[type="submit"], input[type="button"], [role="button"]',
+      )
       .filter({ hasText: /aktualisieren|update/i })
       .first();
-    if (await updateBtn.count() > 0) {
+    if ((await updateBtn.count()) > 0) {
       await expect(updateBtn).toBeVisible({ timeout: 5000 });
       await Promise.all([
         updateBtn.click(),
         Promise.race([
-          page.waitForResponse(resp => /warenkorb/i.test(resp.url()) && resp.ok(), { timeout: 15000 }).catch(() => null),
-          page.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => null),
+          page
+            .waitForResponse(
+              (resp) => /warenkorb/i.test(resp.url()) && resp.ok(),
+              { timeout: 15000 },
+            )
+            .catch(() => null),
+          page
+            .waitForLoadState('networkidle', { timeout: 15000 })
+            .catch(() => null),
         ]),
       ]);
     } else {

@@ -459,7 +459,9 @@ test.describe('Desktop Navigation Flow @staging @stateful @requires-authorizatio
     requireAuthorizedStaging(baseURL);
   });
 
-  test('navigates from search to checkout entry on approved staging', async ({ page, }): Promise<void> => {
+  test('navigates from search to checkout entry on approved staging', async ({
+    page,
+  }): Promise<void> => {
     const testData = loadNavigationTestData();
 
     await test.step('Open the authorized staging homepage', async (): Promise<void> => {
@@ -505,6 +507,9 @@ test.describe('Desktop Navigation Flow @staging @stateful @requires-authorizatio
      * Do not enter or submit customer data.
      * Do not select shipping or payment methods.
      * Do not confirm or place an order.
+     *
+     *
+     *
      */
   });
 });

@@ -43,7 +43,10 @@ function requireDestructiveTestAuthorization(): void {
   );
 }
 
-async function expectSuccessfulResponse(response: APIResponse, operation: string,): Promise<void> {
+async function expectSuccessfulResponse(
+  response: APIResponse,
+  operation: string,
+): Promise<void> {
   expect(
     response.status(),
     `${operation} returned HTTP ${response.status()}.`,
@@ -112,7 +115,10 @@ async function resetCart(request: APIRequestContext): Promise<void> {
    * 204: cart was cleared without a response body.
    * 404: no cart existed, so the desired empty state already existed.
    */
-  expect([200, 204, 404], `Cart cleanup returned unexpected HTTP ${response.status()}.`,).toContain(response.status());
+  expect(
+    [200, 204, 404],
+    `Cart cleanup returned unexpected HTTP ${response.status()}.`,
+  ).toContain(response.status());
 }
 
 test.describe('Checkout API @staging @destructive @requires-authorization', () => {
@@ -143,22 +149,26 @@ test.describe('Checkout API @staging @destructive @requires-authorization', () =
     await resetCart(request);
   });
 
-  test('creates an order and decrements controlled test stock', async ({ request, }): Promise<void> => {
-    const before = await test.step('Read stock and price before checkout', async (): Promise<CartState> => {
-      return readCartState(request);
-    });
-
-    const order = await test.step('Create an authorized destructive test order', async (): Promise<CreatedOrder> => {
-      const response = await request.post(CART_ENDPOINT, {
-        data: {
-          action: 'create',
-          recordId: FIRST_RECORD_ID,
-          quantity: 1,
-        },
+  test('creates an order and decrements controlled test stock', async ({
+    request,
+  }): Promise<void> => {
+    const before =
+      await test.step('Read stock and price before checkout', async (): Promise<CartState> => {
+        return readCartState(request);
       });
 
-      return readCreatedOrder(response);
-    });
+    const order =
+      await test.step('Create an authorized destructive test order', async (): Promise<CreatedOrder> => {
+        const response = await request.post(CART_ENDPOINT, {
+          data: {
+            action: 'create',
+            recordId: FIRST_RECORD_ID,
+            quantity: 1,
+          },
+        });
+
+        return readCreatedOrder(response);
+      });
 
     await test.step('Validate the created order', async (): Promise<void> => {
       expect(order.orderId).toBeTruthy();
@@ -176,7 +186,9 @@ test.describe('Checkout API @staging @destructive @requires-authorization', () =
     });
   });
 
-  test('returns the current cart contents', async ({ request, }): Promise<void> => {
+  test('returns the current cart contents', async ({
+    request,
+  }): Promise<void> => {
     const response = await request.get(CART_ENDPOINT);
 
     await expectSuccessfulResponse(response, 'Reading the cart contents');

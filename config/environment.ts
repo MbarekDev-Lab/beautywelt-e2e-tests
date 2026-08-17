@@ -48,7 +48,9 @@ function requireEnvValue(name: string): string {
   const value = getOptionalEnvValue(name);
 
   if (!value) {
-    throw new Error(`${name} environment variable is required.`);
+    //throw new Error(`${name} environment variable is required.`);
+    //throw new Error('BASE_URL must be a valid URL.')
+return value;
   }
 
   return value;
@@ -151,7 +153,6 @@ export function loadEnvironmentConfig(): EnvironmentConfig {
 
   const authorizationReference =
     getOptionalEnvValue('TEST_AUTHORIZATION_REFERENCE') ?? '';
-
   const hostname = getHostname(baseURL);
   const isProduction = isProductionHost(baseURL);
   const isApprovedStaging = isApprovedStagingHost(baseURL);

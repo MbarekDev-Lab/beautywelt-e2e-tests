@@ -1,8 +1,5 @@
 import { test, expect } from '@playwright/test';
-import {
-  isProductionHost,
-  validateEnvironment,
-} from '../../config/environment';
+import { isProductionHost, validateEnvironment, } from '../../config/environment';
 import { validateStagingAuthorization } from '../../fixtures/staging-guard.fixture';
 
 test.describe('Safety Controls - Unit Tests', () => {

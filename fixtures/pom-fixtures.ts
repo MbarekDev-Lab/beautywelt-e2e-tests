@@ -10,14 +10,14 @@ import { ProductDetailPage } from '../pages/product-detail.page';
 import { SearchResultsPage } from '../pages/search-results.page';
 
 type PageObjectFixtures = {
-  readonly basePage: BasePage;
-  readonly homePage: HomePage;
-  readonly categoryPage: CategoryPage;
-  readonly searchResultsPage: SearchResultsPage;
-  readonly productDetailPage: ProductDetailPage;
-  readonly cartPage: CartPage;
-  readonly checkoutPage: CheckoutPage;
   readonly accountPage: AccountPage;
+  readonly basePage: BasePage;
+  readonly cartPage: CartPage;
+  readonly categoryPage: CategoryPage;
+  readonly checkoutPage: CheckoutPage;
+  readonly homePage: HomePage;
+  readonly productDetailPage: ProductDetailPage;
+  readonly searchResultsPage: SearchResultsPage;
 };
 
 export const test = base.extend<PageObjectFixtures>({

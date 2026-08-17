@@ -1,8 +1,7 @@
 import type { Locator, Page, Response } from '@playwright/test';
 import { expect } from '@playwright/test';
 
-export type NavigationWaitUntil =
-  'commit' | 'domcontentloaded' | 'load' | 'networkidle';
+export type NavigationWaitUntil =  'commit' | 'domcontentloaded' | 'load' | 'networkidle';
 
 export type MainContentWaitOptions = {
   readonly timeout?: number;
@@ -18,10 +17,7 @@ export class BasePage {
     this.mainContent = page.getByRole('main');
   }
 
-  async goto(
-    path: string,
-    waitUntil: NavigationWaitUntil = 'domcontentloaded',
-  ): Promise<Response | null> {
+  async goto( path: string, waitUntil: NavigationWaitUntil = 'domcontentloaded', ): Promise<Response | null> {
     return this.page.goto(path, {
       waitUntil,
     });
@@ -31,9 +27,7 @@ export class BasePage {
     return this.goto('/');
   }
 
-  async waitForMainContent(
-    options: MainContentWaitOptions = {},
-  ): Promise<void> {
+  async waitForMainContent( options: MainContentWaitOptions = {}, ): Promise<void> {
     await this.mainContent.waitFor({
       state: 'visible',
       timeout: options.timeout,
@@ -45,10 +39,7 @@ export class BasePage {
     await expect(this.mainContent).toBeVisible();
   }
 
-  async assertSuccessfulDocumentResponse(
-    response: Response | null,
-    purpose: string,
-  ): Promise<void> {
+  async assertSuccessfulDocumentResponse( response: Response | null, purpose: string, ): Promise<void> {
     if (!response) {
       throw new Error(`${purpose} returned no document response.`);
     }

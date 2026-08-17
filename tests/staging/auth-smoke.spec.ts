@@ -46,9 +46,7 @@ test.describe('Staging Authentication Smoke @staging', () => {
 
     expect(status).toBeLessThan(400);
 
-    await expect(
-      page.getByRole('heading', { name: /unauthorized/i }),
-    ).toHaveCount(0);
+    await expect( page.getByRole('heading', { name: /unauthorized/i }), ).toHaveCount(0);
 
     await expect(page.locator('body')).not.toContainText(
       /could not verify that you are authorized/i,

@@ -1,9 +1,7 @@
 import type { Response } from '@playwright/test';
 import { test, expect } from '../../fixtures/pom-fixtures';
 
-function assertSuccessfulProductionResponse(
-  response: Response | null,
-): asserts response is Response {
+function assertSuccessfulProductionResponse( response: Response | null, ): asserts response is Response {
   if (!response) {
     throw new Error('Authorized homepage returned no document response.');
   }
@@ -47,7 +45,11 @@ test.describe('Beautywelt Homepage @production-readonly @smoke', () => {
     await homePage.search.expectReady();
   });
 
+<<<<<<< HEAD
   test('displays the expected primary category destinations', async ({ homePage, }): Promise<void> => {
+=======
+  test('displays the expected primary category destinations', async ({ homePage,}): Promise<void> => {
+>>>>>>> 32e458b (Save local work)
     const response = await homePage.gotoHome();
 
     assertSuccessfulProductionResponse(response);

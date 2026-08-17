@@ -1,11 +1,12 @@
 import type { Locator, Page, Response } from '@playwright/test';
 import { expect } from '@playwright/test';
 
-import { CookieBannerComponent } from '../components/cookie-banner.component';
 import { FooterComponent } from '../components/footer.component';
 import { HeaderComponent } from '../components/header.component';
-import { ProductCardComponent } from '../components/product-card.component';
 import { SearchComponent } from '../components/search.component';
+import { ProductCardComponent } from '../components/product-card.component';
+import { CookieBannerComponent } from '../components/cookie-banner.component';
+
 import { BasePage } from './base.page';
 
 const PRODUCT_LINK_SELECTOR =
@@ -30,7 +31,6 @@ export class HomePage extends BasePage {
   readonly footer: FooterComponent;
   readonly search: SearchComponent;
   readonly cookieBanner: CookieBannerComponent;
-
   override readonly mainContent: Locator;
   readonly heading: Locator;
   readonly productLinks: Locator;
@@ -42,6 +42,7 @@ export class HomePage extends BasePage {
    * Compatibility alias for existing tests.
    * Prefer `homePage.search.input` in new tests.
    */
+  
   readonly searchInput: Locator;
 
   constructor(page: Page) {
@@ -68,9 +69,7 @@ export class HomePage extends BasePage {
 
     this.categoryLinks = this.header.root.locator(CATEGORY_LINK_SELECTOR);
 
-    this.brandLinks = this.mainContent.locator(
-      'a[role="img"][aria-label][href]',
-    );
+    this.brandLinks = this.mainContent.locator( 'a[role="img"][aria-label][href]', );
 
     this.newsletterForm = this.mainContent.locator(
       'form[action="/newsletter.php"][method="post" i]',
@@ -88,7 +87,6 @@ export class HomePage extends BasePage {
     await expect(this.mainContent).toBeVisible();
     await expect(this.heading).toHaveCount(1);
     await expect(this.heading).toBeVisible();
-
     await expect(this.page).toHaveTitle(
       /Online Parfümerie: Parfum, Kosmetik & Haarpflege kaufen | Beautywelt./i,
     );
@@ -108,7 +106,6 @@ export class HomePage extends BasePage {
 
   /**
    * Safety gate for staging flows.
-   *
    * The inspected HTML contains an absolute `<base>` element. If the base
    * origin differs from the current page origin, relative links and forms can
    * lead to a different environment. Stateful tests must stop in that case.

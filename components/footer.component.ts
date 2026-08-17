@@ -11,7 +11,6 @@ export class FooterComponent {
   readonly accessibilityLink: Locator;
 
   constructor(page: Page) {
-    
     this.root = page.locator('footer#bwch');
 
     this.privacyLink = this.root.locator('a[href="/Datenschutz"]');

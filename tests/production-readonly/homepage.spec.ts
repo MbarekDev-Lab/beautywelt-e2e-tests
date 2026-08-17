@@ -1,7 +1,9 @@
 import type { Response } from '@playwright/test';
 import { test, expect } from '../../fixtures/pom-fixtures';
 
-function assertSuccessfulProductionResponse( response: Response | null, ): asserts response is Response {
+function assertSuccessfulProductionResponse(
+  response: Response | null,
+): asserts response is Response {
   if (!response) {
     throw new Error('Authorized homepage returned no document response.');
   }
@@ -15,8 +17,10 @@ function assertSuccessfulProductionResponse( response: Response | null, ): asser
 }
 
 test.describe('Beautywelt Homepage @production-readonly @smoke', () => {
-
-  test('loads with the expected identity and landmarks', async ({ page, homePage, }): Promise<void> => {
+  test('loads with the expected identity and landmarks', async ({
+    page,
+    homePage,
+  }): Promise<void> => {
     await test.step('Open the public authorized homepage', async (): Promise<void> => {
       const response = await homePage.gotoHome();
 
@@ -36,7 +40,9 @@ test.describe('Beautywelt Homepage @production-readonly @smoke', () => {
     });
   });
 
-  test('displays the public search control without submitting it', async ({ homePage, }): Promise<void> => {
+  test('displays the public search control without submitting it', async ({
+    homePage,
+  }): Promise<void> => {
     const response = await homePage.gotoHome();
 
     assertSuccessfulProductionResponse(response);
@@ -45,11 +51,9 @@ test.describe('Beautywelt Homepage @production-readonly @smoke', () => {
     await homePage.search.expectReady();
   });
 
-<<<<<<< HEAD
-  test('displays the expected primary category destinations', async ({ homePage, }): Promise<void> => {
-=======
-  test('displays the expected primary category destinations', async ({ homePage,}): Promise<void> => {
->>>>>>> 32e458b (Save local work)
+  test('displays the expected primary category destinations', async ({
+    homePage,
+  }): Promise<void> => {
     const response = await homePage.gotoHome();
 
     assertSuccessfulProductionResponse(response);
@@ -80,7 +84,9 @@ test.describe('Beautywelt Homepage @production-readonly @smoke', () => {
     }
   });
 
-  test('displays public homepage product cards with valid identity', async ({ homePage, }): Promise<void> => {
+  test('displays public homepage product cards with valid identity', async ({
+    homePage,
+  }): Promise<void> => {
     const response = await homePage.gotoHome();
 
     assertSuccessfulProductionResponse(response);
@@ -107,7 +113,9 @@ test.describe('Beautywelt Homepage @production-readonly @smoke', () => {
     }
   });
 
-  test('displays the cart control without opening or mutating the cart', async ({ homePage, }): Promise<void> => {
+  test('displays the cart control without opening or mutating the cart', async ({
+    homePage,
+  }): Promise<void> => {
     const response = await homePage.gotoHome();
 
     assertSuccessfulProductionResponse(response);
@@ -116,7 +124,10 @@ test.describe('Beautywelt Homepage @production-readonly @smoke', () => {
     await expect(homePage.header.cartLink).toHaveCount(1);
     await expect(homePage.header.cartLink).toBeVisible();
 
-    await expect(homePage.header.cartLink).toHaveAttribute('href', '/warenkorb.php',);
+    await expect(homePage.header.cartLink).toHaveAttribute(
+      'href',
+      '/warenkorb.php',
+    );
 
     /*
      * Intentional stopping point:
@@ -126,7 +137,9 @@ test.describe('Beautywelt Homepage @production-readonly @smoke', () => {
      */
   });
 
-  test('displays the required legal footer links', async ({ homePage, }): Promise<void> => {
+  test('displays the required legal footer links', async ({
+    homePage,
+  }): Promise<void> => {
     const response = await homePage.gotoHome();
 
     assertSuccessfulProductionResponse(response);

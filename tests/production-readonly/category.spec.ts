@@ -35,7 +35,11 @@ function validatePublicCategoryUrl(rawHref: string, baseURL: string): URL {
 }
 
 test.describe('Category Page @production-readonly', () => {
-  test('should identify the public Parfum category destination', async ({ page, homePage, baseURL, }): Promise<void> => {
+  test('should identify the public Parfum category destination', async ({
+    page,
+    homePage,
+    baseURL,
+  }): Promise<void> => {
     if (!baseURL) {
       throw new Error('baseURL is required.');
     }

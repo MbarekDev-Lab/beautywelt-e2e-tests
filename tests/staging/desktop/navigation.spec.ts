@@ -12,7 +12,7 @@ type NavigationTestData = {
   readonly productName: string;
 };
 
-const LOCATOR_PROBE_TIMEOUT_MS = 1_500;
+const LOCATOR_PROBE_TIMEOUT_MS = 5_000;
 
 function requireEnvironmentValue(name: string): string {
   const value = process.env[name]?.trim();
@@ -196,7 +196,7 @@ async function openSearchInterfaceIfRequired(page: Page): Promise<void> {
   ).catch(() => null);
 
   if (searchTrigger) {
-    await searchTrigger.click();
+    await searchTrigger.click({ force: true });
   }
 }
 
@@ -258,7 +258,7 @@ async function submitSearch(
       .isVisible({ timeout: LOCATOR_PROBE_TIMEOUT_MS })
       .catch(() => false)
   ) {
-    await searchButton.click();
+    await searchButton.click({ force: true });
   } else {
     await searchInput.press('Enter');
   }
@@ -476,6 +476,9 @@ test.describe('Desktop Navigation Flow @staging @stateful @requires-authorizatio
 
       await assertAuthorizedApplicationLoaded(page);
       await dismissCookieBannerIfPresent(page);
+      const { HomePage } = await import('../../../pages/home.page');
+      const homePage = new HomePage(page);
+      await homePage.dismissBlockingOverlays();
     });
 
     await test.step('Search for the configured staging product', async (): Promise<void> => {

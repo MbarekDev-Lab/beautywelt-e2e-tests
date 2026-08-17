@@ -1,5 +1,5 @@
 {
-  "name": "beautywelt-playwright-tests",
+  "name": "beautywelt-e2e-tests",
   "version": "1.0.0",
   "private": true,
   "description": "Production-safe Playwright TypeScript test framework for Beautywelt production and authorized Haarpflege staging environments.",

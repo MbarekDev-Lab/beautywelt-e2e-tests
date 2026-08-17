@@ -48,9 +48,7 @@ function requireEnvValue(name: string): string {
   const value = getOptionalEnvValue(name);
 
   if (!value) {
-    //throw new Error(`${name} environment variable is required.`);
-    //throw new Error('BASE_URL must be a valid URL.')
-return value;
+    throw new Error(`${name} environment variable is required.`);
   }
 
   return value;

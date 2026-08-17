@@ -42,7 +42,7 @@ export class HomePage extends BasePage {
    * Compatibility alias for existing tests.
    * Prefer `homePage.search.input` in new tests.
    */
-  
+
   readonly searchInput: Locator;
 
   constructor(page: Page) {
@@ -69,7 +69,9 @@ export class HomePage extends BasePage {
 
     this.categoryLinks = this.header.root.locator(CATEGORY_LINK_SELECTOR);
 
-    this.brandLinks = this.mainContent.locator( 'a[role="img"][aria-label][href]', );
+    this.brandLinks = this.mainContent.locator(
+      'a[role="img"][aria-label][href]',
+    );
 
     this.newsletterForm = this.mainContent.locator(
       'form[action="/newsletter.php"][method="post" i]',

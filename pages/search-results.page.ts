@@ -13,6 +13,6 @@ export class SearchResultsPage extends BasePage {
   }
 
   get firstProductLink(): Locator {
-    return this.productCards.nth(0).locator('a[href]').nth(0);
+    return this.page.locator('article a[href*="/a/"], .product-list a[href*="/a/"], a[href*="/a/"][title]').first();
   }
 }

@@ -1,14 +1,9 @@
 import { isApprovedStagingHost } from '../config/environment';
 
-<<<<<<< HEAD
 export function validateStagingAuthorization(
   baseURL: string | undefined,
   env: NodeJS.ProcessEnv = process.env,
 ): asserts baseURL is string {
-=======
-export function validateStagingAuthorization(baseURL: string | undefined, 
-  env: NodeJS.ProcessEnv = process.env,): asserts baseURL is string {
->>>>>>> 32e458b (Save local work)
   if (!baseURL) {
     throw new Error('BASE_URL is required.');
   }

@@ -1,4 +1,14 @@
 {
   "inputs": [],
-  "servers": {}
+  "servers": {
+    "playwright-test": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-playwright-test",
+        "--base-url",
+        "https://haarpflege-beauty.de"
+      ]
+    }
+  }
 }

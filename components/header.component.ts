@@ -19,9 +19,11 @@ export class HeaderComponent {
     // Primary accessible-role locator by image name (preferred).
     // Add a resilient CSS-based fallback for cases where ARIA/accessibility
     // tree differs between environments or the accessible name is not set.
-    this.logo = this.root.locator(
-      'img[alt*="Beautywelt" i], img[alt*="Haarpflege" i], img[src*="logo" i], .logo img'
-    ).first();
+    this.logo = this.root
+      .locator(
+        'img[alt*="Beautywelt" i], img[alt*="Haarpflege" i], img[src*="logo" i], .logo img',
+      )
+      .first();
 
     this.mobileMenuButton = this.root.getByRole('button', {
       name: /open burger menu/i,

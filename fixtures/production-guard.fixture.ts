@@ -12,15 +12,10 @@ function isRestrictedPath(pathname: string): boolean {
   return RESTRICTED_PRODUCTION_ROUTES.some((pattern) => pattern.test(pathname));
 }
 
-<<<<<<< HEAD
 export async function installProductionGuard(
   page: Page,
   baseURL: string,
 ): Promise<void> {
-=======
-export async function installProductionGuard(page: Page, baseURL: string,): Promise<void> {
-  
->>>>>>> 32e458b (Save local work)
   const productionOrigin = new URL(baseURL).origin;
 
   await page.route('**/*', async (route: Route) => {

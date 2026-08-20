@@ -6,7 +6,10 @@ export const SELECTED_ENV_FILE = process.env.ENV_FILE ?? DEFAULT_ENV_FILE;
 
 dotenv.config({ path: SELECTED_ENV_FILE });
 
-export const PRODUCTION_HOSTS = new Set(['beautywelt.de', 'www.beautywelt.de']);
+export const PRODUCTION_HOSTS = new Set([
+  'beautywelt.de', 
+  'www.beautywelt.de'
+]);
 
 export const APPROVED_STAGING_HOSTS = new Set([
   'haarpflege-beauty.de',

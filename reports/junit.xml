@@ -1,186 +1,287 @@
-<testsuites id="" name="" tests="12" failures="0" skipped="10" errors="2" time="22.767017">
-<testsuite name="staging/desktop/account.spec.ts" timestamp="2026-08-17T16:46:41.905Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="requires verified product data and selectors" classname="staging/desktop/account.spec.ts">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="staging/desktop/api-health.spec.ts" timestamp="2026-08-17T16:46:41.905Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="requires verified product data and selectors" classname="staging/desktop/api-health.spec.ts">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="staging/desktop/cart.spec.ts" timestamp="2026-08-17T16:46:41.905Z" hostname="staging-desktop" tests="1" failures="0" skipped="0" time="14.682" errors="1">
-<testcase name="Cart @staging @stateful @requires-authorization › adds item and updates quantity on staging" classname="staging/desktop/cart.spec.ts" time="14.682">
+<testsuites id="" name="" tests="6" failures="0" skipped="0" errors="6" time="7.372034999999683">
+<testsuite name="production-readonly/homepage.spec.ts" timestamp="2026-08-18T09:55:07.814Z" hostname="production-readonly" tests="6" failures="0" skipped="0" time="3.258" errors="6">
+<testcase name="Beautywelt Homepage @production-readonly @smoke › loads with the expected identity and landmarks" classname="production-readonly/homepage.spec.ts" time="0.561">
 <system-out>
 <![CDATA[
-[[ATTACHMENT|../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/test-failed-1.png]]
+[[ATTACHMENT|../test-results/production-readonly-homepa-310bb-cted-identity-and-landmarks-production-readonly/test-failed-1.png]]
 
-[[ATTACHMENT|../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/error-context.md]]
+[[ATTACHMENT|../test-results/production-readonly-homepa-310bb-cted-identity-and-landmarks-production-readonly/error-context.md]]
 
-[[ATTACHMENT|../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/trace.zip]]
+[[ATTACHMENT|../test-results/production-readonly-homepa-310bb-cted-identity-and-landmarks-production-readonly/trace.zip]]
 ]]>
 </system-out>
-<error message="locator.click: Timeout 10000ms exceeded." type="TimeoutError">
-<![CDATA[  [staging-desktop] › staging/desktop/cart.spec.ts:19:7 › Cart @staging @stateful @requires-authorization › adds item and updates quantity on staging 
+<error message="page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.beautywelt.de/" type="Error">
+<![CDATA[  [production-readonly] › production-readonly/homepage.spec.ts:20:7 › Beautywelt Homepage @production-readonly @smoke › loads with the expected identity and landmarks › Open the public authorized homepage 
 
-    TimeoutError: locator.click: Timeout 10000ms exceeded.
+    Error: page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.beautywelt.de/
     Call log:
-      - waiting for getByRole('button', { name: /in den warenkorb|add to cart|zum warenkorb/i })
+      - navigating to "https://www.beautywelt.de/", waiting until "domcontentloaded"
 
 
-      47 |     // Add to cart
-      48 |     await productDetailPage.waitForMainContent();
-    > 49 |     await productDetailPage.addToCartButton.click();
-         |                                             ^
-      50 |
-      51 |     // Go to cart
-      52 |     await page.goto('/warenkorb.php');
-        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/cart.spec.ts:49:45
+       at ../pages/base.page.ts:25
+
+      23 |     waitUntil: NavigationWaitUntil = 'domcontentloaded',
+      24 |   ): Promise<Response | null> {
+    > 25 |     return this.page.goto(path, {
+         |                      ^
+      26 |       waitUntil,
+      27 |     });
+      28 |   }
+        at HomePage.goto (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/pages/base.page.ts:25:22)
+        at HomePage.gotoHome (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/pages/home.page.ts:84:17)
+        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/production-readonly/homepage.spec.ts:25:39
+        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/production-readonly/homepage.spec.ts:24:5
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/test-failed-1.png
+    ../test-results/production-readonly-homepa-310bb-cted-identity-and-landmarks-production-readonly/test-failed-1.png
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
-    Error Context: ../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/error-context.md
+    Error Context: ../test-results/production-readonly-homepa-310bb-cted-identity-and-landmarks-production-readonly/error-context.md
 
     attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
-    ../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/trace.zip
+    ../test-results/production-readonly-homepa-310bb-cted-identity-and-landmarks-production-readonly/trace.zip
     Usage:
 
-        npx playwright show-trace ../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/trace.zip
+        npx playwright show-trace ../test-results/production-readonly-homepa-310bb-cted-identity-and-landmarks-production-readonly/trace.zip
 
     ────────────────────────────────────────────────────────────────────────────────────────────────
 ]]>
 </error>
 </testcase>
-</testsuite>
-<testsuite name="staging/desktop/checkout-navigation.spec.ts" timestamp="2026-08-17T16:46:41.905Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="requires verified product data and selectors" classname="staging/desktop/checkout-navigation.spec.ts">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="staging/desktop/checkout.spec.ts" timestamp="2026-08-17T16:46:41.905Z" hostname="staging-desktop" tests="4" failures="0" skipped="4" time="0.029" errors="0">
-<testcase name="Checkout API @staging @destructive @requires-authorization › creates an order and decrements controlled test stock" classname="staging/desktop/checkout.spec.ts">
-<properties>
-<property name="skip" value="Destructive checkout tests are disabled. Set RUN_DESTRUCTIVE_TESTS=true only after receiving explicit authorization for order and stock mutation.">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-<testcase name="Checkout API @staging @destructive @requires-authorization › returns the current cart contents" classname="staging/desktop/checkout.spec.ts">
-<properties>
-<property name="skip" value="Destructive checkout tests are disabled. Set RUN_DESTRUCTIVE_TESTS=true only after receiving explicit authorization for order and stock mutation.">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-<testcase name="Checkout API @staging @destructive @requires-authorization › rejects checkout without required customer details" classname="staging/desktop/checkout.spec.ts">
-<properties>
-<property name="skip" value="Destructive checkout tests are disabled. Set RUN_DESTRUCTIVE_TESTS=true only after receiving explicit authorization for order and stock mutation.">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-<testcase name="Checkout API @staging @destructive @requires-authorization › calculates the total for multiple controlled test items" classname="staging/desktop/checkout.spec.ts">
-<properties>
-<property name="skip" value="Destructive checkout tests are disabled. Set RUN_DESTRUCTIVE_TESTS=true only after receiving explicit authorization for order and stock mutation.">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="staging/desktop/navigation.spec.ts" timestamp="2026-08-17T16:46:41.905Z" hostname="staging-desktop" tests="1" failures="0" skipped="0" time="5.176" errors="1">
-<testcase name="Desktop Navigation Flow @staging @stateful @requires-authorization › navigates from search to checkout entry on approved staging" classname="staging/desktop/navigation.spec.ts" time="5.176">
+<testcase name="Beautywelt Homepage @production-readonly @smoke › displays the public search control without submitting it" classname="production-readonly/homepage.spec.ts" time="0.549">
 <system-out>
 <![CDATA[
-[[ATTACHMENT|../test-results/staging-desktop-navigation-e0548-t-entry-on-approved-staging-staging-desktop/test-failed-1.png]]
+[[ATTACHMENT|../test-results/production-readonly-homepa-f0fcc-ntrol-without-submitting-it-production-readonly/test-failed-1.png]]
 
-[[ATTACHMENT|../test-results/staging-desktop-navigation-e0548-t-entry-on-approved-staging-staging-desktop/error-context.md]]
+[[ATTACHMENT|../test-results/production-readonly-homepa-f0fcc-ntrol-without-submitting-it-production-readonly/error-context.md]]
 
-[[ATTACHMENT|../test-results/staging-desktop-navigation-e0548-t-entry-on-approved-staging-staging-desktop/trace.zip]]
+[[ATTACHMENT|../test-results/production-readonly-homepa-f0fcc-ntrol-without-submitting-it-production-readonly/trace.zip]]
 ]]>
 </system-out>
-<error message="Could not find a visible configured product link. Tried: product link named &quot;Olaplex No.5 Bond Maintenance Conditioner&quot;, product link containing &quot;Olaplex No.5 Bond Maintenance Conditioner&quot;." type="Error">
-<![CDATA[  [staging-desktop] › staging/desktop/navigation.spec.ts:462:7 › Desktop Navigation Flow @staging @stateful @requires-authorization › navigates from search to checkout entry on approved staging › Open the configured product 
+<error message="page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.beautywelt.de/" type="Error">
+<![CDATA[  [production-readonly] › production-readonly/homepage.spec.ts:43:7 › Beautywelt Homepage @production-readonly @smoke › displays the public search control without submitting it 
 
-    Error: Could not find a visible configured product link. Tried: product link named "Olaplex No.5 Bond Maintenance Conditioner", product link containing "Olaplex No.5 Bond Maintenance Conditioner".
+    Error: page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.beautywelt.de/
+    Call log:
+      - navigating to "https://www.beautywelt.de/", waiting until "domcontentloaded"
 
-      108 |   }
-      109 |
-    > 110 |   throw new Error(
-          |         ^
-      111 |     `Could not find a visible ${purpose}. Tried: ${attemptedCandidates.join(', ')}.`,
-      112 |   );
-      113 | }
-        at findSingleVisibleLocator (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:110:9)
-        at openConfiguredProduct (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:274:23)
-        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:491:7
-        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:490:5
+
+       at ../pages/base.page.ts:25
+
+      23 |     waitUntil: NavigationWaitUntil = 'domcontentloaded',
+      24 |   ): Promise<Response | null> {
+    > 25 |     return this.page.goto(path, {
+         |                      ^
+      26 |       waitUntil,
+      27 |     });
+      28 |   }
+        at HomePage.goto (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/pages/base.page.ts:25:22)
+        at HomePage.gotoHome (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/pages/home.page.ts:84:17)
+        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/production-readonly/homepage.spec.ts:46:37
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../test-results/staging-desktop-navigation-e0548-t-entry-on-approved-staging-staging-desktop/test-failed-1.png
+    ../test-results/production-readonly-homepa-f0fcc-ntrol-without-submitting-it-production-readonly/test-failed-1.png
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
-    Error Context: ../test-results/staging-desktop-navigation-e0548-t-entry-on-approved-staging-staging-desktop/error-context.md
+    Error Context: ../test-results/production-readonly-homepa-f0fcc-ntrol-without-submitting-it-production-readonly/error-context.md
 
     attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
-    ../test-results/staging-desktop-navigation-e0548-t-entry-on-approved-staging-staging-desktop/trace.zip
+    ../test-results/production-readonly-homepa-f0fcc-ntrol-without-submitting-it-production-readonly/trace.zip
     Usage:
 
-        npx playwright show-trace ../test-results/staging-desktop-navigation-e0548-t-entry-on-approved-staging-staging-desktop/trace.zip
+        npx playwright show-trace ../test-results/production-readonly-homepa-f0fcc-ntrol-without-submitting-it-production-readonly/trace.zip
 
     ────────────────────────────────────────────────────────────────────────────────────────────────
 ]]>
 </error>
 </testcase>
-</testsuite>
-<testsuite name="staging/desktop/product-detail.spec.ts" timestamp="2026-08-17T16:46:41.905Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="requires verified product data and selectors" classname="staging/desktop/product-detail.spec.ts">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
+<testcase name="Beautywelt Homepage @production-readonly @smoke › displays the expected primary category destinations" classname="production-readonly/homepage.spec.ts" time="0.539">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/production-readonly-homepa-13200-imary-category-destinations-production-readonly/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/production-readonly-homepa-13200-imary-category-destinations-production-readonly/error-context.md]]
+
+[[ATTACHMENT|../test-results/production-readonly-homepa-13200-imary-category-destinations-production-readonly/trace.zip]]
+]]>
+</system-out>
+<error message="page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.beautywelt.de/" type="Error">
+<![CDATA[  [production-readonly] › production-readonly/homepage.spec.ts:54:7 › Beautywelt Homepage @production-readonly @smoke › displays the expected primary category destinations 
+
+    Error: page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.beautywelt.de/
+    Call log:
+      - navigating to "https://www.beautywelt.de/", waiting until "domcontentloaded"
+
+
+       at ../pages/base.page.ts:25
+
+      23 |     waitUntil: NavigationWaitUntil = 'domcontentloaded',
+      24 |   ): Promise<Response | null> {
+    > 25 |     return this.page.goto(path, {
+         |                      ^
+      26 |       waitUntil,
+      27 |     });
+      28 |   }
+        at HomePage.goto (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/pages/base.page.ts:25:22)
+        at HomePage.gotoHome (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/pages/home.page.ts:84:17)
+        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/production-readonly/homepage.spec.ts:57:37
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/production-readonly-homepa-13200-imary-category-destinations-production-readonly/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/production-readonly-homepa-13200-imary-category-destinations-production-readonly/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/production-readonly-homepa-13200-imary-category-destinations-production-readonly/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/production-readonly-homepa-13200-imary-category-destinations-production-readonly/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
 </testcase>
-</testsuite>
-<testsuite name="staging/desktop/search-filters.spec.ts" timestamp="2026-08-17T16:46:41.905Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="requires verified product data and selectors" classname="staging/desktop/search-filters.spec.ts">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
+<testcase name="Beautywelt Homepage @production-readonly @smoke › displays public homepage product cards with valid identity" classname="production-readonly/homepage.spec.ts" time="0.538">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/production-readonly-homepa-f19e4-t-cards-with-valid-identity-production-readonly/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/production-readonly-homepa-f19e4-t-cards-with-valid-identity-production-readonly/error-context.md]]
+
+[[ATTACHMENT|../test-results/production-readonly-homepa-f19e4-t-cards-with-valid-identity-production-readonly/trace.zip]]
+]]>
+</system-out>
+<error message="page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.beautywelt.de/" type="Error">
+<![CDATA[  [production-readonly] › production-readonly/homepage.spec.ts:87:7 › Beautywelt Homepage @production-readonly @smoke › displays public homepage product cards with valid identity 
+
+    Error: page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.beautywelt.de/
+    Call log:
+      - navigating to "https://www.beautywelt.de/", waiting until "domcontentloaded"
+
+
+       at ../pages/base.page.ts:25
+
+      23 |     waitUntil: NavigationWaitUntil = 'domcontentloaded',
+      24 |   ): Promise<Response | null> {
+    > 25 |     return this.page.goto(path, {
+         |                      ^
+      26 |       waitUntil,
+      27 |     });
+      28 |   }
+        at HomePage.goto (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/pages/base.page.ts:25:22)
+        at HomePage.gotoHome (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/pages/home.page.ts:84:17)
+        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/production-readonly/homepage.spec.ts:90:37
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/production-readonly-homepa-f19e4-t-cards-with-valid-identity-production-readonly/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/production-readonly-homepa-f19e4-t-cards-with-valid-identity-production-readonly/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/production-readonly-homepa-f19e4-t-cards-with-valid-identity-production-readonly/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/production-readonly-homepa-f19e4-t-cards-with-valid-identity-production-readonly/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
 </testcase>
-</testsuite>
-<testsuite name="staging/desktop/visual-regression.spec.ts" timestamp="2026-08-17T16:46:41.905Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="requires verified product data and selectors" classname="staging/desktop/visual-regression.spec.ts">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
+<testcase name="Beautywelt Homepage @production-readonly @smoke › displays the cart control without opening or mutating the cart" classname="production-readonly/homepage.spec.ts" time="0.537">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/production-readonly-homepa-77216-pening-or-mutating-the-cart-production-readonly/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/production-readonly-homepa-77216-pening-or-mutating-the-cart-production-readonly/error-context.md]]
+
+[[ATTACHMENT|../test-results/production-readonly-homepa-77216-pening-or-mutating-the-cart-production-readonly/trace.zip]]
+]]>
+</system-out>
+<error message="page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.beautywelt.de/" type="Error">
+<![CDATA[  [production-readonly] › production-readonly/homepage.spec.ts:116:7 › Beautywelt Homepage @production-readonly @smoke › displays the cart control without opening or mutating the cart 
+
+    Error: page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.beautywelt.de/
+    Call log:
+      - navigating to "https://www.beautywelt.de/", waiting until "domcontentloaded"
+
+
+       at ../pages/base.page.ts:25
+
+      23 |     waitUntil: NavigationWaitUntil = 'domcontentloaded',
+      24 |   ): Promise<Response | null> {
+    > 25 |     return this.page.goto(path, {
+         |                      ^
+      26 |       waitUntil,
+      27 |     });
+      28 |   }
+        at HomePage.goto (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/pages/base.page.ts:25:22)
+        at HomePage.gotoHome (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/pages/home.page.ts:84:17)
+        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/production-readonly/homepage.spec.ts:119:37
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/production-readonly-homepa-77216-pening-or-mutating-the-cart-production-readonly/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/production-readonly-homepa-77216-pening-or-mutating-the-cart-production-readonly/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/production-readonly-homepa-77216-pening-or-mutating-the-cart-production-readonly/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/production-readonly-homepa-77216-pening-or-mutating-the-cart-production-readonly/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="Beautywelt Homepage @production-readonly @smoke › displays the required legal footer links" classname="production-readonly/homepage.spec.ts" time="0.534">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/production-readonly-homepa-5bf6d-required-legal-footer-links-production-readonly/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/production-readonly-homepa-5bf6d-required-legal-footer-links-production-readonly/error-context.md]]
+
+[[ATTACHMENT|../test-results/production-readonly-homepa-5bf6d-required-legal-footer-links-production-readonly/trace.zip]]
+]]>
+</system-out>
+<error message="page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.beautywelt.de/" type="Error">
+<![CDATA[  [production-readonly] › production-readonly/homepage.spec.ts:140:7 › Beautywelt Homepage @production-readonly @smoke › displays the required legal footer links 
+
+    Error: page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.beautywelt.de/
+    Call log:
+      - navigating to "https://www.beautywelt.de/", waiting until "domcontentloaded"
+
+
+       at ../pages/base.page.ts:25
+
+      23 |     waitUntil: NavigationWaitUntil = 'domcontentloaded',
+      24 |   ): Promise<Response | null> {
+    > 25 |     return this.page.goto(path, {
+         |                      ^
+      26 |       waitUntil,
+      27 |     });
+      28 |   }
+        at HomePage.goto (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/pages/base.page.ts:25:22)
+        at HomePage.gotoHome (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/pages/home.page.ts:84:17)
+        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/production-readonly/homepage.spec.ts:143:37
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/production-readonly-homepa-5bf6d-required-legal-footer-links-production-readonly/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/production-readonly-homepa-5bf6d-required-legal-footer-links-production-readonly/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/production-readonly-homepa-5bf6d-required-legal-footer-links-production-readonly/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/production-readonly-homepa-5bf6d-required-legal-footer-links-production-readonly/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
 </testcase>
 </testsuite>
 </testsuites>

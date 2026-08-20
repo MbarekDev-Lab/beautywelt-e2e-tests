@@ -1,6 +1,9 @@
 import { Locator, Page } from '@playwright/test';
 import { BasePage } from './base.page';
 
+/*import { FooterComponent } from '../components/footer.component';
+import { HeaderComponent } from '../components/header.component';*/
+
 export class AccountPage extends BasePage {
   constructor(page: Page) {
     super(page);

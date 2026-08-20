@@ -21,6 +21,7 @@ type PageObjectFixtures = {
 };
 
 export const test = base.extend<PageObjectFixtures>({
+  
   basePage: async ({ page }, use): Promise<void> => {
     await use(new BasePage(page));
   },

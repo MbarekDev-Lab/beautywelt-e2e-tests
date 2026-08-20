@@ -4,6 +4,7 @@
     "playwright-test": {
       "command": "npx",
       "args": [
+        // "mbarek"
         "-y",
         "@modelcontextprotocol/server-playwright-test",
         "--base-url",

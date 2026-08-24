@@ -18,9 +18,7 @@ export class BasePage {
   }
 
   async goto( path: string, waitUntil: NavigationWaitUntil = 'domcontentloaded', ): Promise<Response | null> {
-    return this.page.goto(path, {
-      waitUntil,
-    });
+    return this.page.goto(path, { waitUntil, });
   }
 
   async gotoHome(): Promise<Response | null> {

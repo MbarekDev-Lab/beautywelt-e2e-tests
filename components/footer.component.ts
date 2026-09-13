@@ -13,18 +13,31 @@ export class FooterComponent {
   constructor(page: Page) {
     this.root = page.locator('footer#bwch');
 
-    this.privacyLink = this.root.locator('a[href="/Datenschutz"]');
+    // The footer has three zones with partially overlapping links:
+    //   1. Customer-service <section> blocks (e.g. /Versandkosten in a <ul>)
+    //   2. Legal bar at the bottom (/Datenschutz, /Impressum, /AGB, /Widerrufsrecht)
+    //   3. MwSt disclaimer line (another /Versandkosten as "zzgl. Versand")
+    //
+    // Scope each locator to the first visible match within the footer
+    // to avoid ambiguity from structural duplicates.
 
-    this.imprintLink = this.root.locator('a[href="/Impressum"]');
+    // Legal bar links — unique within the footer, but use .first() defensively.
+    this.privacyLink = this.root.locator('a[href="/Datenschutz"]').first();
 
-    this.termsLink = this.root.locator('a[href="/AGB"]');
+    this.imprintLink = this.root.locator('a[href="/Impressum"]').first();
 
-    this.withdrawalLink = this.root.locator('a[href="/Widerrufsrecht"]');
+    this.termsLink = this.root.locator('a[href="/AGB"]').first();
 
-    this.shippingLink = this.root.locator('a[href="/Versandkosten"]');
+    this.withdrawalLink = this.root.locator('a[href="/Widerrufsrecht"]').first();
 
-    this.paymentLink = this.root.locator('a[href="/Zahlungsmoeglichkeiten"]');
+    // Customer-service links — scope to the <ul> list items to avoid the
+    // "zzgl. Versand" disclaimer link and the header "Offizieller Händler" link.
+    const serviceList = this.root.locator('section ul');
 
-    this.accessibilityLink = this.root.locator('a[href="/barrierefreiheit"]');
+    this.shippingLink = serviceList.locator('a[href="/Versandkosten"]').first();
+
+    this.paymentLink = serviceList.locator('a[href="/Zahlungsmoeglichkeiten"]').first();
+
+    this.accessibilityLink = serviceList.locator('a[href="/barrierefreiheit"]').first();
   }
 }

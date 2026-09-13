@@ -1,51 +1,212 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="1" time="3.536178">
-<testsuite name="production-readonly/category.spec.ts" timestamp="2026-08-22T10:28:14.990Z" hostname="production-readonly" tests="1" failures="0" skipped="0" time="1.801" errors="1">
-<testcase name="Category Page @production-readonly › should identify the public Parfum category destination" classname="production-readonly/category.spec.ts" time="1.801">
+<testsuites id="" name="" tests="7" failures="4" skipped="0" errors="0" time="53.858122">
+<testsuite name="staging/desktop/homepage.spec.ts" timestamp="2026-09-13T18:42:57.529Z" hostname="staging-desktop" tests="7" failures="4" skipped="0" time="49.614" errors="0">
+<testcase name="Desktop homepage @staging @requires-authorization › loads the desktop homepage with its primary landmarks" classname="staging/desktop/homepage.spec.ts" time="11.087">
 <system-out>
 <![CDATA[
-[[ATTACHMENT|../test-results/production-readonly-catego-f9056-Parfum-category-destination-production-readonly/test-failed-1.png]]
+[[ATTACHMENT|../test-results/staging-desktop-homepage-D-7dfbb--with-its-primary-landmarks-staging-desktop/test-failed-1.png]]
 
-[[ATTACHMENT|../test-results/production-readonly-catego-f9056-Parfum-category-destination-production-readonly/error-context.md]]
+[[ATTACHMENT|../test-results/staging-desktop-homepage-D-7dfbb--with-its-primary-landmarks-staging-desktop/error-context.md]]
 
-[[ATTACHMENT|../test-results/production-readonly-catego-f9056-Parfum-category-destination-production-readonly/trace.zip]]
+[[ATTACHMENT|../test-results/staging-desktop-homepage-D-7dfbb--with-its-primary-landmarks-staging-desktop/trace.zip]]
 ]]>
 </system-out>
-<error message="page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.beautywelt.de/" type="Error">
-<![CDATA[  [production-readonly] › production-readonly/category.spec.ts:38:7 › Category Page @production-readonly › should identify the public Parfum category destination 
+<failure message="expect(locator).toHaveCount(expected) failed" type="expect.toHaveCount">
+<![CDATA[  [staging-desktop] › staging/desktop/homepage.spec.ts:81:9 › Desktop homepage @staging @requires-authorization › loads the desktop homepage with its primary landmarks › Verify desktop header entry points 
 
-    Error: page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.beautywelt.de/
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByRole('banner').locator('a[title="Beautywelt Startseite"][href="/"]')
+    Expected: 1
+    Received: 0
+    Timeout:  5000ms
+
     Call log:
-      - navigating to "https://www.beautywelt.de/", waiting until "domcontentloaded"
+      - Expect "toHaveCount" with timeout 5000ms
+      - waiting for getByRole('banner').locator('a[title="Beautywelt Startseite"][href="/"]')
+        14 × locator resolved to 0 elements
+           - unexpected value "0"
 
 
-       at ../pages/base.page.ts:21
-
-      19 |
-      20 |   async goto( path: string, waitUntil: NavigationWaitUntil = 'domcontentloaded', ): Promise<Response | null> {
-    > 21 |     return this.page.goto(path, {
-         |                      ^
-      22 |       waitUntil,
-      23 |     });
-      24 |   }
-        at HomePage.goto (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/pages/base.page.ts:21:22)
-        at HomePage.gotoHome (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/pages/home.page.ts:84:17)
-        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/production-readonly/category.spec.ts:47:20
+       98 |
+       99 |         await test.step('Verify desktop header entry points', async (): Promise<void> => {
+    > 100 |             await expect(homePage.header.homeLink).toHaveCount(1);
+          |                                                    ^
+      101 |             await expect(homePage.header.homeLink).toBeVisible();
+      102 |             await expect(homePage.header.logo).toBeVisible();
+      103 |             await expect(homePage.header.accountLink).toBeVisible();
+        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/homepage.spec.ts:100:52
+        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/homepage.spec.ts:99:9
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../test-results/production-readonly-catego-f9056-Parfum-category-destination-production-readonly/test-failed-1.png
+    ../test-results/staging-desktop-homepage-D-7dfbb--with-its-primary-landmarks-staging-desktop/test-failed-1.png
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
-    Error Context: ../test-results/production-readonly-catego-f9056-Parfum-category-destination-production-readonly/error-context.md
+    Error Context: ../test-results/staging-desktop-homepage-D-7dfbb--with-its-primary-landmarks-staging-desktop/error-context.md
 
     attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
-    ../test-results/production-readonly-catego-f9056-Parfum-category-destination-production-readonly/trace.zip
+    ../test-results/staging-desktop-homepage-D-7dfbb--with-its-primary-landmarks-staging-desktop/trace.zip
     Usage:
 
-        npx playwright show-trace ../test-results/production-readonly-catego-f9056-Parfum-category-destination-production-readonly/trace.zip
+        npx playwright show-trace ../test-results/staging-desktop-homepage-D-7dfbb--with-its-primary-landmarks-staging-desktop/trace.zip
 
     ────────────────────────────────────────────────────────────────────────────────────────────────
 ]]>
-</error>
+</failure>
+</testcase>
+<testcase name="Desktop homepage @staging @requires-authorization › exposes every primary category destination in the desktop navigation" classname="staging/desktop/homepage.spec.ts" time="9.435">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/staging-desktop-homepage-D-7851d-n-in-the-desktop-navigation-staging-desktop/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/staging-desktop-homepage-D-7851d-n-in-the-desktop-navigation-staging-desktop/error-context.md]]
+
+[[ATTACHMENT|../test-results/staging-desktop-homepage-D-7851d-n-in-the-desktop-navigation-staging-desktop/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveCount(expected) failed" type="expect.toHaveCount">
+<![CDATA[  [staging-desktop] › staging/desktop/homepage.spec.ts:108:9 › Desktop homepage @staging @requires-authorization › exposes every primary category destination in the desktop navigation 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByRole('banner').locator('a[href="/parfuem"], a[href="/gesicht"], a[href="/koerper"], a[href="/make-up"], a[href="/haare"], a[href="/natur"], a[href="/maenner"], a[href="/drogerie"], a[href="/geschenke"], a[href="/sale"]')
+    Expected: 10
+    Received: 20
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" with timeout 5000ms
+      - waiting for getByRole('banner').locator('a[href="/parfuem"], a[href="/gesicht"], a[href="/koerper"], a[href="/make-up"], a[href="/haare"], a[href="/natur"], a[href="/maenner"], a[href="/drogerie"], a[href="/geschenke"], a[href="/sale"]')
+        14 × locator resolved to 20 elements
+           - unexpected value "20"
+
+
+      107 |
+      108 |     test('exposes every primary category destination in the desktop navigation', async ({ homePage, }): Promise<void> => {
+    > 109 |         await expect(homePage.header.primaryCategories).toHaveCount(
+          |                                                         ^
+      110 |             EXPECTED_CATEGORY_DESTINATIONS.length,
+      111 |         );
+      112 |
+        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/homepage.spec.ts:109:57
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/staging-desktop-homepage-D-7851d-n-in-the-desktop-navigation-staging-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/staging-desktop-homepage-D-7851d-n-in-the-desktop-navigation-staging-desktop/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/staging-desktop-homepage-D-7851d-n-in-the-desktop-navigation-staging-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/staging-desktop-homepage-D-7851d-n-in-the-desktop-navigation-staging-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="Desktop homepage @staging @requires-authorization › submits a homepage search and renders the search results page" classname="staging/desktop/homepage.spec.ts" time="7.974">
+</testcase>
+<testcase name="Desktop homepage @staging @requires-authorization › renders linked hero and promotional imagery with safe destinations" classname="staging/desktop/homepage.spec.ts" time="3.923">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/staging-desktop-homepage-D-9db36-gery-with-safe-destinations-staging-desktop/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/staging-desktop-homepage-D-9db36-gery-with-safe-destinations-staging-desktop/error-context.md]]
+
+[[ATTACHMENT|../test-results/staging-desktop-homepage-D-9db36-gery-with-safe-destinations-staging-desktop/trace.zip]]
+]]>
+</system-out>
+<failure message="Expected at least one visible linked hero or promotional banner." type="expect.toBeGreaterThan">
+<![CDATA[  [staging-desktop] › staging/desktop/homepage.spec.ts:149:9 › Desktop homepage @staging @requires-authorization › renders linked hero and promotional imagery with safe destinations 
+
+    Error: Expected at least one visible linked hero or promotional banner.
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0
+    Received:   0
+
+      169 |             promotionalLinks.length,
+      170 |             'Expected at least one visible linked hero or promotional banner.',
+    > 171 |         ).toBeGreaterThan(0);
+          |           ^
+      172 |
+      173 |         for (const link of promotionalLinks.slice(0, PRODUCT_SAMPLE_SIZE)) {
+      174 |             await link.scrollIntoViewIfNeeded();
+        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/homepage.spec.ts:171:11
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/staging-desktop-homepage-D-9db36-gery-with-safe-destinations-staging-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/staging-desktop-homepage-D-9db36-gery-with-safe-destinations-staging-desktop/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/staging-desktop-homepage-D-9db36-gery-with-safe-destinations-staging-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/staging-desktop-homepage-D-9db36-gery-with-safe-destinations-staging-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="Desktop homepage @staging @requires-authorization › renders complete product carousel cards" classname="staging/desktop/homepage.spec.ts" time="4.888">
+</testcase>
+<testcase name="Desktop homepage @staging @requires-authorization › renders brand promotions and the newsletter signup section" classname="staging/desktop/homepage.spec.ts" time="3.531">
+</testcase>
+<testcase name="Desktop homepage @staging @requires-authorization › renders all legal and customer-service footer links" classname="staging/desktop/homepage.spec.ts" time="8.776">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/staging-desktop-homepage-D-aad71-stomer-service-footer-links-staging-desktop/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/staging-desktop-homepage-D-aad71-stomer-service-footer-links-staging-desktop/error-context.md]]
+
+[[ATTACHMENT|../test-results/staging-desktop-homepage-D-aad71-stomer-service-footer-links-staging-desktop/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveCount(expected) failed" type="expect.toHaveCount">
+<![CDATA[  [staging-desktop] › staging/desktop/homepage.spec.ts:217:9 › Desktop homepage @staging @requires-authorization › renders all legal and customer-service footer links 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('footer#bwch').locator('a[href="/Versandkosten"]')
+    Expected: 1
+    Received: 2
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" with timeout 5000ms
+      - waiting for locator('footer#bwch').locator('a[href="/Versandkosten"]')
+        14 × locator resolved to 2 elements
+           - unexpected value "2"
+
+
+      229 |
+      230 |         for (const footerLink of footerLinks) {
+    > 231 |             await expect(footerLink).toHaveCount(1);
+          |                                      ^
+      232 |             await expect(footerLink).toBeVisible();
+      233 |         }
+      234 |     });
+        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/homepage.spec.ts:231:38
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/staging-desktop-homepage-D-aad71-stomer-service-footer-links-staging-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/staging-desktop-homepage-D-aad71-stomer-service-footer-links-staging-desktop/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/staging-desktop-homepage-D-aad71-stomer-service-footer-links-staging-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/staging-desktop-homepage-D-aad71-stomer-service-footer-links-staging-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
 </testcase>
 </testsuite>
 </testsuites>

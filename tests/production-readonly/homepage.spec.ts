@@ -1,9 +1,7 @@
 import type { Response } from '@playwright/test';
 import { test, expect } from '../../fixtures/pom-fixtures';
 
-function assertSuccessfulProductionResponse(
-  response: Response | null,
-): asserts response is Response {
+function assertSuccessfulProductionResponse( response: Response | null, ): asserts response is Response {
   if (!response) {
     throw new Error('Authorized homepage returned no document response.');
   }

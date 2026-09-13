@@ -12,16 +12,15 @@ export class HeaderComponent {
   constructor(page: Page) {
     this.root = page.getByRole('banner');
 
+    // The home link title differs between environments:
+    // "Beautywelt Startseite" (production) vs "Haarpflege-Beauty Startseite" (staging).
     this.homeLink = this.root.locator(
-      'a[title="Beautywelt Startseite"][href="/"]',
-    );
+      'a[title*="Startseite"][href="/"]',
+    ).first();
 
-    // Primary accessible-role locator by image name (preferred).
-    // Add a resilient CSS-based fallback for cases where ARIA/accessibility
-    // tree differs between environments or the accessible name is not set.
     this.logo = this.root
       .locator(
-        'img[alt*="Beautywelt" i], img[alt*="Haarpflege" i], img[src*="logo" i], .logo img',
+        'img[alt*="Beautywelt" i], img[alt*="Haarpflege" i], img[src*="logo" i]',
       )
       .first();
 
@@ -31,11 +30,18 @@ export class HeaderComponent {
 
     this.cartLink = this.root.getByRole('link', { name: /Warenkorb/i }).first();
 
+    // Two account links exist (mobile nav + desktop nav); use .first().
     this.accountLink = this.root.locator(
       'a[href="/jtl.php"][title="Anmelden"]',
-    );
+    ).first();
 
-    this.primaryCategories = this.root.locator(
+    // The header contains two nav bars with identical category links:
+    //   • nav#bweu  — collapsed mobile burger menu
+    //   • nav.bwe3  — visible desktop horizontal category bar
+    // Scope to the desktop nav to avoid double-counting.
+    const desktopNav = this.root.locator('nav.bwe3');
+
+    this.primaryCategories = desktopNav.locator(
       [
         'a[href="/parfuem"]',
         'a[href="/gesicht"]',

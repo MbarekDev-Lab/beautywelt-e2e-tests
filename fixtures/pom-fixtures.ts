@@ -53,6 +53,7 @@ export const test = base.extend<PageObjectFixtures>({
   accountPage: async ({ page }, use): Promise<void> => {
     await use(new AccountPage(page));
   },
+  
 });
 
 export { expect };

@@ -57,10 +57,7 @@ function requireEnvValue(name: string): string {
   return value;
 }
 
-function parseBoolean(
-  value: string | undefined,
-  variableName: string,
-): boolean {
+function parseBoolean( value: string | undefined, variableName: string, ): boolean {
   if (value === 'true') {
     return true;
   }
@@ -74,11 +71,7 @@ function parseBoolean(
   );
 }
 
-function parsePositiveInteger(
-  value: string | undefined,
-  variableName: string,
-  defaultValue: number,
-): number {
+function parsePositiveInteger( value: string | undefined, variableName: string, defaultValue: number, ): number {
   if (!value || value.trim().length === 0) {
     return defaultValue;
   }

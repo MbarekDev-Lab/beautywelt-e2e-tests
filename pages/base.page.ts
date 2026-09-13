@@ -9,7 +9,6 @@ export type MainContentWaitOptions = {
 
 export class BasePage {
   protected readonly page: Page;
-
   readonly mainContent: Locator;
 
   constructor(page: Page) {
@@ -72,10 +71,7 @@ export class BasePage {
     const expectedOrigin = new URL(expectedBaseURL).origin;
     const currentOrigin = new URL(this.page.url()).origin;
 
-    expect(
-      currentOrigin,
-      'The browser must remain on the expected environment origin.',
-    ).toBe(expectedOrigin);
+    expect(currentOrigin, 'The browser must remain on the expected environment origin.', ).toBe(expectedOrigin);
   }
 
   async dismissBlockingOverlays(): Promise<void> {
@@ -83,8 +79,8 @@ export class BasePage {
       ['[role="dialog"]', '[aria-modal="true"]', '.bwa10.bwin'].join(','),
     );
 
-    // Give overlays a moment to appear
-    await this.page.waitForTimeout(2000);
+    // Wait for the DOM to settle before scanning for overlays.
+    await this.page.waitForLoadState('domcontentloaded');
 
     const overlayCount = await overlays.count();
     for (let index = 0; index < overlayCount; index++) {

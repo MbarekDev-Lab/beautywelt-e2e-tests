@@ -22,9 +22,7 @@ test.describe('Safety Controls - Unit Tests', () => {
     expect(isProductionHost('https://beautywelt.de/some/path')).toBe(true);
 
     expect(isProductionHost('https://www.haarpflege-beauty.de')).toBe(false);
-    expect(isProductionHost('https://staging.haarpflege-beauty.de')).toBe(
-      false,
-    );
+    expect(isProductionHost('https://staging.haarpflege-beauty.de')).toBe( false, );
 
     expect(isProductionHost('http://localhost:3000')).toBe(false);
     expect(isProductionHost('invalid-url')).toBe(false);

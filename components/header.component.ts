@@ -14,9 +14,9 @@ export class HeaderComponent {
 
     // The home link title differs between environments:
     // "Beautywelt Startseite" (production) vs "Haarpflege-Beauty Startseite" (staging).
-    this.homeLink = this.root.locator(
-      'a[title*="Startseite"][href="/"]',
-    ).first();
+    this.homeLink = this.root
+      .locator('a[title*="Startseite"][href="/"]')
+      .first();
 
     this.logo = this.root
       .locator(
@@ -31,9 +31,9 @@ export class HeaderComponent {
     this.cartLink = this.root.getByRole('link', { name: /Warenkorb/i }).first();
 
     // Two account links exist (mobile nav + desktop nav); use .first().
-    this.accountLink = this.root.locator(
-      'a[href="/jtl.php"][title="Anmelden"]',
-    ).first();
+    this.accountLink = this.root
+      .locator('a[href="/jtl.php"][title="Anmelden"]')
+      .first();
 
     // The header contains two nav bars with identical category links:
     //   • nav#bweu  — collapsed mobile burger menu

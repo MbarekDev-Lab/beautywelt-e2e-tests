@@ -1,7 +1,8 @@
 import type { Locator, Page, Response } from '@playwright/test';
 import { expect } from '@playwright/test';
 
-export type NavigationWaitUntil = 'commit' | 'domcontentloaded' | 'load' | 'networkidle';
+export type NavigationWaitUntil =
+  'commit' | 'domcontentloaded' | 'load' | 'networkidle';
 
 export type MainContentWaitOptions = {
   readonly timeout?: number;
@@ -16,15 +17,20 @@ export class BasePage {
     this.mainContent = page.getByRole('main');
   }
 
-  async goto( path: string, waitUntil: NavigationWaitUntil = 'domcontentloaded', ): Promise<Response | null> {
-    return this.page.goto(path, { waitUntil, });
+  async goto(
+    path: string,
+    waitUntil: NavigationWaitUntil = 'domcontentloaded',
+  ): Promise<Response | null> {
+    return this.page.goto(path, { waitUntil });
   }
 
   async gotoHome(): Promise<Response | null> {
     return this.goto('/');
   }
 
-  async waitForMainContent( options: MainContentWaitOptions = {},): Promise<void> {
+  async waitForMainContent(
+    options: MainContentWaitOptions = {},
+  ): Promise<void> {
     await this.mainContent.waitFor({
       state: 'visible',
       timeout: options.timeout,
@@ -36,7 +42,10 @@ export class BasePage {
     await expect(this.mainContent).toBeVisible();
   }
 
-  async assertSuccessfulDocumentResponse( response: Response | null, purpose: string, ): Promise<void> {
+  async assertSuccessfulDocumentResponse(
+    response: Response | null,
+    purpose: string,
+  ): Promise<void> {
     if (!response) {
       throw new Error(`${purpose} returned no document response.`);
     }
@@ -71,7 +80,10 @@ export class BasePage {
     const expectedOrigin = new URL(expectedBaseURL).origin;
     const currentOrigin = new URL(this.page.url()).origin;
 
-    expect(currentOrigin, 'The browser must remain on the expected environment origin.', ).toBe(expectedOrigin);
+    expect(
+      currentOrigin,
+      'The browser must remain on the expected environment origin.',
+    ).toBe(expectedOrigin);
   }
 
   async dismissBlockingOverlays(): Promise<void> {
@@ -90,9 +102,14 @@ export class BasePage {
         continue;
       }
 
-      const closeOverlayRegex = /Schließen|Close|Ablehnen|Akzeptieren|Alle akzeptieren|Verstanden|Nein danke/i;
-      const closeButton = overlay.getByRole('button', { name: closeOverlayRegex }).first();
-      const closeLink = overlay.getByRole('link', { name: closeOverlayRegex }).first();
+      const closeOverlayRegex =
+        /Schließen|Close|Ablehnen|Akzeptieren|Alle akzeptieren|Verstanden|Nein danke/i;
+      const closeButton = overlay
+        .getByRole('button', { name: closeOverlayRegex })
+        .first();
+      const closeLink = overlay
+        .getByRole('link', { name: closeOverlayRegex })
+        .first();
 
       if (await closeButton.isVisible().catch(() => false)) {
         await closeButton.click();
@@ -102,7 +119,9 @@ export class BasePage {
         await overlay.evaluate((el) => el.remove()).catch(() => {});
       }
 
-      await overlay.waitFor({ state: 'hidden', timeout: 10000 }).catch(() => {});
+      await overlay
+        .waitFor({ state: 'hidden', timeout: 10000 })
+        .catch(() => {});
     }
   }
 }

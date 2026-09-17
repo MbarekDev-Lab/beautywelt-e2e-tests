@@ -28,7 +28,9 @@ export class FooterComponent {
 
     this.termsLink = this.root.locator('a[href="/AGB"]').first();
 
-    this.withdrawalLink = this.root.locator('a[href="/Widerrufsrecht"]').first();
+    this.withdrawalLink = this.root
+      .locator('a[href="/Widerrufsrecht"]')
+      .first();
 
     // Customer-service links — scope to the <ul> list items to avoid the
     // "zzgl. Versand" disclaimer link and the header "Offizieller Händler" link.
@@ -36,8 +38,12 @@ export class FooterComponent {
 
     this.shippingLink = serviceList.locator('a[href="/Versandkosten"]').first();
 
-    this.paymentLink = serviceList.locator('a[href="/Zahlungsmoeglichkeiten"]').first();
+    this.paymentLink = serviceList
+      .locator('a[href="/Zahlungsmoeglichkeiten"]')
+      .first();
 
-    this.accessibilityLink = serviceList.locator('a[href="/barrierefreiheit"]').first();
+    this.accessibilityLink = serviceList
+      .locator('a[href="/barrierefreiheit"]')
+      .first();
   }
 }

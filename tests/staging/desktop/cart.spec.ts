@@ -29,12 +29,16 @@ test.describe('Cart @staging @stateful @requires-authorization', () => {
     await homePage.dismissBlockingOverlays();
 
     // Search and select
-    const searchTrigger = page.getByRole('button', { name: /suche|suchen|search/i }).first();
+    const searchTrigger = page
+      .getByRole('button', { name: /suche|suchen|search/i })
+      .first();
     if (await searchTrigger.isVisible().catch(() => false)) {
       await searchTrigger.click({ force: true });
     }
     await homePage.searchInput.fill('conditioner');
-    const searchButton = page.getByRole('button', { name: /suchen|submit|los/i }).first();
+    const searchButton = page
+      .getByRole('button', { name: /suchen|submit|los/i })
+      .first();
     if (await searchButton.isVisible().catch(() => false)) {
       await searchButton.click({ force: true });
     } else {

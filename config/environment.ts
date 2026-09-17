@@ -6,10 +6,7 @@ export const SELECTED_ENV_FILE = process.env.ENV_FILE ?? DEFAULT_ENV_FILE;
 
 dotenv.config({ path: SELECTED_ENV_FILE });
 
-export const PRODUCTION_HOSTS = new Set([
-  'beautywelt.de', 
-  'www.beautywelt.de'
-]);
+export const PRODUCTION_HOSTS = new Set(['beautywelt.de', 'www.beautywelt.de']);
 
 export const APPROVED_STAGING_HOSTS = new Set([
   'haarpflege-beauty.de',
@@ -57,7 +54,10 @@ function requireEnvValue(name: string): string {
   return value;
 }
 
-function parseBoolean( value: string | undefined, variableName: string, ): boolean {
+function parseBoolean(
+  value: string | undefined,
+  variableName: string,
+): boolean {
   if (value === 'true') {
     return true;
   }
@@ -71,7 +71,11 @@ function parseBoolean( value: string | undefined, variableName: string, ): boole
   );
 }
 
-function parsePositiveInteger( value: string | undefined, variableName: string, defaultValue: number, ): number {
+function parsePositiveInteger(
+  value: string | undefined,
+  variableName: string,
+  defaultValue: number,
+): number {
   if (!value || value.trim().length === 0) {
     return defaultValue;
   }

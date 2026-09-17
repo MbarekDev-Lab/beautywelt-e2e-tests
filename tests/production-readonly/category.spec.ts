@@ -54,7 +54,7 @@ test.describe('Category Page @production-readonly', () => {
 
     const parfumAnchors = page
       .locator('a[href]')
-      .filter({ hasText: /\bparfum\b/i });
+      .filter({ hasText: /parf(?:u|ü)m/i });
 
     const anchorCount = await parfumAnchors.count();
 

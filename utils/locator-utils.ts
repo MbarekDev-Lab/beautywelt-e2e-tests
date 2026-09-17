@@ -8,9 +8,7 @@ import { expect } from '@playwright/test';
  * (e.g. desktop + mobile duplicates) and you need to filter to the ones
  * the user can actually see.
  */
-export async function getVisibleLocators(
-  locator: Locator,
-): Promise<Locator[]> {
+export async function getVisibleLocators(locator: Locator): Promise<Locator[]> {
   const matches: Locator[] = [];
   const count = await locator.count();
 

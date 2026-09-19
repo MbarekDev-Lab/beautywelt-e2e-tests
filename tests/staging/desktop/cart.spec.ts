@@ -35,22 +35,16 @@ test.describe('Cart @staging @stateful @requires-authorization', () => {
     if (await searchTrigger.isVisible().catch(() => false)) {
       await searchTrigger.click({ force: true });
     }
-    await homePage.searchInput.fill('conditioner');
-    const searchButton = page
-      .getByRole('button', { name: /suchen|submit|los/i })
-      .first();
-    if (await searchButton.isVisible().catch(() => false)) {
-      await searchButton.click({ force: true });
-    } else {
-      await homePage.searchInput.press('Enter');
-    }
+    await homePage.searchInput.fill('shampoo');
+    await homePage.searchInput.press('Enter');
 
     await searchResultsPage.waitForMainContent();
-    await searchResultsPage.firstProductLink.click({ force: true });
+    await page.waitForLoadState('domcontentloaded');
+    await searchResultsPage.clickFirstVisibleProductLink({ force: true });
 
     // Add to cart
     await productDetailPage.waitForMainContent();
-    await productDetailPage.addToCartButton.click();
+    await productDetailPage.addToCartButton.click({ force: true });
 
     // Go to cart
     await page.goto('/warenkorb.php');

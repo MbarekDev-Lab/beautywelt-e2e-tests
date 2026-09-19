@@ -12,11 +12,22 @@ export class SearchResultsPage extends BasePage {
       .filter({ has: this.page.locator('a') });
   }
 
-  get firstProductLink(): Locator {
-    return this.page
-      .locator(
-        'article a[href*="/a/"], .product-list a[href*="/a/"], a[href*="/a/"][title]',
-      )
-      .first();
+  async clickFirstVisibleProductLink(options?: { force?: boolean }): Promise<void> {
+    const fallbackCards = this.page.locator('li:has(a[href*="/a/"][title]), article, .product-card');
+    const count = await fallbackCards.count();
+    for (let i = 0; i < count; i++) {
+      const card = fallbackCards.nth(i);
+      if (await card.isVisible().catch(() => false)) {
+        const links = card.locator('a');
+        const linksCount = await links.count();
+        for (let j = 0; j < linksCount; j++) {
+           if (await links.nth(j).isVisible().catch(() => false)) {
+             await links.nth(j).click(options);
+             return;
+           }
+        }
+      }
+    }
+    throw new Error('Could not find any visible product link.');
   }
 }

@@ -1,24 +1,6 @@
-<testsuites id="" name="" tests="9" failures="0" skipped="2" errors="0" time="10.531192">
-<testsuite name="production-readonly/category.spec.ts" timestamp="2026-09-17T19:04:13.082Z" hostname="production-readonly" tests="1" failures="0" skipped="0" time="1.549" errors="0">
-<testcase name="Category Page @production-readonly › should identify the public Parfum category destination" classname="production-readonly/category.spec.ts" time="1.549">
-</testcase>
-</testsuite>
-<testsuite name="production-readonly/homepage.spec.ts" timestamp="2026-09-17T19:04:13.082Z" hostname="production-readonly" tests="6" failures="0" skipped="0" time="8.029" errors="0">
-<testcase name="Beautywelt Homepage @production-readonly @smoke › loads with the expected identity and landmarks" classname="production-readonly/homepage.spec.ts" time="1.615">
-</testcase>
-<testcase name="Beautywelt Homepage @production-readonly @smoke › displays the public search control without submitting it" classname="production-readonly/homepage.spec.ts" time="0.891">
-</testcase>
-<testcase name="Beautywelt Homepage @production-readonly @smoke › displays the expected primary category destinations" classname="production-readonly/homepage.spec.ts" time="1.392">
-</testcase>
-<testcase name="Beautywelt Homepage @production-readonly @smoke › displays public homepage product cards with valid identity" classname="production-readonly/homepage.spec.ts" time="1.109">
-</testcase>
-<testcase name="Beautywelt Homepage @production-readonly @smoke › displays the cart control without opening or mutating the cart" classname="production-readonly/homepage.spec.ts" time="1.671">
-</testcase>
-<testcase name="Beautywelt Homepage @production-readonly @smoke › displays the required legal footer links" classname="production-readonly/homepage.spec.ts" time="1.351">
-</testcase>
-</testsuite>
-<testsuite name="production-readonly/public-pages.spec.ts" timestamp="2026-09-17T19:04:13.082Z" hostname="production-readonly" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="requires verified product data and selectors" classname="production-readonly/public-pages.spec.ts">
+<testsuites id="" name="" tests="19" failures="1" skipped="10" errors="2" time="25.047096999999997">
+<testsuite name="staging/desktop/account.spec.ts" timestamp="2026-09-19T11:01:02.138Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
+<testcase name="requires verified product data and selectors" classname="staging/desktop/account.spec.ts">
 <properties>
 <property name="skip" value="">
 </property>
@@ -27,8 +9,236 @@
 </skipped>
 </testcase>
 </testsuite>
-<testsuite name="production-readonly/public-product.spec.ts" timestamp="2026-09-17T19:04:13.082Z" hostname="production-readonly" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="requires verified product data and selectors" classname="production-readonly/public-product.spec.ts">
+<testsuite name="staging/desktop/api-health.spec.ts" timestamp="2026-09-19T11:01:02.138Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
+<testcase name="requires verified product data and selectors" classname="staging/desktop/api-health.spec.ts">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="staging/desktop/cart.spec.ts" timestamp="2026-09-19T11:01:02.138Z" hostname="staging-desktop" tests="1" failures="0" skipped="0" time="2.093" errors="1">
+<testcase name="Cart @staging @stateful @requires-authorization › adds item and updates quantity on staging" classname="staging/desktop/cart.spec.ts" time="2.093">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/error-context.md]]
+
+[[ATTACHMENT|../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/trace.zip]]
+]]>
+</system-out>
+<error message="Could not find any visible product link." type="Error">
+<![CDATA[  [staging-desktop] › staging/desktop/cart.spec.ts:19:7 › Cart @staging @stateful @requires-authorization › adds item and updates quantity on staging 
+
+    Error: Could not find any visible product link.
+
+       at ../pages/search-results.page.ts:31
+
+      29 |       }
+      30 |     }
+    > 31 |     throw new Error('Could not find any visible product link.');
+         |           ^
+      32 |   }
+      33 | }
+      34 |
+        at SearchResultsPage.clickFirstVisibleProductLink (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/pages/search-results.page.ts:31:11)
+        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/cart.spec.ts:43:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+</testsuite>
+<testsuite name="staging/desktop/checkout-navigation.spec.ts" timestamp="2026-09-19T11:01:02.138Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
+<testcase name="requires verified product data and selectors" classname="staging/desktop/checkout-navigation.spec.ts">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="staging/desktop/checkout.spec.ts" timestamp="2026-09-19T11:01:02.138Z" hostname="staging-desktop" tests="4" failures="0" skipped="4" time="0.022" errors="0">
+<testcase name="Checkout API @staging @destructive @requires-authorization › creates an order and decrements controlled test stock" classname="staging/desktop/checkout.spec.ts">
+<properties>
+<property name="skip" value="Destructive checkout tests are disabled. Set RUN_DESTRUCTIVE_TESTS=true only after receiving explicit authorization for order and stock mutation.">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Checkout API @staging @destructive @requires-authorization › returns the current cart contents" classname="staging/desktop/checkout.spec.ts">
+<properties>
+<property name="skip" value="Destructive checkout tests are disabled. Set RUN_DESTRUCTIVE_TESTS=true only after receiving explicit authorization for order and stock mutation.">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Checkout API @staging @destructive @requires-authorization › rejects checkout without required customer details" classname="staging/desktop/checkout.spec.ts">
+<properties>
+<property name="skip" value="Destructive checkout tests are disabled. Set RUN_DESTRUCTIVE_TESTS=true only after receiving explicit authorization for order and stock mutation.">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Checkout API @staging @destructive @requires-authorization › calculates the total for multiple controlled test items" classname="staging/desktop/checkout.spec.ts">
+<properties>
+<property name="skip" value="Destructive checkout tests are disabled. Set RUN_DESTRUCTIVE_TESTS=true only after receiving explicit authorization for order and stock mutation.">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="staging/desktop/homepage.spec.ts" timestamp="2026-09-19T11:01:02.138Z" hostname="staging-desktop" tests="7" failures="1" skipped="0" time="17.725" errors="0">
+<testcase name="Desktop homepage @staging @requires-authorization › loads the desktop homepage with its primary landmarks" classname="staging/desktop/homepage.spec.ts" time="1.337">
+</testcase>
+<testcase name="Desktop homepage @staging @requires-authorization › exposes every primary category destination in the desktop navigation" classname="staging/desktop/homepage.spec.ts" time="1.37">
+</testcase>
+<testcase name="Desktop homepage @staging @requires-authorization › submits a homepage search and renders the search results page" classname="staging/desktop/homepage.spec.ts" time="1.797">
+</testcase>
+<testcase name="Desktop homepage @staging @requires-authorization › renders linked hero and promotional imagery with safe destinations" classname="staging/desktop/homepage.spec.ts" time="8.818">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/staging-desktop-homepage-D-9db36-gery-with-safe-destinations-staging-desktop/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/staging-desktop-homepage-D-9db36-gery-with-safe-destinations-staging-desktop/error-context.md]]
+
+[[ATTACHMENT|../test-results/staging-desktop-homepage-D-9db36-gery-with-safe-destinations-staging-desktop/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
+<![CDATA[  [staging-desktop] › staging/desktop/homepage.spec.ts:160:7 › Desktop homepage @staging @requires-authorization › renders linked hero and promotional imagery with safe destinations 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('main#bwzo').locator('a:has(img)').nth(75).getByRole('img')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for locator('main#bwzo').locator('a:has(img)').nth(75).getByRole('img')
+
+
+      194 |       await expect(link).toBeVisible();
+      195 |       await assertSameOriginDestination(link, baseURL);
+    > 196 |       await expect(link.getByRole('img')).toBeVisible();
+          |                                           ^
+      197 |     }
+      198 |   });
+      199 |
+        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/homepage.spec.ts:196:43
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/staging-desktop-homepage-D-9db36-gery-with-safe-destinations-staging-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/staging-desktop-homepage-D-9db36-gery-with-safe-destinations-staging-desktop/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/staging-desktop-homepage-D-9db36-gery-with-safe-destinations-staging-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/staging-desktop-homepage-D-9db36-gery-with-safe-destinations-staging-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="Desktop homepage @staging @requires-authorization › renders complete product carousel cards" classname="staging/desktop/homepage.spec.ts" time="1.808">
+</testcase>
+<testcase name="Desktop homepage @staging @requires-authorization › renders brand promotions and the newsletter signup section" classname="staging/desktop/homepage.spec.ts" time="1.341">
+</testcase>
+<testcase name="Desktop homepage @staging @requires-authorization › renders all legal and customer-service footer links" classname="staging/desktop/homepage.spec.ts" time="1.254">
+</testcase>
+</testsuite>
+<testsuite name="staging/desktop/navigation.spec.ts" timestamp="2026-09-19T11:01:02.138Z" hostname="staging-desktop" tests="1" failures="0" skipped="0" time="2.136" errors="1">
+<testcase name="Desktop Navigation Flow @staging @stateful @requires-authorization › navigates from search to checkout entry on approved staging" classname="staging/desktop/navigation.spec.ts" time="2.136">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/staging-desktop-navigation-e0548-t-entry-on-approved-staging-staging-desktop/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/staging-desktop-navigation-e0548-t-entry-on-approved-staging-staging-desktop/error-context.md]]
+
+[[ATTACHMENT|../test-results/staging-desktop-navigation-e0548-t-entry-on-approved-staging-staging-desktop/trace.zip]]
+]]>
+</system-out>
+<error message="Could not find a visible configured product link. Tried: product link named &quot;Olaplex No.5 Bond Maintenance Conditioner&quot;, product link containing &quot;Olaplex No.5 Bond Maintenance Conditioner&quot;." type="Error">
+<![CDATA[  [staging-desktop] › staging/desktop/navigation.spec.ts:480:7 › Desktop Navigation Flow @staging @stateful @requires-authorization › navigates from search to checkout entry on approved staging › Open the configured product 
+
+    Error: Could not find a visible configured product link. Tried: product link named "Olaplex No.5 Bond Maintenance Conditioner", product link containing "Olaplex No.5 Bond Maintenance Conditioner".
+
+      108 |   }
+      109 |
+    > 110 |   throw new Error(
+          |         ^
+      111 |     `Could not find a visible ${purpose}. Tried: ${attemptedCandidates.join(', ')}.`,
+      112 |   );
+      113 | }
+        at findSingleVisibleLocator (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:110:9)
+        at openConfiguredProduct (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:266:19)
+        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:509:7
+        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:508:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/staging-desktop-navigation-e0548-t-entry-on-approved-staging-staging-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/staging-desktop-navigation-e0548-t-entry-on-approved-staging-staging-desktop/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/staging-desktop-navigation-e0548-t-entry-on-approved-staging-staging-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/staging-desktop-navigation-e0548-t-entry-on-approved-staging-staging-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+</testsuite>
+<testsuite name="staging/desktop/product-detail.spec.ts" timestamp="2026-09-19T11:01:02.138Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
+<testcase name="requires verified product data and selectors" classname="staging/desktop/product-detail.spec.ts">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="staging/desktop/search-filters.spec.ts" timestamp="2026-09-19T11:01:02.138Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
+<testcase name="requires verified product data and selectors" classname="staging/desktop/search-filters.spec.ts">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="staging/desktop/visual-regression.spec.ts" timestamp="2026-09-19T11:01:02.138Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
+<testcase name="requires verified product data and selectors" classname="staging/desktop/visual-regression.spec.ts">
 <properties>
 <property name="skip" value="">
 </property>

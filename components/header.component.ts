@@ -15,7 +15,7 @@ export class HeaderComponent {
     // The home link title differs between environments:
     // "Beautywelt Startseite" (production) vs "Haarpflege-Beauty Startseite" (staging).
     this.homeLink = this.root
-      .locator('a[title*="Startseite"][href="/"]')
+      .locator('a[href="/"]:has(img), a[title*="Startseite"][href="/"]')
       .first();
 
     this.logo = this.root

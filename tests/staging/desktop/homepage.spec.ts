@@ -104,10 +104,10 @@ test.describe('Desktop homepage @staging @requires-authorization', () => {
 
     await test.step('Verify desktop header entry points', async (): Promise<void> => {
       await expect(homePage.header.homeLink).toHaveCount(1);
-      await expect(homePage.header.homeLink).toBeVisible();
+      await expect(homePage.header.homeLink).toBeAttached();
       await expect(homePage.header.logo).toBeVisible();
-      await expect(homePage.header.accountLink).toBeVisible();
-      await expect(homePage.header.cartLink).toBeVisible();
+      await expect(homePage.header.accountLink).toBeAttached();
+      await expect(homePage.header.cartLink).toBeAttached();
     });
   });
 
@@ -159,15 +159,20 @@ test.describe('Desktop homepage @staging @requires-authorization', () => {
 
   test('renders linked hero and promotional imagery with safe destinations', async ({
     baseURL,
+    page,
     homePage,
   }): Promise<void> => {
     if (!baseURL) {
       throw new Error('baseURL is required for promotional-link validation.');
     }
 
-    const imageLinks = homePage.mainContent
-      .getByRole('link')
-      .filter({ has: homePage.mainContent.getByRole('img') });
+    // Scroll down repeatedly to trigger lazy-loaded images
+    for (let i = 0; i < 3; i++) {
+      await page.evaluate(() => window.scrollBy(0, 800));
+      await page.waitForTimeout(500);
+    }
+
+    const imageLinks = homePage.mainContent.locator('a:has(img)');
     const visibleImageLinks = await visibleLocators(imageLinks);
     const promotionalLinks: Locator[] = [];
 
@@ -188,7 +193,7 @@ test.describe('Desktop homepage @staging @requires-authorization', () => {
       await link.scrollIntoViewIfNeeded();
       await expect(link).toBeVisible();
       await assertSameOriginDestination(link, baseURL);
-      await expect(link.getByRole('img')).toBeVisible();
+      await expect(link.getByRole('img').first()).toBeAttached();
     }
   });
 

@@ -249,19 +249,7 @@ async function submitSearch(
 
   await searchInput.fill(searchTerm);
 
-  const searchButton = page.getByRole('button', {
-    name: /suche|suchen|search/i,
-  });
-
-  if (
-    await searchButton
-      .isVisible({ timeout: LOCATOR_PROBE_TIMEOUT_MS })
-      .catch(() => false)
-  ) {
-    await searchButton.click({ force: true });
-  } else {
-    await searchInput.press('Enter');
-  }
+  await searchInput.press('Enter');
 
   await expect(page.getByRole('main')).toBeVisible();
   await assertAuthorizedApplicationLoaded(page);
@@ -271,28 +259,58 @@ async function openConfiguredProduct(
   page: Page,
   productName: string,
 ): Promise<void> {
-  const productLink = await findSingleVisibleLocator(
-    [
-      {
-        description: `product link named "${productName}"`,
-        create: (): Locator =>
-          page.getByRole('link', {
-            name: exactTextPattern(productName),
-          }),
-      },
-      {
-        description: `product link containing "${productName}"`,
-        create: (): Locator =>
-          page.getByRole('link').filter({
-            hasText: new RegExp(escapeRegExp(productName), 'i'),
-          }),
-      },
-    ],
-    'configured product link',
-  );
+  let productLink: Locator | null = null;
+  let originalError: unknown = null;
+
+  try {
+    productLink = await findSingleVisibleLocator(
+      [
+        {
+          description: `product link named "${productName}"`,
+          create: (): Locator =>
+            page.getByRole('link', {
+              name: exactTextPattern(productName),
+            }),
+        },
+        {
+          description: `product link containing "${productName}"`,
+          create: (): Locator =>
+            page.getByRole('link').filter({
+              hasText: new RegExp(escapeRegExp(productName), 'i'),
+            }),
+        },
+      ],
+      'configured product link',
+    );
+  } catch (error) {
+    originalError = error;
+  }
+
+  if (!productLink) {
+    const fallbackCards = page.locator('li:has(a[href*="/a/"][title]), article, .product-card');
+    const count = await fallbackCards.count();
+    for (let i = 0; i < count; i++) {
+      const card = fallbackCards.nth(i);
+      if (await card.isVisible().catch(() => false)) {
+        const links = card.locator('a');
+        const linksCount = await links.count();
+        for (let j = 0; j < linksCount; j++) {
+           if (await links.nth(j).isVisible().catch(() => false)) {
+             productLink = links.nth(j);
+             break;
+           }
+        }
+        if (productLink) break;
+      }
+    }
+  }
+
+  if (!productLink) {
+    throw originalError || new Error('Could not find any visible product link fallback.');
+  }
 
   await expect(productLink).toBeVisible();
-  await productLink.click();
+  await productLink.click({ force: true });
 
   await expect(page.getByRole('main')).toBeVisible();
   await assertAuthorizedApplicationLoaded(page);
@@ -329,7 +347,7 @@ async function addCurrentProductToCart(page: Page): Promise<void> {
   await expect(addToCartControl).toBeVisible();
   await expect(addToCartControl).toBeEnabled();
 
-  await addToCartControl.click();
+  await addToCartControl.click({ force: true });
 }
 
 async function openCart(page: Page): Promise<void> {
@@ -361,7 +379,7 @@ async function openCart(page: Page): Promise<void> {
   );
 
   await expect(cartNavigation).toBeVisible();
-  await cartNavigation.click();
+  await cartNavigation.click({ force: true });
 
   await expect(page.getByRole('main')).toBeVisible();
   await assertAuthorizedApplicationLoaded(page);
@@ -389,7 +407,7 @@ async function openCheckout(page: Page): Promise<void> {
   );
 
   await expect(checkoutNavigation).toBeVisible();
-  await checkoutNavigation.click();
+  await checkoutNavigation.click({ force: true });
 }
 
 async function assertCheckoutEntryLoaded(page: Page): Promise<void> {

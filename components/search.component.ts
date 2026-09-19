@@ -36,6 +36,6 @@ export class SearchComponent {
 
     await this.expectReady();
     await this.input.fill(normalizedSearchTerm);
-    await this.submitButton.click();
+    await this.input.press('Enter');
   }
 }

@@ -1,20 +1,4 @@
-<<<<<<< HEAD
-=======
 node_modules
->>>>>>> af5bd94 (Implementation Plan)
-playwright-report/
-test-results/
-blob-report/
-reports/
-screenshots/
-.env
-.env.prod
-.env.staging
-<<<<<<< HEAD
-
-node_modules
-=======
->>>>>>> af5bd94 (Implementation Plan)
 playwright-report
 test-results
 blob-report
@@ -25,9 +9,7 @@ build
 reports
 screenshots
 draft
-<<<<<<< HEAD
+.env
+.env.prod
+.env.staging
 *.log
-
-=======
-*.log
->>>>>>> af5bd94 (Implementation Plan)

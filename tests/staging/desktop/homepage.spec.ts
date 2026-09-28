@@ -193,7 +193,7 @@ test.describe('Desktop homepage @staging @requires-authorization', () => {
       await link.scrollIntoViewIfNeeded();
       await expect(link).toBeVisible();
       await assertSameOriginDestination(link, baseURL);
-      await expect(link.getByRole('img').first()).toBeAttached();
+      await expect(link.locator('img').first()).toBeAttached();
     }
   });
 

@@ -1,5 +1,5 @@
-<testsuites id="" name="" tests="19" failures="0" skipped="10" errors="2" time="57.145154999999995">
-<testsuite name="staging/desktop/account.spec.ts" timestamp="2026-10-01T23:39:01.891Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
+<testsuites id="" name="" tests="19" failures="0" skipped="10" errors="2" time="70.503121">
+<testsuite name="staging/desktop/account.spec.ts" timestamp="2026-10-03T23:54:08.834Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
 <testcase name="requires verified product data and selectors" classname="staging/desktop/account.spec.ts">
 <properties>
 <property name="skip" value="">
@@ -9,7 +9,7 @@
 </skipped>
 </testcase>
 </testsuite>
-<testsuite name="staging/desktop/api-health.spec.ts" timestamp="2026-10-01T23:39:01.891Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
+<testsuite name="staging/desktop/api-health.spec.ts" timestamp="2026-10-03T23:54:08.834Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
 <testcase name="requires verified product data and selectors" classname="staging/desktop/api-health.spec.ts">
 <properties>
 <property name="skip" value="">
@@ -19,8 +19,8 @@
 </skipped>
 </testcase>
 </testsuite>
-<testsuite name="staging/desktop/cart.spec.ts" timestamp="2026-10-01T23:39:01.891Z" hostname="staging-desktop" tests="1" failures="0" skipped="0" time="13.703" errors="1">
-<testcase name="Cart @staging @stateful @requires-authorization › adds item and updates quantity on staging" classname="staging/desktop/cart.spec.ts" time="13.703">
+<testsuite name="staging/desktop/cart.spec.ts" timestamp="2026-10-03T23:54:08.834Z" hostname="staging-desktop" tests="1" failures="0" skipped="0" time="21.911" errors="1">
+<testcase name="Cart @staging @stateful @requires-authorization › adds item and updates quantity on staging" classname="staging/desktop/cart.spec.ts" time="21.911">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/test-failed-1.png]]
@@ -64,7 +64,7 @@
 </error>
 </testcase>
 </testsuite>
-<testsuite name="staging/desktop/checkout-navigation.spec.ts" timestamp="2026-10-01T23:39:01.891Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
+<testsuite name="staging/desktop/checkout-navigation.spec.ts" timestamp="2026-10-03T23:54:08.834Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
 <testcase name="requires verified product data and selectors" classname="staging/desktop/checkout-navigation.spec.ts">
 <properties>
 <property name="skip" value="">
@@ -74,7 +74,7 @@
 </skipped>
 </testcase>
 </testsuite>
-<testsuite name="staging/desktop/checkout.spec.ts" timestamp="2026-10-01T23:39:01.891Z" hostname="staging-desktop" tests="4" failures="0" skipped="4" time="0.024" errors="0">
+<testsuite name="staging/desktop/checkout.spec.ts" timestamp="2026-10-03T23:54:08.834Z" hostname="staging-desktop" tests="4" failures="0" skipped="4" time="0.021" errors="0">
 <testcase name="Checkout API @staging @destructive @requires-authorization › creates an order and decrements controlled test stock" classname="staging/desktop/checkout.spec.ts">
 <properties>
 <property name="skip" value="Destructive checkout tests are disabled. Set RUN_DESTRUCTIVE_TESTS=true only after receiving explicit authorization for order and stock mutation.">
@@ -108,24 +108,24 @@
 </skipped>
 </testcase>
 </testsuite>
-<testsuite name="staging/desktop/homepage.spec.ts" timestamp="2026-10-01T23:39:01.891Z" hostname="staging-desktop" tests="7" failures="0" skipped="0" time="13.776" errors="0">
-<testcase name="Desktop homepage @staging @requires-authorization › loads the desktop homepage with its primary landmarks" classname="staging/desktop/homepage.spec.ts" time="1.52">
+<testsuite name="staging/desktop/homepage.spec.ts" timestamp="2026-10-03T23:54:08.834Z" hostname="staging-desktop" tests="7" failures="0" skipped="0" time="15.776" errors="0">
+<testcase name="Desktop homepage @staging @requires-authorization › loads the desktop homepage with its primary landmarks" classname="staging/desktop/homepage.spec.ts" time="2.091">
 </testcase>
-<testcase name="Desktop homepage @staging @requires-authorization › exposes every primary category destination in the desktop navigation" classname="staging/desktop/homepage.spec.ts" time="1.437">
+<testcase name="Desktop homepage @staging @requires-authorization › exposes every primary category destination in the desktop navigation" classname="staging/desktop/homepage.spec.ts" time="1.546">
 </testcase>
-<testcase name="Desktop homepage @staging @requires-authorization › submits a homepage search and renders the search results page" classname="staging/desktop/homepage.spec.ts" time="2.288">
+<testcase name="Desktop homepage @staging @requires-authorization › submits a homepage search and renders the search results page" classname="staging/desktop/homepage.spec.ts" time="3.976">
 </testcase>
-<testcase name="Desktop homepage @staging @requires-authorization › renders linked hero and promotional imagery with safe destinations" classname="staging/desktop/homepage.spec.ts" time="3.662">
+<testcase name="Desktop homepage @staging @requires-authorization › renders linked hero and promotional imagery with safe destinations" classname="staging/desktop/homepage.spec.ts" time="3.564">
 </testcase>
-<testcase name="Desktop homepage @staging @requires-authorization › renders complete product carousel cards" classname="staging/desktop/homepage.spec.ts" time="1.938">
+<testcase name="Desktop homepage @staging @requires-authorization › renders complete product carousel cards" classname="staging/desktop/homepage.spec.ts" time="1.546">
 </testcase>
-<testcase name="Desktop homepage @staging @requires-authorization › renders brand promotions and the newsletter signup section" classname="staging/desktop/homepage.spec.ts" time="1.526">
+<testcase name="Desktop homepage @staging @requires-authorization › renders brand promotions and the newsletter signup section" classname="staging/desktop/homepage.spec.ts" time="1.562">
 </testcase>
-<testcase name="Desktop homepage @staging @requires-authorization › renders all legal and customer-service footer links" classname="staging/desktop/homepage.spec.ts" time="1.405">
+<testcase name="Desktop homepage @staging @requires-authorization › renders all legal and customer-service footer links" classname="staging/desktop/homepage.spec.ts" time="1.491">
 </testcase>
 </testsuite>
-<testsuite name="staging/desktop/navigation.spec.ts" timestamp="2026-10-01T23:39:01.891Z" hostname="staging-desktop" tests="1" failures="0" skipped="0" time="27.664" errors="1">
-<testcase name="Desktop Navigation Flow @staging @stateful @requires-authorization › navigates from catalog to checkout entry on approved staging" classname="staging/desktop/navigation.spec.ts" time="27.664">
+<testsuite name="staging/desktop/navigation.spec.ts" timestamp="2026-10-03T23:54:08.834Z" hostname="staging-desktop" tests="1" failures="0" skipped="0" time="30.213" errors="1">
+<testcase name="Desktop Navigation Flow @staging @stateful @requires-authorization › navigates from catalog to checkout entry on approved staging" classname="staging/desktop/navigation.spec.ts" time="30.213">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/test-failed-1.png]]
@@ -135,19 +135,21 @@
 [[ATTACHMENT|../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/trace.zip]]
 ]]>
 </system-out>
-<error message="Could not find a visible add-to-cart control. Tried: add-to-cart button, add-to-cart link, submit button containing In den Warenkorb." type="Error">
+<error message="Test timeout of 30000ms exceeded." type="Error">
 <![CDATA[  [staging-desktop] › staging/desktop/navigation.spec.ts:482:7 › Desktop Navigation Flow @staging @stateful @requires-authorization › navigates from catalog to checkout entry on approved staging › Add the product to the cart 
 
-    Error: Could not find a visible add-to-cart control. Tried: add-to-cart button, add-to-cart link, submit button containing In den Warenkorb.
+    Test timeout of 30000ms exceeded.
 
-      109 |   }
-      110 |
-    > 111 |   throw new Error(
-          |         ^
-      112 |     `Could not find a visible ${purpose}. Tried: ${attemptedCandidates.join(', ')}.`,
-      113 |   );
-      114 | }
-        at findSingleVisibleLocator (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:111:9)
+    Error: locator.count: Target page, context or browser has been closed
+
+      77 |     const locator = candidate.create();
+      78 |     await locator.first().waitFor({ state: 'attached', timeout: LOCATOR_PROBE_TIMEOUT_MS }).catch(() => {});
+    > 79 |     const count = await locator.count();
+         |                                 ^
+      80 |     const visibleMatches: Locator[] = [];
+      81 |
+      82 |     for (let index = 0; index < count; index += 1) {
+        at findSingleVisibleLocator (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:79:33)
         at addCurrentProductToCart (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:322:28)
         at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:516:7
         at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:515:5
@@ -169,7 +171,7 @@
 </error>
 </testcase>
 </testsuite>
-<testsuite name="staging/desktop/product-detail.spec.ts" timestamp="2026-10-01T23:39:01.891Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
+<testsuite name="staging/desktop/product-detail.spec.ts" timestamp="2026-10-03T23:54:08.834Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
 <testcase name="requires verified product data and selectors" classname="staging/desktop/product-detail.spec.ts">
 <properties>
 <property name="skip" value="">
@@ -179,7 +181,7 @@
 </skipped>
 </testcase>
 </testsuite>
-<testsuite name="staging/desktop/search-filters.spec.ts" timestamp="2026-10-01T23:39:01.891Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
+<testsuite name="staging/desktop/search-filters.spec.ts" timestamp="2026-10-03T23:54:08.834Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
 <testcase name="requires verified product data and selectors" classname="staging/desktop/search-filters.spec.ts">
 <properties>
 <property name="skip" value="">
@@ -189,7 +191,7 @@
 </skipped>
 </testcase>
 </testsuite>
-<testsuite name="staging/desktop/visual-regression.spec.ts" timestamp="2026-10-01T23:39:01.891Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
+<testsuite name="staging/desktop/visual-regression.spec.ts" timestamp="2026-10-03T23:54:08.834Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
 <testcase name="requires verified product data and selectors" classname="staging/desktop/visual-regression.spec.ts">
 <properties>
 <property name="skip" value="">

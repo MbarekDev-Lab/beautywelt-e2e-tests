@@ -15,9 +15,10 @@ export class CookieBannerComponent {
   }
 
   async dismissIfPresent(): Promise<void> {
+    // Attempt standard accept/reject buttons
     if (
       await this.rejectOptionalButton
-        .isVisible({ timeout: 5000 })
+        .isVisible({ timeout: 1000 })
         .catch(() => false)
     ) {
       await this.rejectOptionalButton.click();
@@ -26,7 +27,7 @@ export class CookieBannerComponent {
 
     if (
       await this.settingsOrRejectLink
-        .isVisible({ timeout: 5000 })
+        .isVisible({ timeout: 1000 })
         .catch(() => false)
     ) {
       await this.settingsOrRejectLink.click();
@@ -36,9 +37,25 @@ export class CookieBannerComponent {
       });
 
       if (
-        await rejectAllButton.isVisible({ timeout: 5000 }).catch(() => false)
+        await rejectAllButton.isVisible({ timeout: 2000 }).catch(() => false)
       ) {
         await rejectAllButton.click();
+      }
+      return;
+    }
+    
+    // Fallback for custom beautywelt staging cookie banner which uses spans and divs without text
+    console.log("CookieBannerComponent: Trying custom fallback...");
+    const customSettingsSpan = this.page.locator('span').filter({ hasText: /^Einstellungen oder Ablehnen$/i });
+    if (await customSettingsSpan.isVisible({ timeout: 5000 }).catch(() => false)) {
+      console.log("CookieBannerComponent: Found settings span, clicking...");
+      await customSettingsSpan.click();
+      // The save button is an icon in a div without text
+      const saveIcon = this.page.locator('.bwye .bwv6').first();
+      if (await saveIcon.isVisible({ timeout: 3000 }).catch(() => false)) {
+        console.log("CookieBannerComponent: Found save icon, clicking...");
+        await saveIcon.click();
+        console.log("CookieBannerComponent: Clicked save icon!");
       }
     }
   }

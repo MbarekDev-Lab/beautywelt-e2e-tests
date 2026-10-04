@@ -1,204 +1,26 @@
-<testsuites id="" name="" tests="19" failures="0" skipped="10" errors="2" time="70.503121">
-<testsuite name="staging/desktop/account.spec.ts" timestamp="2026-10-03T23:54:08.834Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="requires verified product data and selectors" classname="staging/desktop/account.spec.ts">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="staging/desktop/api-health.spec.ts" timestamp="2026-10-03T23:54:08.834Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="requires verified product data and selectors" classname="staging/desktop/api-health.spec.ts">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="staging/desktop/cart.spec.ts" timestamp="2026-10-03T23:54:08.834Z" hostname="staging-desktop" tests="1" failures="0" skipped="0" time="21.911" errors="1">
-<testcase name="Cart @staging @stateful @requires-authorization › adds item and updates quantity on staging" classname="staging/desktop/cart.spec.ts" time="21.911">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="5.766577">
+<testsuite name="staging/desktop/scratch.spec.ts" timestamp="2026-10-04T00:24:10.041Z" hostname="staging-desktop" tests="1" failures="0" skipped="0" time="4.696" errors="0">
+<testcase name="dump storage" classname="staging/desktop/scratch.spec.ts" time="4.696">
 <system-out>
-<![CDATA[
-[[ATTACHMENT|../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/test-failed-1.png]]
-
-[[ATTACHMENT|../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/error-context.md]]
-
-[[ATTACHMENT|../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/trace.zip]]
+<![CDATA[CookieBannerComponent: Trying custom fallback...
+CookieBannerComponent: Found settings span, clicking...
+CookieBannerComponent: Found save icon, clicking...
+CookieBannerComponent: Clicked save icon!
+localStorage: {"_uetvid":"edd9fff0bf8911f18ca18764691142e7","_gcl_ls":"{\"schema\":\"gcl\",\"version\":1,\"gcl_ctr\":{\"value\":{\"value\":0,\"timeouts\":0,\"errors\":0,\"eopCount\":0,\"creationTimeMs\":1791073454906},\"expires\":1798849454906},\"gsid_dc\":{\"value\":{\"joinId\":\"3RNRW97bar_5s9lmvdlaTTCft1DbNcXFRw\",\"lastJoinedTimeMs\":1791073454909},\"expires\":1791073754909}}","_uetvid_exp":"Fri, 29 Oct 2027 00:24:14 GMT","_uetsid":"edd9ef90bf8911f1bdee7b007b8abad6","cto_bundle":"B3cECl94Z0ZQeldLb2JnelFvYURyeFJ6UHFMSVYyaWs2U1ZkeUNqdVdaQSUyQnlTVE9pQkYweGJpVnM5ZW8wcmExQ29FQmJSUFAlMkZZZkJhb3JveHBnSmZNVW96cUN6V2JtY3pOUzdoTW9Ceks0aDk3U2lETGdiTSUyQnk1dWlWMEhIYmxjVmpmUDh4b2xmRGtZRHlPQzhZVVAlMkJMYUc3b1klMkZ6MGZ1UmhnWDlLZjdQY2R3WnRrJTNE","_uetsid_exp":"Mon, 05 Oct 2026 00:24:14 GMT"}
+sessionStorage: {}
+Cookies:
+JTLSHOP=a0d961ecc8af7e536a8548079e612f9d
+gh7=6.3.
+_uetsid=edd9ef90bf8911f1bdee7b007b8abad6
+_uetvid=edd9fff0bf8911f18ca18764691142e7
+MUID=334169D62F8761F83C9B7E3E2E40608B
+_gcl_au=1.1.1236169116.1791073455
+uid=e954d2b0-9fe0-4c97-9e61-960dad726462
+cto_bundle=3AL07F9NenFweUYyRlM5SmpSeEVFTGpqalNidk5hU0ZOd2FRMlVya3FGSHREUUJHcjh6S2VJZjQ1UmgxbEZobTRhTlN4JTJCcSUyRndvaUNyNTJBRlZOam9hcXlWcTBtJTJCM2hiTE9zSGs1N2lnYWdqTWJSQW9FeG5qVWkyOUM1clZvWDRpd29OelNXc0hoUThycjlvdDU4cCUyQjdrZlRqUSUzRCUzRA
+cto_bundle=B3cECl94Z0ZQeldLb2JnelFvYURyeFJ6UHFMSVYyaWs2U1ZkeUNqdVdaQSUyQnlTVE9pQkYweGJpVnM5ZW8wcmExQ29FQmJSUFAlMkZZZkJhb3JveHBnSmZNVW96cUN6V2JtY3pOUzdoTW9Ceks0aDk3U2lETGdiTSUyQnk1dWlWMEhIYmxjVmpmUDh4b2xmRGtZRHlPQzhZVVAlMkJMYUc3b1klMkZ6MGZ1UmhnWDlLZjdQY2R3WnRrJTNE
+test_cookie=CheckForPermission
 ]]>
 </system-out>
-<error message="locator.click: Timeout 10000ms exceeded." type="TimeoutError">
-<![CDATA[  [staging-desktop] › staging/desktop/cart.spec.ts:19:7 › Cart @staging @stateful @requires-authorization › adds item and updates quantity on staging 
-
-    TimeoutError: locator.click: Timeout 10000ms exceeded.
-    Call log:
-      - waiting for getByRole('button', { name: /in den warenkorb|add to cart|zum warenkorb/i })
-
-
-      37 |     // Add to cart
-      38 |     await productDetailPage.waitForMainContent();
-    > 39 |     await productDetailPage.addToCartButton.click({ force: true });
-         |                                             ^
-      40 |
-      41 |     // Go to cart
-      42 |     await page.goto('/warenkorb.php');
-        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/cart.spec.ts:39:45
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/error-context.md
-
-    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
-    ../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/trace.zip
-    Usage:
-
-        npx playwright show-trace ../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/trace.zip
-
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-]]>
-</error>
-</testcase>
-</testsuite>
-<testsuite name="staging/desktop/checkout-navigation.spec.ts" timestamp="2026-10-03T23:54:08.834Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="requires verified product data and selectors" classname="staging/desktop/checkout-navigation.spec.ts">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="staging/desktop/checkout.spec.ts" timestamp="2026-10-03T23:54:08.834Z" hostname="staging-desktop" tests="4" failures="0" skipped="4" time="0.021" errors="0">
-<testcase name="Checkout API @staging @destructive @requires-authorization › creates an order and decrements controlled test stock" classname="staging/desktop/checkout.spec.ts">
-<properties>
-<property name="skip" value="Destructive checkout tests are disabled. Set RUN_DESTRUCTIVE_TESTS=true only after receiving explicit authorization for order and stock mutation.">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-<testcase name="Checkout API @staging @destructive @requires-authorization › returns the current cart contents" classname="staging/desktop/checkout.spec.ts">
-<properties>
-<property name="skip" value="Destructive checkout tests are disabled. Set RUN_DESTRUCTIVE_TESTS=true only after receiving explicit authorization for order and stock mutation.">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-<testcase name="Checkout API @staging @destructive @requires-authorization › rejects checkout without required customer details" classname="staging/desktop/checkout.spec.ts">
-<properties>
-<property name="skip" value="Destructive checkout tests are disabled. Set RUN_DESTRUCTIVE_TESTS=true only after receiving explicit authorization for order and stock mutation.">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-<testcase name="Checkout API @staging @destructive @requires-authorization › calculates the total for multiple controlled test items" classname="staging/desktop/checkout.spec.ts">
-<properties>
-<property name="skip" value="Destructive checkout tests are disabled. Set RUN_DESTRUCTIVE_TESTS=true only after receiving explicit authorization for order and stock mutation.">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="staging/desktop/homepage.spec.ts" timestamp="2026-10-03T23:54:08.834Z" hostname="staging-desktop" tests="7" failures="0" skipped="0" time="15.776" errors="0">
-<testcase name="Desktop homepage @staging @requires-authorization › loads the desktop homepage with its primary landmarks" classname="staging/desktop/homepage.spec.ts" time="2.091">
-</testcase>
-<testcase name="Desktop homepage @staging @requires-authorization › exposes every primary category destination in the desktop navigation" classname="staging/desktop/homepage.spec.ts" time="1.546">
-</testcase>
-<testcase name="Desktop homepage @staging @requires-authorization › submits a homepage search and renders the search results page" classname="staging/desktop/homepage.spec.ts" time="3.976">
-</testcase>
-<testcase name="Desktop homepage @staging @requires-authorization › renders linked hero and promotional imagery with safe destinations" classname="staging/desktop/homepage.spec.ts" time="3.564">
-</testcase>
-<testcase name="Desktop homepage @staging @requires-authorization › renders complete product carousel cards" classname="staging/desktop/homepage.spec.ts" time="1.546">
-</testcase>
-<testcase name="Desktop homepage @staging @requires-authorization › renders brand promotions and the newsletter signup section" classname="staging/desktop/homepage.spec.ts" time="1.562">
-</testcase>
-<testcase name="Desktop homepage @staging @requires-authorization › renders all legal and customer-service footer links" classname="staging/desktop/homepage.spec.ts" time="1.491">
-</testcase>
-</testsuite>
-<testsuite name="staging/desktop/navigation.spec.ts" timestamp="2026-10-03T23:54:08.834Z" hostname="staging-desktop" tests="1" failures="0" skipped="0" time="30.213" errors="1">
-<testcase name="Desktop Navigation Flow @staging @stateful @requires-authorization › navigates from catalog to checkout entry on approved staging" classname="staging/desktop/navigation.spec.ts" time="30.213">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/test-failed-1.png]]
-
-[[ATTACHMENT|../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/error-context.md]]
-
-[[ATTACHMENT|../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/trace.zip]]
-]]>
-</system-out>
-<error message="Test timeout of 30000ms exceeded." type="Error">
-<![CDATA[  [staging-desktop] › staging/desktop/navigation.spec.ts:482:7 › Desktop Navigation Flow @staging @stateful @requires-authorization › navigates from catalog to checkout entry on approved staging › Add the product to the cart 
-
-    Test timeout of 30000ms exceeded.
-
-    Error: locator.count: Target page, context or browser has been closed
-
-      77 |     const locator = candidate.create();
-      78 |     await locator.first().waitFor({ state: 'attached', timeout: LOCATOR_PROBE_TIMEOUT_MS }).catch(() => {});
-    > 79 |     const count = await locator.count();
-         |                                 ^
-      80 |     const visibleMatches: Locator[] = [];
-      81 |
-      82 |     for (let index = 0; index < count; index += 1) {
-        at findSingleVisibleLocator (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:79:33)
-        at addCurrentProductToCart (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:322:28)
-        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:516:7
-        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:515:5
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/error-context.md
-
-    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
-    ../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/trace.zip
-    Usage:
-
-        npx playwright show-trace ../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/trace.zip
-
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-]]>
-</error>
-</testcase>
-</testsuite>
-<testsuite name="staging/desktop/product-detail.spec.ts" timestamp="2026-10-03T23:54:08.834Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="requires verified product data and selectors" classname="staging/desktop/product-detail.spec.ts">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="staging/desktop/search-filters.spec.ts" timestamp="2026-10-03T23:54:08.834Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="requires verified product data and selectors" classname="staging/desktop/search-filters.spec.ts">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="staging/desktop/visual-regression.spec.ts" timestamp="2026-10-03T23:54:08.834Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="requires verified product data and selectors" classname="staging/desktop/visual-regression.spec.ts">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
 </testcase>
 </testsuite>
 </testsuites>

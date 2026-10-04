@@ -32,11 +32,11 @@ test.describe('Cart @staging @stateful @requires-authorization', () => {
     await page.goto('/parfuem');
     await searchResultsPage.waitForMainContent();
     await page.waitForLoadState('domcontentloaded');
-    await searchResultsPage.clickFirstVisibleProductLink({ force: true });
+    await searchResultsPage.clickFirstVisibleProductLink();
 
     // Add to cart
     await productDetailPage.waitForMainContent();
-    await productDetailPage.addToCartButton.click({ force: true });
+    await productDetailPage.addToCartButton.click();
 
     // Go to cart
     await page.goto('/warenkorb.php');

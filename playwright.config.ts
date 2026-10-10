@@ -15,6 +15,10 @@ const DEFAULT_TIMEOUT_MS = 30_000;
 const DEFAULT_EXPECT_TIMEOUT_MS = 5_000;
 const DEFAULT_ACTION_TIMEOUT_MS = 10_000;
 const DEFAULT_NAVIGATION_TIMEOUT_MS = 15_000;
+// Staging server is slow (~8s raw response); give Playwright enough headroom
+// on top of browser overhead, TLS negotiation, and Basic-Auth round-trips.
+const STAGING_NAVIGATION_TIMEOUT_MS = 60_000;
+const STAGING_TIMEOUT_MS = 90_000;
 
 function createStagingHttpCredentials(): HTTPCredentials | undefined {
   if (environment.targetEnv !== 'staging') {
@@ -120,7 +124,8 @@ const config: PlaywrightTestConfig = {
 
       fullyParallel: false,
       workers: 1,
-      retries: 0,
+      retries: 1,
+      timeout: STAGING_TIMEOUT_MS,
 
       use: {
         ...devices['Desktop Chrome'],
@@ -129,6 +134,9 @@ const config: PlaywrightTestConfig = {
         baseURL,
 
         httpCredentials: stagingHttpCredentials,
+
+        navigationTimeout: STAGING_NAVIGATION_TIMEOUT_MS,
+        actionTimeout: DEFAULT_ACTION_TIMEOUT_MS,
 
         trace: 'retain-on-failure',
         screenshot: 'only-on-failure',
@@ -143,7 +151,8 @@ const config: PlaywrightTestConfig = {
 
       fullyParallel: false,
       workers: 1,
-      retries: 0,
+      retries: 1,
+      timeout: STAGING_TIMEOUT_MS,
 
       use: {
         ...devices['Desktop Chrome'],
@@ -152,6 +161,9 @@ const config: PlaywrightTestConfig = {
         baseURL,
 
         httpCredentials: stagingHttpCredentials,
+
+        navigationTimeout: STAGING_NAVIGATION_TIMEOUT_MS,
+        actionTimeout: DEFAULT_ACTION_TIMEOUT_MS,
 
         trace: 'retain-on-failure',
         screenshot: 'only-on-failure',
@@ -166,7 +178,8 @@ const config: PlaywrightTestConfig = {
 
       fullyParallel: false,
       workers: 1,
-      retries: 0,
+      retries: 1,
+      timeout: STAGING_TIMEOUT_MS,
 
       use: {
         ...devices['iPhone 13'],
@@ -174,6 +187,9 @@ const config: PlaywrightTestConfig = {
         baseURL,
 
         httpCredentials: stagingHttpCredentials,
+
+        navigationTimeout: STAGING_NAVIGATION_TIMEOUT_MS,
+        actionTimeout: DEFAULT_ACTION_TIMEOUT_MS,
 
         trace: 'retain-on-failure',
         screenshot: 'only-on-failure',

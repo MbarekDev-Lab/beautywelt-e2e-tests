@@ -22,8 +22,15 @@ export class SearchResultsPage extends BasePage {
         const links = card.locator('a');
         const linksCount = await links.count();
         for (let j = 0; j < linksCount; j++) {
-           if (await links.nth(j).isVisible().catch(() => false)) {
-             await links.nth(j).click(options);
+           const link = links.nth(j);
+           if (await link.isVisible().catch(() => false)) {
+             try {
+               // Attempt a normal click first; this respects pointer-event interception.
+               await link.click({ ...options, timeout: 5_000 });
+             } catch {
+               // If a blocking overlay still intercepts, force-click to unblock.
+               await link.click({ ...options, force: true });
+             }
              return;
            }
         }
@@ -31,4 +38,5 @@ export class SearchResultsPage extends BasePage {
     }
     throw new Error('Could not find any visible product link.');
   }
+
 }

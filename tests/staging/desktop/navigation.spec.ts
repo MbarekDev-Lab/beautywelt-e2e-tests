@@ -342,6 +342,18 @@ async function addCurrentProductToCart(page: Page): Promise<void> {
             hasText: /\bin den warenkorb\b/i,
           }),
       },
+      {
+        description: 'input[type=submit] containing In den Warenkorb',
+        create: (): Locator =>
+          page.locator('input[type="submit"][value*="Warenkorb" i]'),
+      },
+      {
+        description: 'any button or input with warenkorb text/value',
+        create: (): Locator =>
+          page
+            .locator('button, input[type="submit"], input[type="button"]')
+            .filter({ hasText: /warenkorb/i }),
+      },
     ],
     'add-to-cart control',
   );
@@ -506,6 +518,8 @@ test.describe('Desktop Navigation Flow @staging @stateful @requires-authorizatio
       await page.goto('/parfuem');
       await expect(page.getByRole('main')).toBeVisible();
       await assertAuthorizedApplicationLoaded(page);
+      // The consent banner may reappear on the catalog page – dismiss it.
+      await dismissCookieBannerIfPresent(page);
     });
 
     await test.step('Open the configured product', async (): Promise<void> => {
@@ -513,6 +527,8 @@ test.describe('Desktop Navigation Flow @staging @stateful @requires-authorizatio
     });
 
     await test.step('Add the product to the cart', async (): Promise<void> => {
+      // The consent banner may reappear on the PDP – dismiss it before interacting.
+      await dismissCookieBannerIfPresent(page);
       await addCurrentProductToCart(page);
     });
 

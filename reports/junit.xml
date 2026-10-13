@@ -1,26 +1,189 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="5.766577">
-<testsuite name="staging/desktop/scratch.spec.ts" timestamp="2026-10-04T00:24:10.041Z" hostname="staging-desktop" tests="1" failures="0" skipped="0" time="4.696" errors="0">
-<testcase name="dump storage" classname="staging/desktop/scratch.spec.ts" time="4.696">
+<testsuites id="" name="" tests="2" failures="1" skipped="0" errors="1" time="100.25876099999999">
+<testsuite name="staging/desktop/cart.spec.ts" timestamp="2026-10-13T22:53:13.333Z" hostname="staging-desktop" tests="1" failures="1" skipped="0" time="20.543" errors="0">
+<testcase name="Cart @staging @stateful @requires-authorization › adds item and updates quantity on staging" classname="staging/desktop/cart.spec.ts" time="20.543">
 <system-out>
 <![CDATA[CookieBannerComponent: Trying custom fallback...
-CookieBannerComponent: Found settings span, clicking...
-CookieBannerComponent: Found save icon, clicking...
-CookieBannerComponent: Clicked save icon!
-localStorage: {"_uetvid":"edd9fff0bf8911f18ca18764691142e7","_gcl_ls":"{\"schema\":\"gcl\",\"version\":1,\"gcl_ctr\":{\"value\":{\"value\":0,\"timeouts\":0,\"errors\":0,\"eopCount\":0,\"creationTimeMs\":1791073454906},\"expires\":1798849454906},\"gsid_dc\":{\"value\":{\"joinId\":\"3RNRW97bar_5s9lmvdlaTTCft1DbNcXFRw\",\"lastJoinedTimeMs\":1791073454909},\"expires\":1791073754909}}","_uetvid_exp":"Fri, 29 Oct 2027 00:24:14 GMT","_uetsid":"edd9ef90bf8911f1bdee7b007b8abad6","cto_bundle":"B3cECl94Z0ZQeldLb2JnelFvYURyeFJ6UHFMSVYyaWs2U1ZkeUNqdVdaQSUyQnlTVE9pQkYweGJpVnM5ZW8wcmExQ29FQmJSUFAlMkZZZkJhb3JveHBnSmZNVW96cUN6V2JtY3pOUzdoTW9Ceks0aDk3U2lETGdiTSUyQnk1dWlWMEhIYmxjVmpmUDh4b2xmRGtZRHlPQzhZVVAlMkJMYUc3b1klMkZ6MGZ1UmhnWDlLZjdQY2R3WnRrJTNE","_uetsid_exp":"Mon, 05 Oct 2026 00:24:14 GMT"}
-sessionStorage: {}
-Cookies:
-JTLSHOP=a0d961ecc8af7e536a8548079e612f9d
-gh7=6.3.
-_uetsid=edd9ef90bf8911f1bdee7b007b8abad6
-_uetvid=edd9fff0bf8911f18ca18764691142e7
-MUID=334169D62F8761F83C9B7E3E2E40608B
-_gcl_au=1.1.1236169116.1791073455
-uid=e954d2b0-9fe0-4c97-9e61-960dad726462
-cto_bundle=3AL07F9NenFweUYyRlM5SmpSeEVFTGpqalNidk5hU0ZOd2FRMlVya3FGSHREUUJHcjh6S2VJZjQ1UmgxbEZobTRhTlN4JTJCcSUyRndvaUNyNTJBRlZOam9hcXlWcTBtJTJCM2hiTE9zSGs1N2lnYWdqTWJSQW9FeG5qVWkyOUM1clZvWDRpd29OelNXc0hoUThycjlvdDU4cCUyQjdrZlRqUSUzRCUzRA
-cto_bundle=B3cECl94Z0ZQeldLb2JnelFvYURyeFJ6UHFMSVYyaWs2U1ZkeUNqdVdaQSUyQnlTVE9pQkYweGJpVnM5ZW8wcmExQ29FQmJSUFAlMkZZZkJhb3JveHBnSmZNVW96cUN6V2JtY3pOUzdoTW9Ceks0aDk3U2lETGdiTSUyQnk1dWlWMEhIYmxjVmpmUDh4b2xmRGtZRHlPQzhZVVAlMkJMYUc3b1klMkZ6MGZ1UmhnWDlLZjdQY2R3WnRrJTNE
-test_cookie=CheckForPermission
+CookieBannerComponent: Removing overlay via DOM evaluation (last resort).
+CookieBannerComponent: Trying custom fallback...
+CookieBannerComponent: Removing overlay via DOM evaluation (last resort).
+
+[[ATTACHMENT|../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/error-context.md]]
+
+[[ATTACHMENT|../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/trace.zip]]
+CookieBannerComponent: Trying custom fallback...
+CookieBannerComponent: Trying custom fallback...
+CookieBannerComponent: Removing overlay via DOM evaluation (last resort).
+
+[[ATTACHMENT|../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop-retry1/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop-retry1/error-context.md]]
+
+[[ATTACHMENT|../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop-retry1/trace.zip]]
 ]]>
 </system-out>
+<failure message="expect(locator).not.toHaveCount(expected) failed" type="expect.not.toHaveCount">
+<![CDATA[  [staging-desktop] › staging/desktop/cart.spec.ts:19:7 › Cart @staging @stateful @requires-authorization › adds item and updates quantity on staging 
+
+    Error: expect(locator).not.toHaveCount(expected) failed
+
+    Locator:  locator('tbody tr, .cart-item, .basket-item')
+    Expected: not 0
+    Received: 0
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "not toHaveCount" with timeout 5000ms
+      - waiting for locator('tbody tr, .cart-item, .basket-item')
+        14 × locator resolved to 0 elements
+           - unexpected value "0"
+
+
+      48 |
+      49 |     // Verify cart is populated
+    > 50 |     await expect(cartPage.cartItem).not.toHaveCount(0);
+         |                                         ^
+      51 |
+      52 |     // Update quantity: wait for controls to appear, then update and confirm
+      53 |     const quantity = page.locator('input[type="number"]').first();
+        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/cart.spec.ts:50:41
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: expect(locator).not.toHaveCount(expected) failed
+
+    Locator:  locator('tbody tr, .cart-item, .basket-item')
+    Expected: not 0
+    Received: 0
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "not toHaveCount" with timeout 5000ms
+      - waiting for locator('tbody tr, .cart-item, .basket-item')
+        14 × locator resolved to 0 elements
+           - unexpected value "0"
+
+
+      48 |
+      49 |     // Verify cart is populated
+    > 50 |     await expect(cartPage.cartItem).not.toHaveCount(0);
+         |                                         ^
+      51 |
+      52 |     // Update quantity: wait for controls to appear, then update and confirm
+      53 |     const quantity = page.locator('input[type="number"]').first();
+        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/cart.spec.ts:50:41
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop-retry1/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+</testsuite>
+<testsuite name="staging/desktop/navigation.spec.ts" timestamp="2026-10-13T22:53:13.333Z" hostname="staging-desktop" tests="1" failures="0" skipped="0" time="75.385" errors="1">
+<testcase name="Desktop Navigation Flow @staging @stateful @requires-authorization › navigates from catalog to checkout entry on approved staging" classname="staging/desktop/navigation.spec.ts" time="75.385">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/error-context.md]]
+
+[[ATTACHMENT|../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/trace.zip]]
+
+[[ATTACHMENT|../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop-retry1/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop-retry1/error-context.md]]
+
+[[ATTACHMENT|../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop-retry1/trace.zip]]
+]]>
+</system-out>
+<error message="Could not find a visible add-to-cart control. Tried: add-to-cart button, add-to-cart link, submit button containing In den Warenkorb, input[type=submit] containing In den Warenkorb, any button or input with warenkorb text/value." type="Error">
+<![CDATA[  [staging-desktop] › staging/desktop/navigation.spec.ts:494:7 › Desktop Navigation Flow @staging @stateful @requires-authorization › navigates from catalog to checkout entry on approved staging › Add the product to the cart 
+
+    Error: Could not find a visible add-to-cart control. Tried: add-to-cart button, add-to-cart link, submit button containing In den Warenkorb, input[type=submit] containing In den Warenkorb, any button or input with warenkorb text/value.
+
+      109 |   }
+      110 |
+    > 111 |   throw new Error(
+          |         ^
+      112 |     `Could not find a visible ${purpose}. Tried: ${attemptedCandidates.join(', ')}.`,
+      113 |   );
+      114 | }
+        at findSingleVisibleLocator (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:111:9)
+        at addCurrentProductToCart (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:322:28)
+        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:532:7
+        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:529:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: Could not find a visible add-to-cart control. Tried: add-to-cart button, add-to-cart link, submit button containing In den Warenkorb, input[type=submit] containing In den Warenkorb, any button or input with warenkorb text/value.
+
+      109 |   }
+      110 |
+    > 111 |   throw new Error(
+          |         ^
+      112 |     `Could not find a visible ${purpose}. Tried: ${attemptedCandidates.join(', ')}.`,
+      113 |   );
+      114 | }
+        at findSingleVisibleLocator (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:111:9)
+        at addCurrentProductToCart (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:322:28)
+        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:532:7
+        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:529:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop-retry1/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
 </testcase>
 </testsuite>
 </testsuites>

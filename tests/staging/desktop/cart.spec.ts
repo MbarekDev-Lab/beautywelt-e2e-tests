@@ -32,7 +32,11 @@ test.describe('Cart @staging @stateful @requires-authorization', () => {
     await page.goto('/parfuem');
     await searchResultsPage.waitForMainContent();
     await page.waitForLoadState('domcontentloaded');
+    // The consent banner may reappear on the catalog page – dismiss it again.
+    await homePage.cookieBanner.dismissIfPresent();
+    await homePage.dismissBlockingOverlays();
     await searchResultsPage.clickFirstVisibleProductLink();
+
 
     // Add to cart
     await productDetailPage.waitForMainContent();

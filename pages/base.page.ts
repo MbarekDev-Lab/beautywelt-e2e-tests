@@ -103,7 +103,7 @@ export class BasePage {
       }
 
       const closeOverlayRegex =
-        /Schließen|Close|Ablehnen|Akzeptieren|Alle akzeptieren|Verstanden|Nein danke/i;
+        /Schließen|Close|Ablehnen|Akzeptieren|Alle akzeptieren|Alle ablehnen|Nur notwendige|Notwendige cookies|Verstanden|Nein danke/i;
       const closeButton = overlay
         .getByRole('button', { name: closeOverlayRegex })
         .first();

@@ -5,7 +5,7 @@ const { chromium } = require('playwright');
   const context = await browser.newContext({
     httpCredentials: {
       username: 'test',
-      password: 'joBW!2023',
+      password: '[PASSWORD]',
     },
   });
   const page = await context.newPage();

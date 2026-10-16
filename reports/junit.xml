@@ -1,8 +1,12 @@
-<testsuites id="" name="" tests="2" failures="1" skipped="0" errors="1" time="100.25876099999999">
-<testsuite name="staging/desktop/cart.spec.ts" timestamp="2026-10-13T22:53:13.333Z" hostname="staging-desktop" tests="1" failures="1" skipped="0" time="20.543" errors="0">
-<testcase name="Cart @staging @stateful @requires-authorization › adds item and updates quantity on staging" classname="staging/desktop/cart.spec.ts" time="20.543">
+<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="70.670858">
+<testsuite name="staging/desktop/cart.spec.ts" timestamp="2026-10-16T21:48:29.713Z" hostname="staging-desktop" tests="1" failures="1" skipped="0" time="68.564" errors="0">
+<testcase name="Cart @staging @stateful @requires-authorization › adds item and updates quantity on staging" classname="staging/desktop/cart.spec.ts" time="68.564">
 <system-out>
 <![CDATA[CookieBannerComponent: Trying custom fallback...
+CookieBannerComponent: Removing overlay via DOM evaluation (last resort).
+CookieBannerComponent: Trying custom fallback...
+CookieBannerComponent: Removing overlay via DOM evaluation (last resort).
+CookieBannerComponent: Trying custom fallback...
 CookieBannerComponent: Removing overlay via DOM evaluation (last resort).
 CookieBannerComponent: Trying custom fallback...
 CookieBannerComponent: Removing overlay via DOM evaluation (last resort).
@@ -13,6 +17,10 @@ CookieBannerComponent: Removing overlay via DOM evaluation (last resort).
 
 [[ATTACHMENT|../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/trace.zip]]
 CookieBannerComponent: Trying custom fallback...
+CookieBannerComponent: Trying custom fallback...
+CookieBannerComponent: Removing overlay via DOM evaluation (last resort).
+CookieBannerComponent: Trying custom fallback...
+CookieBannerComponent: Removing overlay via DOM evaluation (last resort).
 CookieBannerComponent: Trying custom fallback...
 CookieBannerComponent: Removing overlay via DOM evaluation (last resort).
 
@@ -40,14 +48,14 @@ CookieBannerComponent: Removing overlay via DOM evaluation (last resort).
            - unexpected value "0"
 
 
-      48 |
-      49 |     // Verify cart is populated
-    > 50 |     await expect(cartPage.cartItem).not.toHaveCount(0);
+      49 |
+      50 |     // Verify cart is populated
+    > 51 |     await expect(cartPage.cartItem).not.toHaveCount(0);
          |                                         ^
-      51 |
-      52 |     // Update quantity: wait for controls to appear, then update and confirm
-      53 |     const quantity = page.locator('input[type="number"]').first();
-        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/cart.spec.ts:50:41
+      52 |
+      53 |     // Update quantity: wait for controls to appear, then update and confirm
+      54 |     const quantity = cartPage.quantityInput.first();
+        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/cart.spec.ts:51:41
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
     ../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/test-failed-1.png
@@ -79,14 +87,14 @@ CookieBannerComponent: Removing overlay via DOM evaluation (last resort).
            - unexpected value "0"
 
 
-      48 |
-      49 |     // Verify cart is populated
-    > 50 |     await expect(cartPage.cartItem).not.toHaveCount(0);
+      49 |
+      50 |     // Verify cart is populated
+    > 51 |     await expect(cartPage.cartItem).not.toHaveCount(0);
          |                                         ^
-      51 |
-      52 |     // Update quantity: wait for controls to appear, then update and confirm
-      53 |     const quantity = page.locator('input[type="number"]').first();
-        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/cart.spec.ts:50:41
+      52 |
+      53 |     // Update quantity: wait for controls to appear, then update and confirm
+      54 |     const quantity = cartPage.quantityInput.first();
+        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/cart.spec.ts:51:41
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
     ../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop-retry1/test-failed-1.png
@@ -103,87 +111,6 @@ CookieBannerComponent: Removing overlay via DOM evaluation (last resort).
     ────────────────────────────────────────────────────────────────────────────────────────────────
 ]]>
 </failure>
-</testcase>
-</testsuite>
-<testsuite name="staging/desktop/navigation.spec.ts" timestamp="2026-10-13T22:53:13.333Z" hostname="staging-desktop" tests="1" failures="0" skipped="0" time="75.385" errors="1">
-<testcase name="Desktop Navigation Flow @staging @stateful @requires-authorization › navigates from catalog to checkout entry on approved staging" classname="staging/desktop/navigation.spec.ts" time="75.385">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/test-failed-1.png]]
-
-[[ATTACHMENT|../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/error-context.md]]
-
-[[ATTACHMENT|../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/trace.zip]]
-
-[[ATTACHMENT|../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop-retry1/test-failed-1.png]]
-
-[[ATTACHMENT|../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop-retry1/error-context.md]]
-
-[[ATTACHMENT|../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop-retry1/trace.zip]]
-]]>
-</system-out>
-<error message="Could not find a visible add-to-cart control. Tried: add-to-cart button, add-to-cart link, submit button containing In den Warenkorb, input[type=submit] containing In den Warenkorb, any button or input with warenkorb text/value." type="Error">
-<![CDATA[  [staging-desktop] › staging/desktop/navigation.spec.ts:494:7 › Desktop Navigation Flow @staging @stateful @requires-authorization › navigates from catalog to checkout entry on approved staging › Add the product to the cart 
-
-    Error: Could not find a visible add-to-cart control. Tried: add-to-cart button, add-to-cart link, submit button containing In den Warenkorb, input[type=submit] containing In den Warenkorb, any button or input with warenkorb text/value.
-
-      109 |   }
-      110 |
-    > 111 |   throw new Error(
-          |         ^
-      112 |     `Could not find a visible ${purpose}. Tried: ${attemptedCandidates.join(', ')}.`,
-      113 |   );
-      114 | }
-        at findSingleVisibleLocator (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:111:9)
-        at addCurrentProductToCart (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:322:28)
-        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:532:7
-        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:529:5
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/error-context.md
-
-    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
-    ../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/trace.zip
-    Usage:
-
-        npx playwright show-trace ../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/trace.zip
-
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
-
-    Error: Could not find a visible add-to-cart control. Tried: add-to-cart button, add-to-cart link, submit button containing In den Warenkorb, input[type=submit] containing In den Warenkorb, any button or input with warenkorb text/value.
-
-      109 |   }
-      110 |
-    > 111 |   throw new Error(
-          |         ^
-      112 |     `Could not find a visible ${purpose}. Tried: ${attemptedCandidates.join(', ')}.`,
-      113 |   );
-      114 | }
-        at findSingleVisibleLocator (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:111:9)
-        at addCurrentProductToCart (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:322:28)
-        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:532:7
-        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:529:5
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop-retry1/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop-retry1/error-context.md
-
-    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
-    ../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop-retry1/trace.zip
-    Usage:
-
-        npx playwright show-trace ../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop-retry1/trace.zip
-
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-]]>
-</error>
 </testcase>
 </testsuite>
 </testsuites>

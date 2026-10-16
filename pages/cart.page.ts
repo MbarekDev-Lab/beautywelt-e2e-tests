@@ -18,7 +18,27 @@ export class CartPage extends BasePage {
     return this.page.locator('tbody tr, .cart-item, .basket-item');
   }
 
+  get quantityInput(): Locator {
+    return this.page.locator(
+      'input[name^="anzahl"], input[name*="anzahl"], input[type="number"]',
+    );
+  }
+
+  get updateButton(): Locator {
+    return this.page
+      .locator(
+        'button[title*="aktualisieren" i], [aria-label*="aktualisieren" i], button.bwmn, button[name*="aktualisieren" i]',
+      )
+      .or(this.page.getByRole('button', { name: /aktualisieren|update/i }))
+      .or(
+        this.page
+          .locator('input[type="submit"], input[type="button"]')
+          .filter({ hasText: /aktualisieren|update/i }),
+      );
+  }
+
   get checkoutButton(): Locator {
     return this.page.getByRole('link', { name: /zur kasse|kasse/i });
   }
 }
+

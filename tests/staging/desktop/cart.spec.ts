@@ -40,27 +40,22 @@ test.describe('Cart @staging @stateful @requires-authorization', () => {
 
     // Add to cart
     await productDetailPage.waitForMainContent();
-    await productDetailPage.addToCartButton.click();
+    await productDetailPage.addToCart();
 
     // Go to cart
     await page.goto('/warenkorb.php');
+    await homePage.cookieBanner.dismissIfPresent();
     await cartPage.waitForMainContent();
 
     // Verify cart is populated
     await expect(cartPage.cartItem).not.toHaveCount(0);
 
     // Update quantity: wait for controls to appear, then update and confirm
-    const quantity = page.locator('input[type="number"]').first();
+    const quantity = cartPage.quantityInput.first();
     await expect(quantity).toBeVisible({ timeout: 5000 });
     await quantity.fill('2');
 
-    // Prefer semantic role-based button lookup, fallback to button-like elements with matching text
-    const updateBtn = page
-      .locator(
-        'button, input[type="submit"], input[type="button"], [role="button"]',
-      )
-      .filter({ hasText: /aktualisieren|update/i })
-      .first();
+    const updateBtn = cartPage.updateButton.first();
     if ((await updateBtn.count()) > 0) {
       await expect(updateBtn).toBeVisible({ timeout: 5000 });
       await Promise.all([

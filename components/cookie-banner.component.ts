@@ -72,6 +72,18 @@ export class CookieBannerComponent {
 
     // Strategy 3: Beautywelt staging banner rendered as spans/icons (no accessible text)
     console.log('CookieBannerComponent: Trying custom fallback...');
+    const directSaveIcon = this.page.locator('.bwye .bwv6').first();
+    if (
+      await directSaveIcon
+        .isVisible({ timeout: PROBE_TIMEOUT_MS })
+        .catch(() => false)
+    ) {
+      console.log('CookieBannerComponent: Found direct save icon, clicking...');
+      await directSaveIcon.click();
+      await this._waitForOverlayGone();
+      return;
+    }
+
     const customSettingsSpan = this.page
       .locator('span')
       .filter({ hasText: /^Einstellungen oder Ablehnen$/i });
@@ -85,7 +97,9 @@ export class CookieBannerComponent {
       await customSettingsSpan.click();
 
       const saveIcon = this.page.locator('.bwye .bwv6').first();
-      if (await saveIcon.isVisible({ timeout: PROBE_TIMEOUT_MS }).catch(() => false)) {
+      if (
+        await saveIcon.isVisible({ timeout: PROBE_TIMEOUT_MS }).catch(() => false)
+      ) {
         console.log('CookieBannerComponent: Found save icon, clicking...');
         await saveIcon.click();
         console.log('CookieBannerComponent: Clicked save icon!');

@@ -4,7 +4,7 @@ const { chromium } = require('playwright');
   const browser = await chromium.launch();
   const context = await browser.newContext({
     httpCredentials: {
-      username: 'test',
+      username: [EMAIL_ADDRESS]',
       password: '[PASSWORD]',
     },
   });

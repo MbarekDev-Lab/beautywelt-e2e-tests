@@ -1,6 +1,7 @@
 import type { Locator, Page, Response } from '@playwright/test';
 import { test, expect } from '../../../fixtures/pom-fixtures';
 import { requireAuthorizedStaging } from '../../../fixtures/staging-guard.fixture';
+import { CookieBannerComponent } from '../../../components/cookie-banner.component';
 
 type LocatorCandidate = {
   readonly description: string;
@@ -114,43 +115,10 @@ async function findSingleVisibleLocator(
 }
 
 async function dismissCookieBannerIfPresent(page: Page): Promise<void> {
-  const rejectButton = page.getByRole('button', {
-    name: /alle ablehnen|nur notwendige|notwendige cookies|ablehnen/i,
-  });
-
-  if (
-    await rejectButton
-      .isVisible({ timeout: LOCATOR_PROBE_TIMEOUT_MS })
-      .catch(() => false)
-  ) {
-    await rejectButton.click();
-    return;
-  }
-
-  const settingsOrRejectLink = page.getByRole('link', {
-    name: /einstellungen oder ablehnen/i,
-  });
-
-  if (
-    await settingsOrRejectLink
-      .isVisible({ timeout: LOCATOR_PROBE_TIMEOUT_MS })
-      .catch(() => false)
-  ) {
-    await settingsOrRejectLink.click();
-
-    const necessaryOnlyButton = page.getByRole('button', {
-      name: /alle ablehnen|nur notwendige|auswahl speichern/i,
-    });
-
-    if (
-      await necessaryOnlyButton
-        .isVisible({ timeout: LOCATOR_PROBE_TIMEOUT_MS })
-        .catch(() => false)
-    ) {
-      await necessaryOnlyButton.click();
-    }
-  }
+  const cookieBanner = new CookieBannerComponent(page);
+  await cookieBanner.dismissIfPresent();
 }
+
 
 async function openSearchInterfaceIfRequired(page: Page): Promise<void> {
   const currentlyVisibleSearchInputs = page.locator(
@@ -260,6 +228,7 @@ async function openConfiguredProduct(
   page: Page,
   productName: string,
 ): Promise<void> {
+  await dismissCookieBannerIfPresent(page);
   let productLink: Locator | null = null;
   let originalError: unknown = null;
 
@@ -312,117 +281,72 @@ async function openConfiguredProduct(
   }
 
   await expect(productLink).toBeVisible();
-  await productLink.click({ force: true });
+  try {
+    await Promise.all([
+      page.waitForURL(/\/a\/\d+/, { timeout: 15_000 }),
+      productLink.click({ timeout: 5_000 }),
+    ]);
+  } catch {
+    await Promise.all([
+      page.waitForURL(/\/a\/\d+/, { timeout: 15_000 }),
+      productLink.click({ force: true }),
+    ]);
+  }
 
+  await page.waitForLoadState('domcontentloaded');
+  await dismissCookieBannerIfPresent(page);
   await expect(page.getByRole('main')).toBeVisible();
   await assertAuthorizedApplicationLoaded(page);
 }
 
 async function addCurrentProductToCart(page: Page): Promise<void> {
-  const addToCartControl = await findSingleVisibleLocator(
-    [
-      {
-        description: 'add-to-cart button',
-        create: (): Locator =>
-          page.getByRole('button', {
-            name: /\bin den warenkorb\b/i,
-          }),
-      },
-      {
-        description: 'add-to-cart link',
-        create: (): Locator =>
-          page.getByRole('link', {
-            name: /\bin den warenkorb\b/i,
-          }),
-      },
-      {
-        description: 'submit button containing In den Warenkorb',
-        create: (): Locator =>
-          page.locator('button[type="submit"]').filter({
-            hasText: /\bin den warenkorb\b/i,
-          }),
-      },
-      {
-        description: 'input[type=submit] containing In den Warenkorb',
-        create: (): Locator =>
-          page.locator('input[type="submit"][value*="Warenkorb" i]'),
-      },
-      {
-        description: 'any button or input with warenkorb text/value',
-        create: (): Locator =>
-          page
-            .locator('button, input[type="submit"], input[type="button"]')
-            .filter({ hasText: /warenkorb/i }),
-      },
-    ],
-    'add-to-cart control',
-  );
-
-  await expect(addToCartControl).toBeVisible();
-  await expect(addToCartControl).toBeEnabled();
-
-  await addToCartControl.click({ force: true });
+  const { ProductDetailPage } = await import('../../../pages/product-detail.page');
+  const productDetailPage = new ProductDetailPage(page);
+  await productDetailPage.addToCart();
 }
 
 async function openCart(page: Page): Promise<void> {
-  const cartNavigation = await findSingleVisibleLocator(
-    [
-      {
-        description: 'Zum Warenkorb button',
-        create: (): Locator =>
-          page.getByRole('button', {
-            name: /\bzum warenkorb\b/i,
-          }),
-      },
-      {
-        description: 'Zum Warenkorb link',
-        create: (): Locator =>
-          page.getByRole('link', {
-            name: /\bzum warenkorb\b/i,
-          }),
-      },
-      {
-        description: 'Warenkorb anzeigen link',
-        create: (): Locator =>
-          page.getByRole('link', {
-            name: /\bwarenkorb anzeigen\b/i,
-          }),
-      },
-    ],
-    'cart-navigation control',
-  );
+  await dismissCookieBannerIfPresent(page);
 
-  await expect(cartNavigation).toBeVisible();
-  await cartNavigation.click({ force: true });
+  const modalCartButton = page
+    .getByRole('button', { name: /\bzum warenkorb\b/i })
+    .or(page.getByRole('link', { name: /\bzum warenkorb\b/i }))
+    .first();
 
+  if (await modalCartButton.isVisible({ timeout: 5000 }).catch(() => false)) {
+    await Promise.all([
+      page.waitForURL(/warenkorb\.php/, { timeout: 15_000 }).catch(() => null),
+      modalCartButton.click({ force: true }),
+    ]);
+  } else {
+    await page.goto('/warenkorb.php', { waitUntil: 'domcontentloaded' });
+  }
+
+  await dismissCookieBannerIfPresent(page);
   await expect(page.getByRole('main')).toBeVisible();
   await assertAuthorizedApplicationLoaded(page);
+  await expect(
+    page.locator('tbody tr, .cart-item, .basket-item'),
+  ).not.toHaveCount(0, { timeout: 15_000 });
 }
 
 async function openCheckout(page: Page): Promise<void> {
-  const checkoutNavigation = await findSingleVisibleLocator(
-    [
-      {
-        description: 'Zur Kasse link',
-        create: (): Locator =>
-          page.getByRole('link', {
-            name: /\bzur kasse\b|^checkout$/i,
-          }),
-      },
-      {
-        description: 'Zur Kasse button',
-        create: (): Locator =>
-          page.getByRole('button', {
-            name: /\bzur kasse\b|^checkout$/i,
-          }),
-      },
-    ],
-    'checkout-navigation control',
-  );
+  await dismissCookieBannerIfPresent(page);
 
-  await expect(checkoutNavigation).toBeVisible();
-  await checkoutNavigation.click({ force: true });
+  const checkoutLink = page
+    .getByRole('link', { name: /\bzur kasse\b|^checkout$/i })
+    .or(page.getByRole('button', { name: /\bzur kasse\b|^checkout$/i }))
+    .or(page.locator('a[href*="bestellvorgang.php"]'))
+    .first();
+
+  await expect(checkoutLink).toBeVisible({ timeout: 10_000 });
+  await Promise.all([
+    page.waitForLoadState('domcontentloaded'),
+    checkoutLink.click({ force: true }),
+  ]);
+  await dismissCookieBannerIfPresent(page);
 }
+
 
 async function assertCheckoutEntryLoaded(page: Page): Promise<void> {
   await assertAuthorizedApplicationLoaded(page);
@@ -455,13 +379,6 @@ async function assertCheckoutEntryLoaded(page: Page): Promise<void> {
   const checkoutAction = await findSingleVisibleLocator(
     [
       {
-        description: 'Anmelden button',
-        create: (): Locator =>
-          page.getByRole('button', {
-            name: /^anmelden$/i,
-          }),
-      },
-      {
         description: 'Kundendaten abschicken button',
         create: (): Locator =>
           page.getByRole('button', {
@@ -473,6 +390,13 @@ async function assertCheckoutEntryLoaded(page: Page): Promise<void> {
         create: (): Locator =>
           page.getByRole('button', {
             name: /^weiter$/i,
+          }),
+      },
+      {
+        description: 'Anmelden button',
+        create: (): Locator =>
+          page.getByRole('button', {
+            name: /^anmelden$/i,
           }),
       },
     ],

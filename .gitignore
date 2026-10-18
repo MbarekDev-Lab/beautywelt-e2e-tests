@@ -1,15 +1,36 @@
+# ── Dependencies ─────────────────────────────────────────────────────────────
 node_modules
+
+# ── Build & coverage outputs ─────────────────────────────────────────────────
+dist
+build
+coverage
+
+# ── Playwright artifacts ──────────────────────────────────────────────────────
 playwright-report
 test-results
 blob-report
 allure-results
-coverage
-dist
-build
 reports
 screenshots
+
+# ── Draft / work-in-progress ──────────────────────────────────────────────────
 draft
-.env
-.env.prod
-.env.staging
+
+# ── Logs ─────────────────────────────────────────────────────────────────────
 *.log
+npm-debug.log*
+
+# ── Environment / secrets ─────────────────────────────────────────────────────
+# Any .env file is considered sensitive and must never be committed.
+# The ONLY exception is .env.example which is a safe, value-free template.
+.env
+.env.*
+*.env
+!.env.example
+
+# ── Local scratch / exploratory scripts ───────────────────────────────────────
+# These ad-hoc scripts often contain hardcoded credentials or URLs and should
+# never be pushed to shared branches.
+scratch*.js
+scratch*.ts

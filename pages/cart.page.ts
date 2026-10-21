@@ -15,7 +15,18 @@ export class CartPage extends BasePage {
   }
 
   get cartItem(): Locator {
-    return this.page.locator('tbody tr, .cart-item, .basket-item');
+    return this.page.locator(
+      [
+        'tbody tr',           // Table-based carts (classic JTL)
+        '.cart-item',         // Generic cart-item class
+        '.basket-item',       // Generic basket-item class
+        '[data-product-id]',  // JTL data-attribute row variant
+        '.bw-cart-product',   // Beautywelt-specific cart product row
+        '.bwop_position',     // JTL order-position row class
+        '.warenkorb-item',    // German-language variant
+        'tr.kZeile',          // JTL table row variant (kZeile = cart row)
+      ].join(', '),
+    );
   }
 
   get quantityInput(): Locator {

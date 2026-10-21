@@ -1,15 +1,34 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="70.670858">
-<testsuite name="staging/desktop/cart.spec.ts" timestamp="2026-10-16T21:48:29.713Z" hostname="staging-desktop" tests="1" failures="1" skipped="0" time="68.564" errors="0">
-<testcase name="Cart @staging @stateful @requires-authorization › adds item and updates quantity on staging" classname="staging/desktop/cart.spec.ts" time="68.564">
+<testsuites id="" name="" tests="20" failures="1" skipped="10" errors="0" time="116.37697100000001">
+<testsuite name="staging/desktop/account.spec.ts" timestamp="2026-10-21T21:53:08.080Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
+<testcase name="requires verified product data and selectors" classname="staging/desktop/account.spec.ts">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="staging/desktop/api-health.spec.ts" timestamp="2026-10-21T21:53:08.080Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
+<testcase name="requires verified product data and selectors" classname="staging/desktop/api-health.spec.ts">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="staging/desktop/cart.spec.ts" timestamp="2026-10-21T21:53:08.080Z" hostname="staging-desktop" tests="1" failures="1" skipped="0" time="72.604" errors="0">
+<testcase name="Cart @staging @stateful @requires-authorization › adds item and updates quantity on staging" classname="staging/desktop/cart.spec.ts" time="72.604">
 <system-out>
 <![CDATA[CookieBannerComponent: Trying custom fallback...
-CookieBannerComponent: Removing overlay via DOM evaluation (last resort).
 CookieBannerComponent: Trying custom fallback...
 CookieBannerComponent: Removing overlay via DOM evaluation (last resort).
 CookieBannerComponent: Trying custom fallback...
 CookieBannerComponent: Removing overlay via DOM evaluation (last resort).
 CookieBannerComponent: Trying custom fallback...
-CookieBannerComponent: Removing overlay via DOM evaluation (last resort).
+CookieBannerComponent: Found direct save icon, clicking...
 
 [[ATTACHMENT|../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/test-failed-1.png]]
 
@@ -17,6 +36,7 @@ CookieBannerComponent: Removing overlay via DOM evaluation (last resort).
 
 [[ATTACHMENT|../test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/trace.zip]]
 CookieBannerComponent: Trying custom fallback...
+CookieBannerComponent: Removing overlay via DOM evaluation (last resort).
 CookieBannerComponent: Trying custom fallback...
 CookieBannerComponent: Removing overlay via DOM evaluation (last resort).
 CookieBannerComponent: Trying custom fallback...
@@ -111,6 +131,165 @@ CookieBannerComponent: Removing overlay via DOM evaluation (last resort).
     ────────────────────────────────────────────────────────────────────────────────────────────────
 ]]>
 </failure>
+</testcase>
+</testsuite>
+<testsuite name="staging/desktop/checkout-navigation.spec.ts" timestamp="2026-10-21T21:53:08.080Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
+<testcase name="requires verified product data and selectors" classname="staging/desktop/checkout-navigation.spec.ts">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="staging/desktop/checkout.spec.ts" timestamp="2026-10-21T21:53:08.080Z" hostname="staging-desktop" tests="4" failures="0" skipped="4" time="0.075" errors="0">
+<testcase name="Checkout API @staging @destructive @requires-authorization › creates an order and decrements controlled test stock" classname="staging/desktop/checkout.spec.ts">
+<properties>
+<property name="skip" value="Destructive checkout tests are disabled. Set RUN_DESTRUCTIVE_TESTS=true only after receiving explicit authorization for order and stock mutation.">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Checkout API @staging @destructive @requires-authorization › returns the current cart contents" classname="staging/desktop/checkout.spec.ts">
+<properties>
+<property name="skip" value="Destructive checkout tests are disabled. Set RUN_DESTRUCTIVE_TESTS=true only after receiving explicit authorization for order and stock mutation.">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Checkout API @staging @destructive @requires-authorization › rejects checkout without required customer details" classname="staging/desktop/checkout.spec.ts">
+<properties>
+<property name="skip" value="Destructive checkout tests are disabled. Set RUN_DESTRUCTIVE_TESTS=true only after receiving explicit authorization for order and stock mutation.">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Checkout API @staging @destructive @requires-authorization › calculates the total for multiple controlled test items" classname="staging/desktop/checkout.spec.ts">
+<properties>
+<property name="skip" value="Destructive checkout tests are disabled. Set RUN_DESTRUCTIVE_TESTS=true only after receiving explicit authorization for order and stock mutation.">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="staging/desktop/homepage.spec.ts" timestamp="2026-10-21T21:53:08.080Z" hostname="staging-desktop" tests="7" failures="0" skipped="0" time="13.947" errors="0">
+<testcase name="Desktop homepage @staging @requires-authorization › loads the desktop homepage with its primary landmarks" classname="staging/desktop/homepage.spec.ts" time="1.671">
+<system-out>
+<![CDATA[CookieBannerComponent: Trying custom fallback...
+]]>
+</system-out>
+</testcase>
+<testcase name="Desktop homepage @staging @requires-authorization › exposes every primary category destination in the desktop navigation" classname="staging/desktop/homepage.spec.ts" time="1.596">
+<system-out>
+<![CDATA[CookieBannerComponent: Trying custom fallback...
+]]>
+</system-out>
+</testcase>
+<testcase name="Desktop homepage @staging @requires-authorization › submits a homepage search and renders the search results page" classname="staging/desktop/homepage.spec.ts" time="2.346">
+<system-out>
+<![CDATA[CookieBannerComponent: Trying custom fallback...
+]]>
+</system-out>
+</testcase>
+<testcase name="Desktop homepage @staging @requires-authorization › renders linked hero and promotional imagery with safe destinations" classname="staging/desktop/homepage.spec.ts" time="3.719">
+<system-out>
+<![CDATA[CookieBannerComponent: Trying custom fallback...
+]]>
+</system-out>
+</testcase>
+<testcase name="Desktop homepage @staging @requires-authorization › renders complete product carousel cards" classname="staging/desktop/homepage.spec.ts" time="1.791">
+<system-out>
+<![CDATA[CookieBannerComponent: Trying custom fallback...
+]]>
+</system-out>
+</testcase>
+<testcase name="Desktop homepage @staging @requires-authorization › renders brand promotions and the newsletter signup section" classname="staging/desktop/homepage.spec.ts" time="1.401">
+<system-out>
+<![CDATA[CookieBannerComponent: Trying custom fallback...
+]]>
+</system-out>
+</testcase>
+<testcase name="Desktop homepage @staging @requires-authorization › renders all legal and customer-service footer links" classname="staging/desktop/homepage.spec.ts" time="1.423">
+<system-out>
+<![CDATA[CookieBannerComponent: Trying custom fallback...
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="staging/desktop/navigation.spec.ts" timestamp="2026-10-21T21:53:08.080Z" hostname="staging-desktop" tests="1" failures="0" skipped="0" time="21.203" errors="0">
+<testcase name="Desktop Navigation Flow @staging @stateful @requires-authorization › navigates from catalog to checkout entry on approved staging" classname="staging/desktop/navigation.spec.ts" time="21.203">
+<system-out>
+<![CDATA[CookieBannerComponent: Trying custom fallback...
+CookieBannerComponent: Trying custom fallback...
+CookieBannerComponent: Found direct save icon, clicking...
+CookieBannerComponent: Trying custom fallback...
+CookieBannerComponent: Trying custom fallback...
+CookieBannerComponent: Trying custom fallback...
+CookieBannerComponent: Trying custom fallback...
+CookieBannerComponent: Trying custom fallback...
+CookieBannerComponent: Removing overlay via DOM evaluation (last resort).
+CookieBannerComponent: Trying custom fallback...
+CookieBannerComponent: Trying custom fallback...
+CookieBannerComponent: Trying custom fallback...
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="staging/desktop/product-detail.spec.ts" timestamp="2026-10-21T21:53:08.080Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
+<testcase name="requires verified product data and selectors" classname="staging/desktop/product-detail.spec.ts">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="staging/desktop/scratch.spec.ts" timestamp="2026-10-21T21:53:08.080Z" hostname="staging-desktop" tests="1" failures="0" skipped="0" time="5.063" errors="0">
+<testcase name="dump storage" classname="staging/desktop/scratch.spec.ts" time="5.063">
+<system-out>
+<![CDATA[CookieBannerComponent: Trying custom fallback...
+CookieBannerComponent: Found direct save icon, clicking...
+localStorage: {"_uetvid":"11dea360cd9a11f1a69be58ce5274118","_gcl_ls":"{\"schema\":\"gcl\",\"version\":1,\"gcl_ctr\":{\"value\":{\"value\":0,\"timeouts\":0,\"errors\":0,\"eopCount\":0,\"creationTimeMs\":1792619703468},\"expires\":1800395703468},\"gsid_dc\":{\"value\":{\"joinId\":\"A1Ob2NN1z7X_5fmGqzm_uufGkemqUE7fbQ\",\"lastJoinedTimeMs\":1792619703471},\"expires\":1792620003471}}","_uetvid_exp":"Mon, 15 Nov 2027 21:55:03 GMT","_uetsid":"11dea2e0cd9a11f1b26fddd9c353d120","cto_bundle":"gjAi919yQnU4SlpVbHlDU3lSdFpMZnVmRlMxViUyQlVjVWozakdGRnVxYmdWcEFiSTFVQ0EyWCUyRjklMkJPM2ZIR0lkTnJFS3VObmdTc3pXV09lSUVsbU1DVG5OQmFLJTJCQUE0YmFyMGpGVjZTZWM2RXpDNk1CY1M0TUxNbmtkYmlaWCUyQmpQZEhSR1BRRldEWW5LWHFHWkFuVXhyZ09mVzBmaWk2Q0FqbWolMkJVYjdhRTV0UW9YSW8lM0Q","_uetsid_exp":"Thu, 22 Oct 2026 21:55:03 GMT"}
+sessionStorage: {}
+Cookies:
+JTLSHOP=151ed1f105e52cefb76d8d2c23af2c59
+gh7=6.3.
+_uetsid=11dea2e0cd9a11f1b26fddd9c353d120
+_uetvid=11dea360cd9a11f1a69be58ce5274118
+MUID=38D15237CC18691D0FF645CECD5E68AF
+_gcl_au=1.1.1931735991.1792619703
+test_cookie=CheckForPermission
+uid=3e75123f-a6fd-4dde-917b-763c4a812118
+cto_bundle=NXNQ2V9yamJ5Q0hNRW5xMGpFN3VkbUh2UGMwcTRHTWNBaHVWMFhqSGM1d3BwVXBudmNSN3dtVVglMkJudUlUU3gwZnJGU2JkOTg3Y1RCbFkzWjNXU0MySm5KWGMlMkYwOTE1d2RWMVhCSFRoJTJCRUNuVjlGRzN0Y3FUaGo5WmtLSUJ3T2h3MENJYm5QUGFpeTc3MmdGbmJ3MVQ1ZVZOQUElM0QlM0Q
+cto_bundle=gjAi919yQnU4SlpVbHlDU3lSdFpMZnVmRlMxViUyQlVjVWozakdGRnVxYmdWcEFiSTFVQ0EyWCUyRjklMkJPM2ZIR0lkTnJFS3VObmdTc3pXV09lSUVsbU1DVG5OQmFLJTJCQUE0YmFyMGpGVjZTZWM2RXpDNk1CY1M0TUxNbmtkYmlaWCUyQmpQZEhSR1BRRldEWW5LWHFHWkFuVXhyZ09mVzBmaWk2Q0FqbWolMkJVYjdhRTV0UW9YSW8lM0Q
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="staging/desktop/search-filters.spec.ts" timestamp="2026-10-21T21:53:08.080Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
+<testcase name="requires verified product data and selectors" classname="staging/desktop/search-filters.spec.ts">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="staging/desktop/visual-regression.spec.ts" timestamp="2026-10-21T21:53:08.080Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
+<testcase name="requires verified product data and selectors" classname="staging/desktop/visual-regression.spec.ts">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
 </testcase>
 </testsuite>
 </testsuites>

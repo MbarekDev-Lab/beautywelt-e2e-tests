@@ -44,11 +44,20 @@ test.describe('Cart @staging @stateful @requires-authorization', () => {
 
     // Go to cart
     await page.goto('/warenkorb.php');
+    // Wait for network to settle so the session/basket state is fully committed
+    // before we start asserting — staging can lag behind due to slow backends.
+    await page.waitForLoadState('networkidle', { timeout: 20_000 }).catch(() => null);
     await homePage.cookieBanner.dismissIfPresent();
     await cartPage.waitForMainContent();
 
     // Verify cart is populated
-    await expect(cartPage.cartItem).not.toHaveCount(0);
+    await expect(cartPage.cartItem).not.toHaveCount(0, {
+      timeout: 15_000,
+      message:
+        'Cart appears empty after adding a product. ' +
+        'Possible causes: add-to-cart XHR failed, session did not persist, ' +
+        'or the cart item selector no longer matches the staging DOM.',
+    });
 
     // Update quantity: wait for controls to appear, then update and confirm
     const quantity = cartPage.quantityInput.first();

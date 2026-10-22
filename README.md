@@ -95,3 +95,9 @@ If you need to add a test:
 1. Is it safe to execute manually a thousand times against production? If no, use `@staging`.
 2. Do not use `.first()` or bypass UI guards. Rely on strict, user-facing role matching (`getByRole`).
 3. If checking a cookie banner, prefer rejection over blanket acceptance.
+
+## Troubleshooting
+
+Cart test fails on Staging, Staging Cart keeps reverting to 1
+tests/staging/desktop/cart.spec.ts: 
+(npx playwright show-trace test-results/staging-desktop-cart-Cart--b9af7-updates-quantity-on-staging-staging-desktop/trace.zip)

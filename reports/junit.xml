@@ -1,285 +1,83 @@
-<testsuites id="" name="" tests="20" failures="0" skipped="10" errors="1" time="217.955398">
-<testsuite name="staging/desktop/account.spec.ts" timestamp="2026-10-28T18:38:15.210Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="requires verified product data and selectors" classname="staging/desktop/account.spec.ts">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="staging/desktop/api-health.spec.ts" timestamp="2026-10-28T18:38:15.210Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="requires verified product data and selectors" classname="staging/desktop/api-health.spec.ts">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="staging/desktop/cart.spec.ts" timestamp="2026-10-28T18:38:15.210Z" hostname="staging-desktop" tests="1" failures="0" skipped="0" time="27.839" errors="0">
-<testcase name="Cart @staging @stateful @requires-authorization › adds item and updates quantity on staging" classname="staging/desktop/cart.spec.ts" time="27.839">
-<system-out>
-<![CDATA[CookieBannerComponent: Trying custom fallback...
-CookieBannerComponent: Trying custom fallback...
-CookieBannerComponent: Found direct save icon, clicking...
-CookieBannerComponent: Trying custom fallback...
-CookieBannerComponent: Trying custom fallback...
-CookieBannerComponent: Trying custom fallback...
-]]>
-</system-out>
-</testcase>
-</testsuite>
-<testsuite name="staging/desktop/checkout-navigation.spec.ts" timestamp="2026-10-28T18:38:15.210Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="requires verified product data and selectors" classname="staging/desktop/checkout-navigation.spec.ts">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="staging/desktop/checkout.spec.ts" timestamp="2026-10-28T18:38:15.210Z" hostname="staging-desktop" tests="4" failures="0" skipped="4" time="0.02" errors="0">
-<testcase name="Checkout API @staging @destructive @requires-authorization › creates an order and decrements controlled test stock" classname="staging/desktop/checkout.spec.ts">
-<properties>
-<property name="skip" value="Destructive checkout tests are disabled. Set RUN_DESTRUCTIVE_TESTS=true only after receiving explicit authorization for order and stock mutation.">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-<testcase name="Checkout API @staging @destructive @requires-authorization › returns the current cart contents" classname="staging/desktop/checkout.spec.ts">
-<properties>
-<property name="skip" value="Destructive checkout tests are disabled. Set RUN_DESTRUCTIVE_TESTS=true only after receiving explicit authorization for order and stock mutation.">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-<testcase name="Checkout API @staging @destructive @requires-authorization › rejects checkout without required customer details" classname="staging/desktop/checkout.spec.ts">
-<properties>
-<property name="skip" value="Destructive checkout tests are disabled. Set RUN_DESTRUCTIVE_TESTS=true only after receiving explicit authorization for order and stock mutation.">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-<testcase name="Checkout API @staging @destructive @requires-authorization › calculates the total for multiple controlled test items" classname="staging/desktop/checkout.spec.ts">
-<properties>
-<property name="skip" value="Destructive checkout tests are disabled. Set RUN_DESTRUCTIVE_TESTS=true only after receiving explicit authorization for order and stock mutation.">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="staging/desktop/homepage.spec.ts" timestamp="2026-10-28T18:38:15.210Z" hostname="staging-desktop" tests="7" failures="0" skipped="0" time="92.355" errors="0">
-<testcase name="Desktop homepage @staging @requires-authorization › loads the desktop homepage with its primary landmarks" classname="staging/desktop/homepage.spec.ts" time="7.116">
-<system-out>
-<![CDATA[CookieBannerComponent: Trying custom fallback...
-]]>
-</system-out>
-</testcase>
-<testcase name="Desktop homepage @staging @requires-authorization › exposes every primary category destination in the desktop navigation" classname="staging/desktop/homepage.spec.ts" time="3.811">
-<system-out>
-<![CDATA[CookieBannerComponent: Trying custom fallback...
-]]>
-</system-out>
-</testcase>
-<testcase name="Desktop homepage @staging @requires-authorization › submits a homepage search and renders the search results page" classname="staging/desktop/homepage.spec.ts" time="72.58">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="1" time="6.693645999999999">
+<testsuite name="staging/auth-smoke.spec.ts" timestamp="2026-11-02T23:01:49.253Z" hostname="staging-auth" tests="1" failures="0" skipped="0" time="3.124" errors="1">
+<testcase name="Staging Authentication Smoke @staging › loads the authorized staging homepage" classname="staging/auth-smoke.spec.ts" time="3.124">
 <system-out>
 <![CDATA[
-[[ATTACHMENT|../test-results/staging-desktop-homepage-D-b81bf-ers-the-search-results-page-staging-desktop/error-context.md]]
+[[ATTACHMENT|../test-results/staging-auth-smoke-Staging-75c8d-authorized-staging-homepage-staging-auth/test-failed-1.png]]
 
-[[ATTACHMENT|../test-results/staging-desktop-homepage-D-b81bf-ers-the-search-results-page-staging-desktop/trace.zip]]
-CookieBannerComponent: Trying custom fallback...
+[[ATTACHMENT|../test-results/staging-auth-smoke-Staging-75c8d-authorized-staging-homepage-staging-auth/error-context.md]]
+
+[[ATTACHMENT|../test-results/staging-auth-smoke-Staging-75c8d-authorized-staging-homepage-staging-auth/trace.zip]]
+
+[[ATTACHMENT|../test-results/staging-auth-smoke-Staging-75c8d-authorized-staging-homepage-staging-auth-retry1/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/staging-auth-smoke-Staging-75c8d-authorized-staging-homepage-staging-auth-retry1/error-context.md]]
+
+[[ATTACHMENT|../test-results/staging-auth-smoke-Staging-75c8d-authorized-staging-homepage-staging-auth-retry1/trace.zip]]
 ]]>
 </system-out>
-</testcase>
-<testcase name="Desktop homepage @staging @requires-authorization › renders linked hero and promotional imagery with safe destinations" classname="staging/desktop/homepage.spec.ts" time="4.135">
-<system-out>
-<![CDATA[CookieBannerComponent: Trying custom fallback...
-]]>
-</system-out>
-</testcase>
-<testcase name="Desktop homepage @staging @requires-authorization › renders complete product carousel cards" classname="staging/desktop/homepage.spec.ts" time="1.944">
-<system-out>
-<![CDATA[CookieBannerComponent: Trying custom fallback...
-]]>
-</system-out>
-</testcase>
-<testcase name="Desktop homepage @staging @requires-authorization › renders brand promotions and the newsletter signup section" classname="staging/desktop/homepage.spec.ts" time="1.436">
-<system-out>
-<![CDATA[CookieBannerComponent: Trying custom fallback...
-]]>
-</system-out>
-</testcase>
-<testcase name="Desktop homepage @staging @requires-authorization › renders all legal and customer-service footer links" classname="staging/desktop/homepage.spec.ts" time="1.333">
-<system-out>
-<![CDATA[CookieBannerComponent: Trying custom fallback...
-]]>
-</system-out>
-</testcase>
-</testsuite>
-<testsuite name="staging/desktop/navigation.spec.ts" timestamp="2026-10-28T18:38:15.210Z" hostname="staging-desktop" tests="1" failures="0" skipped="0" time="88.295" errors="1">
-<testcase name="Desktop Navigation Flow @staging @stateful @requires-authorization › navigates from catalog to checkout entry on approved staging" classname="staging/desktop/navigation.spec.ts" time="88.295">
-<system-out>
-<![CDATA[CookieBannerComponent: Trying custom fallback...
-CookieBannerComponent: Trying custom fallback...
-CookieBannerComponent: Removing overlay via DOM evaluation (last resort).
-CookieBannerComponent: Trying custom fallback...
-CookieBannerComponent: Trying custom fallback...
-CookieBannerComponent: Removing overlay via DOM evaluation (last resort).
-CookieBannerComponent: Trying custom fallback...
-CookieBannerComponent: Trying custom fallback...
-CookieBannerComponent: Trying custom fallback...
-CookieBannerComponent: Trying custom fallback...
+<error message="page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.haarpflege-beauty.de/" type="Error">
+<![CDATA[  [staging-auth] › staging/auth-smoke.spec.ts:9:7 › Staging Authentication Smoke @staging › loads the authorized staging homepage 
 
-[[ATTACHMENT|../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/test-failed-1.png]]
+    Error: page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.haarpflege-beauty.de/
+    Call log:
+      - navigating to "https://www.haarpflege-beauty.de/", waiting until "domcontentloaded"
 
-[[ATTACHMENT|../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/error-context.md]]
 
-[[ATTACHMENT|../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/trace.zip]]
-CookieBannerComponent: Trying custom fallback...
-CookieBannerComponent: Removing overlay via DOM evaluation (last resort).
-CookieBannerComponent: Trying custom fallback...
-CookieBannerComponent: Removing overlay via DOM evaluation (last resort).
-CookieBannerComponent: Trying custom fallback...
-CookieBannerComponent: Trying custom fallback...
-CookieBannerComponent: Removing overlay via DOM evaluation (last resort).
-CookieBannerComponent: Trying custom fallback...
-CookieBannerComponent: Trying custom fallback...
-CookieBannerComponent: Trying custom fallback...
-CookieBannerComponent: Trying custom fallback...
-
-[[ATTACHMENT|../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop-retry1/test-failed-1.png]]
-
-[[ATTACHMENT|../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop-retry1/error-context.md]]
-
-[[ATTACHMENT|../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop-retry1/trace.zip]]
-]]>
-</system-out>
-<error message="addToCart: Neither a successful basket API response, the &quot;Zum Warenkorb&quot; indicator, nor a cart badge count were detected after clicking &quot;In den Warenkorb&quot;. The item may not have been added. Check for session/auth issues, CSRF token expiry, blocking overlays, or product availability on staging." type="Error">
-<![CDATA[  [staging-desktop] › staging/desktop/navigation.spec.ts:418:7 › Desktop Navigation Flow @staging @stateful @requires-authorization › navigates from catalog to checkout entry on approved staging › Add the product to the cart 
-
-    Error: addToCart: Neither a successful basket API response, the "Zum Warenkorb" indicator, nor a cart badge count were detected after clicking "In den Warenkorb". The item may not have been added. Check for session/auth issues, CSRF token expiry, blocking overlays, or product availability on staging.
-
-       at ../pages/product-detail.page.ts:160
-
-      158 |
-      159 |       if (!indicatorVisible && !badgeVisible) {
-    > 160 |         throw new Error(
-          |               ^
-      161 |           'addToCart: Neither a successful basket API response, the ' +
-      162 |             '"Zum Warenkorb" indicator, nor a cart badge count were detected ' +
-      163 |             'after clicking "In den Warenkorb". The item may not have been added. ' +
-        at ProductDetailPage.addToCart (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/pages/product-detail.page.ts:160:15)
-        at addCurrentProductToCart (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:305:3)
-        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:456:7
-        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:453:5
+      10 |     page,
+      11 |   }): Promise<void> => {
+    > 12 |     const response = await page.goto('/', {
+         |                                 ^
+      13 |       waitUntil: 'domcontentloaded',
+      14 |     });
+      15 |
+        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/auth-smoke.spec.ts:12:33
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/test-failed-1.png
+    ../test-results/staging-auth-smoke-Staging-75c8d-authorized-staging-homepage-staging-auth/test-failed-1.png
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
-    Error Context: ../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/error-context.md
+    Error Context: ../test-results/staging-auth-smoke-Staging-75c8d-authorized-staging-homepage-staging-auth/error-context.md
 
     attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
-    ../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/trace.zip
+    ../test-results/staging-auth-smoke-Staging-75c8d-authorized-staging-homepage-staging-auth/trace.zip
     Usage:
 
-        npx playwright show-trace ../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop/trace.zip
+        npx playwright show-trace ../test-results/staging-auth-smoke-Staging-75c8d-authorized-staging-homepage-staging-auth/trace.zip
 
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
     Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
 
-    Error: addToCart: Neither a successful basket API response, the "Zum Warenkorb" indicator, nor a cart badge count were detected after clicking "In den Warenkorb". The item may not have been added. Check for session/auth issues, CSRF token expiry, blocking overlays, or product availability on staging.
+    Error: page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.haarpflege-beauty.de/
+    Call log:
+      - navigating to "https://www.haarpflege-beauty.de/", waiting until "domcontentloaded"
 
-       at ../pages/product-detail.page.ts:160
 
-      158 |
-      159 |       if (!indicatorVisible && !badgeVisible) {
-    > 160 |         throw new Error(
-          |               ^
-      161 |           'addToCart: Neither a successful basket API response, the ' +
-      162 |             '"Zum Warenkorb" indicator, nor a cart badge count were detected ' +
-      163 |             'after clicking "In den Warenkorb". The item may not have been added. ' +
-        at ProductDetailPage.addToCart (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/pages/product-detail.page.ts:160:15)
-        at addCurrentProductToCart (/Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:305:3)
-        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:456:7
-        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/desktop/navigation.spec.ts:453:5
+      10 |     page,
+      11 |   }): Promise<void> => {
+    > 12 |     const response = await page.goto('/', {
+         |                                 ^
+      13 |       waitUntil: 'domcontentloaded',
+      14 |     });
+      15 |
+        at /Users/benraiss/bw-playwright-test-project/beautywelt-e2e-tests/tests/staging/auth-smoke.spec.ts:12:33
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop-retry1/test-failed-1.png
+    ../test-results/staging-auth-smoke-Staging-75c8d-authorized-staging-homepage-staging-auth-retry1/test-failed-1.png
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
-    Error Context: ../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop-retry1/error-context.md
+    Error Context: ../test-results/staging-auth-smoke-Staging-75c8d-authorized-staging-homepage-staging-auth-retry1/error-context.md
 
     attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
-    ../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop-retry1/trace.zip
+    ../test-results/staging-auth-smoke-Staging-75c8d-authorized-staging-homepage-staging-auth-retry1/trace.zip
     Usage:
 
-        npx playwright show-trace ../test-results/staging-desktop-navigation-37f2b-t-entry-on-approved-staging-staging-desktop-retry1/trace.zip
+        npx playwright show-trace ../test-results/staging-auth-smoke-Staging-75c8d-authorized-staging-homepage-staging-auth-retry1/trace.zip
 
     ────────────────────────────────────────────────────────────────────────────────────────────────
 ]]>
 </error>
-</testcase>
-</testsuite>
-<testsuite name="staging/desktop/product-detail.spec.ts" timestamp="2026-10-28T18:38:15.210Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="requires verified product data and selectors" classname="staging/desktop/product-detail.spec.ts">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="staging/desktop/scratch.spec.ts" timestamp="2026-10-28T18:38:15.210Z" hostname="staging-desktop" tests="1" failures="0" skipped="0" time="5.106" errors="0">
-<testcase name="dump storage" classname="staging/desktop/scratch.spec.ts" time="5.106">
-<system-out>
-<![CDATA[CookieBannerComponent: Trying custom fallback...
-CookieBannerComponent: Found direct save icon, clicking...
-localStorage: {"_uetvid":"3dec1e20d2ff11f19089dddd74c3a12e","_gcl_ls":"{\"schema\":\"gcl\",\"version\":1,\"gcl_ctr\":{\"value\":{\"value\":0,\"timeouts\":0,\"errors\":0,\"eopCount\":0,\"creationTimeMs\":1793212912201},\"expires\":1800988912201},\"gsid_dc\":{\"value\":{\"joinId\":\"lJVEtaLUdKA_ZCdRXN-xPXwz9I28yJVHEQ\",\"lastJoinedTimeMs\":1793212912204},\"expires\":1793213212204}}","_uetvid_exp":"Mon, 22 Nov 2027 18:41:52 GMT","_uetsid":"3dec35c0d2ff11f1999ad39be9aa29cc","cto_bundle":"Kqzxgl82WnJzanZwRDVCV21IR0RIMzlZJTJCTFVQdm13QnYlMkZCdzVrc21USGF5WSUyRlROQktOVlBoejlGeWh2aGZYV1hZTHYzVXhKaUthc3RNMjhmbW1DTzA5OUdQOFVlTnd5Rk52RmxDMjMzaVZCbSUyRllzNWowSUdFamhlTEFvTU00eEZhTHpwRnlzelZIMHNQNUdhdnZBT2ROS3lUdE9NeWJYcnVEMGpVTWdxcWlCVFRhMCUzRA","_uetsid_exp":"Thu, 29 Oct 2026 18:41:52 GMT"}
-sessionStorage: {}
-Cookies:
-JTLSHOP=89d09965818d8855fae5ced91d704936
-gh7=6.3.
-_gcl_au=1.1.1981749393.1793212912
-_uetsid=3dec35c0d2ff11f1999ad39be9aa29cc
-_uetvid=3dec1e20d2ff11f19089dddd74c3a12e
-MUID=21AFEE120764609A358AF61206A361D5
-test_cookie=CheckForPermission
-uid=d60aa7ba-88f5-4bce-a401-3f6c83b98548
-cto_bundle=pr8BxF9UUFp5TFdscWJSSzRyblZQakpIN0xhSVYwd29SMDUzODMlMkJaWkVJWUJYRFJCMjJ1eGtoQ2UxbnB0MlZ2c1BjWnM3NVhEWUZ1U2NSNTFZWlZpWDFxVlpwTW1EZlFDd2tGcm1BclJkMVVuQ0txUm1HVjN6cHZORSUyQmkzTGJRU0ZCa29pdVNHMHpmbTdCN2hYQml5aXVXUEFRJTNEJTNE
-cto_bundle=Kqzxgl82WnJzanZwRDVCV21IR0RIMzlZJTJCTFVQdm13QnYlMkZCdzVrc21USGF5WSUyRlROQktOVlBoejlGeWh2aGZYV1hZTHYzVXhKaUthc3RNMjhmbW1DTzA5OUdQOFVlTnd5Rk52RmxDMjMzaVZCbSUyRllzNWowSUdFamhlTEFvTU00eEZhTHpwRnlzelZIMHNQNUdhdnZBT2ROS3lUdE9NeWJYcnVEMGpVTWdxcWlCVFRhMCUzRA
-]]>
-</system-out>
-</testcase>
-</testsuite>
-<testsuite name="staging/desktop/search-filters.spec.ts" timestamp="2026-10-28T18:38:15.210Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="requires verified product data and selectors" classname="staging/desktop/search-filters.spec.ts">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="staging/desktop/visual-regression.spec.ts" timestamp="2026-10-28T18:38:15.210Z" hostname="staging-desktop" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="requires verified product data and selectors" classname="staging/desktop/visual-regression.spec.ts">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
 </testcase>
 </testsuite>
 </testsuites>

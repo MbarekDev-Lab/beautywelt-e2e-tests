@@ -1,6 +1,6 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="1" time="12.666926">
-<testsuite name="staging/auth-smoke.spec.ts" timestamp="2026-11-03T21:34:01.344Z" hostname="staging-auth" tests="1" failures="0" skipped="0" time="3.749" errors="1">
-<testcase name="Staging Authentication Smoke @staging › loads the authorized staging homepage" classname="staging/auth-smoke.spec.ts" time="3.749">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="1" time="5.111721999999999">
+<testsuite name="staging/auth-smoke.spec.ts" timestamp="2026-11-05T22:40:05.283Z" hostname="staging-auth" tests="1" failures="0" skipped="0" time="2.796" errors="1">
+<testcase name="Staging Authentication Smoke @staging › loads the authorized staging homepage" classname="staging/auth-smoke.spec.ts" time="2.796">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/staging-auth-smoke-Staging-75c8d-authorized-staging-homepage-staging-auth/test-failed-1.png]]
